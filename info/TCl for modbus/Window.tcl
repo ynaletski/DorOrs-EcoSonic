@@ -7,7 +7,7 @@ wm title . ModBus_COM2
 . config -bg grey80
 
 #создаем окно фрейм
-frame .window -width 700 -height 500 -bg grey80
+frame .window -width 950 -height 400 -bg grey80
 #Запрещаем изменять размер
 pack propagate .window false
 #Размещаем его 
@@ -22,7 +22,7 @@ set buttons(listenOff) [button .window.top.listenOff -text listenOff -width 8 -h
 grid $buttons(open_com_modbus) $buttons(close_com_modbus) $buttons(listenOn) $buttons(listenOff) -sticky w
 
 #создаем лейбл в окне
-label .window.center -width 98 -height 46 -bg grey60
+label .window.center -width 150 -height 46 -bg grey60
 #Запрещаем изменять размер
 pack propagate .window.center false
 #Размещаем его 
@@ -31,7 +31,7 @@ pack .window.center -side left
 #окно Modbus запроса
 foreach {field_modbus label_modbus} {Otvet_modbus Ответ Zapros_modbus Запрос} { 
 label .window.center.l$field_modbus -text $label_modbus -anchor w 
-entry .window.center.e$field_modbus -textvariable state($field_modbus) -width 45 -justify center -relief sunken
+entry .window.center.e$field_modbus -textvariable state($field_modbus) -width 70 -justify center -relief sunken
 grid .window.center.l$field_modbus .window.center.e$field_modbus -sticky news 
 }
 set state(Otvet_modbus) "--modbus--"
@@ -46,15 +46,24 @@ grid $buttons(send_modbus) -column 1 -row 2 -rowspan 2
 #создаем лейбл в окне снизу
 label .window.botom -bg grey70
 #Запрещаем изменять размер
-pack propagate .window.botom false
+#pack propagate .window.botom false
 #Размещаем его 
 pack .window.botom -side right
 
 #окно Modbus запроса
-foreach {field_modbus_ label_modbus_} {Otvet_modbus_ Ответ_туда Zapros_modbus_ Запрос_оттуда} { 
+foreach {field_modbus_ label_modbus_} {Otvet_modbus_ Adress_1514_Pressure_mbar 
+										Zapros_modbus_ Adress_1624_Pressure_mbar 
+											f_pr_bar Adress_1518_Pressure_bar 
+												d_pr_bar Adress_1636_Pressure_bar 
+													f_t_c Adress_1516_Temperature_C 
+														d_t_c Adress_1632_Temperature_C} { 
 label .window.botom.l$field_modbus_ -text $label_modbus_ -anchor w 
 entry .window.botom.e$field_modbus_ -textvariable state($field_modbus_) -width 45 -justify center -relief sunken
 grid .window.botom.l$field_modbus_ .window.botom.e$field_modbus_ -sticky news 
 }
-set state(Otvet_modbus_) "modbus_"
-set state(Zapros_modbus_) "modbus_"
+set state(Otvet_modbus_) "0a0305e90002" 
+set state(Zapros_modbus_) "0a03065b0004"
+set state(f_pr_bar) "0a0305ed0002"
+set state(d_pr_bar) "0a0306630004"
+set state(f_t_c) "0a0305eb0002"
+set state(d_t_c) "0a03065f0004"
