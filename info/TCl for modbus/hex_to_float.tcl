@@ -31,7 +31,7 @@
 
 puts "!!!!!!!!!!!!!!!!!!!!!\n\n"
 
-set otvet 0a0304b3334194a787
+set otvet 0a030441c55c29bc2c
 puts "response $otvet"
 append count_byte [string range $otvet [expr 4] [expr 5]]
 puts $count_byte
@@ -48,9 +48,9 @@ append necessary_answer_for_site $one $two
 puts "$necessary_answer_for_site changes siquence for https://gregstoll.com/~gregstoll/floattohex/"
 
 #changes siquence on 33b39441 (for tcl)
-set count [string length $necessary_answer_for_site]
+set count [string length $otvet_obrez]
 for {set x $count} {$x>0} {incr x -2} {
-append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
+append necessary_answer_for_tcl [string range $otvet_obrez [expr $x-2] [expr $x-1]]
 }
 puts "$necessary_answer_for_tcl changes siquence for tcl"
 
@@ -88,7 +88,8 @@ puts "$necessary_answer_for_tcl changes siquence for tcl"
 #hex to double
 set bin [binary decode hex  $necessary_answer_for_tcl]
 binary scan $bin d double_answer
-puts "Double $double_answer"
+puts "Double $double_answer" 
+puts [ format %.4f $double_answer ]
 
 puts "\n\n!!!!!!!!!!!!!!!!!!!!!\n\n"
 

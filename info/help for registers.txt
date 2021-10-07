@@ -1,11 +1,11 @@
-0a0305ed0002	float press bar
+0a0305ec0002	float press bar
 
-0a0305e90002	float press mbar
+0a0305ea0002	float press mbar
 
-0a0305eb0002	float temp
+0a0305ec0002	float temp
 
-0a0306630004	double press bar
+0a0306640004	double press bar
 
-0a03065b0004	double press mbar
+0a03065c0004	double press mbar
 
-0a03065f0004	double temp
+0a0306600004	double temp

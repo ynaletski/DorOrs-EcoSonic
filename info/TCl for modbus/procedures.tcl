@@ -37,7 +37,7 @@ proc send_modbus {} {
 	
 	if {$reply != "timeout"} {
 		append count_byte [string range $reply [expr 4] [expr 5]]
-		if {$count_byte == "04"} { set state(Otvet_modbus_) [necessary_float $reply] } elseif {$count_byte == "08"} { set state(Otvet_modbus_) [necessary_double $reply] }
+		if {$count_byte == "04"} { set state(Otvet_modbus_) [necessary_float $reply 6 13] } elseif {$count_byte == "08"} { set state(Otvet_modbus_) [necessary_double $reply 6 21] }
 	}
 	#set state(Otvet_modbus_) [necessary_float $reply] 
 	#set state(Otvet_modbus_) [necessary_double $reply]
@@ -74,120 +74,22 @@ proc hex_to_float {var_hex} {
 	return var_float
 }
 
-proc necessary_float {my_var} {
-	append otvet_obrez [string range $my_var [expr 6] [expr 13]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append necessary_answer_for_site $one $two
-	set count [string length $necessary_answer_for_site]
+proc necessary_float {my_var from to} {
+	append otvet_obrez [string range $my_var [expr $from] [expr $to]]
+	set count [string length $otvet_obrez]
 	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
+	append necessary_answer_for_tcl [string range $otvet_obrez [expr $x-2] [expr $x-1]]
 	}
 	set bin [binary decode hex  $necessary_answer_for_tcl]
 	binary scan $bin f float_answer
 	return $float_answer
 }
 
-proc necessary_float_1 {my_var} {
-	append otvet_obrez [string range $my_var [expr 6] [expr 13]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append necessary_answer_for_site $one $two
-	set count [string length $necessary_answer_for_site]
+proc necessary_double {my_var from to} {
+	append otvet_obrez [string range $my_var [expr $from] [expr $to]]
+	set count [string length $otvet_obrez]
 	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin f float_answer
-	return $float_answer	
-}
-
-proc necessary_float_2 {my_var} {
-	append otvet_obrez [string range $my_var [expr 14] [expr 21]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append necessary_answer_for_site $one $two
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin f float_answer
-	return $float_answer
-}
-
-proc necessary_float_3 {my_var} {
-	append otvet_obrez [string range $my_var [expr 22] [expr 29]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append necessary_answer_for_site $one $two
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin f float_answer
-	return $float_answer
-}
-
-proc necessary_double {my_var} {
-	append otvet_obrez [string range $my_var [expr 6] [expr 21]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append three [string range $otvet_obrez [expr 12] [expr 15]]
-	append four [string range $otvet_obrez [expr 8] [expr 11]]
-	append necessary_answer_for_site $one $two $three $four
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin d double_answer
-	return $double_answer
-}
-
-proc necessary_double_1 {my_var} {
-	append otvet_obrez [string range $my_var [expr 6] [expr 21]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append three [string range $otvet_obrez [expr 12] [expr 15]]
-	append four [string range $otvet_obrez [expr 8] [expr 11]]
-	append necessary_answer_for_site $one $two $three $four
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin d double_answer
-	return $double_answer
-}
-
-proc necessary_double_2 {my_var} {
-	append otvet_obrez [string range $my_var [expr 22] [expr 37]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append three [string range $otvet_obrez [expr 12] [expr 15]]
-	append four [string range $otvet_obrez [expr 8] [expr 11]]
-	append necessary_answer_for_site $one $two $three $four
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
-	}
-	set bin [binary decode hex  $necessary_answer_for_tcl]
-	binary scan $bin d double_answer
-	return $double_answer
-}
-
-proc necessary_double_3 {my_var} {
-	append otvet_obrez [string range $my_var [expr 38] [expr 53]]
-	append one [string range $otvet_obrez [expr 4] [expr 7]]
-	append two [string range $otvet_obrez [expr 0] [expr 3]]
-	append three [string range $otvet_obrez [expr 12] [expr 15]]
-	append four [string range $otvet_obrez [expr 8] [expr 11]]
-	append necessary_answer_for_site $one $two $three $four
-	set count [string length $necessary_answer_for_site]
-	for {set x $count} {$x>0} {incr x -2} {
-	append necessary_answer_for_tcl [string range $necessary_answer_for_site [expr $x-2] [expr $x-1]]
+	append necessary_answer_for_tcl [string range $otvet_obrez [expr $x-2] [expr $x-1]]
 	}
 	set bin [binary decode hex  $necessary_answer_for_tcl]
 	binary scan $bin d double_answer
@@ -228,7 +130,7 @@ proc wait_request {} {
 		"1" { 
 				global com
 				global state
-				append message [binary format H* "0a0305e90006"]
+				append message [binary format H* "0a0305ea0006"]
 				set checksum [::crc::crc16 -seed 0xFFFF $message]
 				set checksum [binary format s $checksum] 
 				append message $checksum
@@ -248,15 +150,15 @@ proc wait_request {} {
 				if {$timeoutms < $timeoutctr && $reply == ""} {set reply "timeout"} 
 				set state(Otvet_modbus) $reply
 				if {$reply != "timeout"} {
-					set state(Otvet_modbus_) [necessary_float_1 $reply] 
-					set state(f_t_c) [necessary_float_2 $reply] 
-					set state(f_pr_bar) [necessary_float_3 $reply] 
+					set state(Otvet_modbus_) [format %.4f [necessary_float $reply 6 13]] 
+					set state(f_t_c) [format %.2f [necessary_float $reply 14 21]] 
+					set state(f_pr_bar) [format %.4f [necessary_float $reply 22 29]] 
 				} else { set state(Otvet_modbus_) $reply 
 					set state(f_t_c) $reply 
 					set state(f_pr_bar) $reply 
 				}
 				##################################################################
-				append message_2 [binary format H* "0a03065b000c"]
+				append message_2 [binary format H* "0a03065c000c"]
 				set checksum [::crc::crc16 -seed 0xFFFF $message_2]
 				set checksum [binary format s $checksum] 
 				append message_2 $checksum
@@ -276,9 +178,9 @@ proc wait_request {} {
 				if {$timeoutms_2 < $timeoutctr_2 && $reply_2 == ""} {set reply_2 "timeout"} 
 				set state(Zapros_modbus) $reply_2
 				if {$reply_2 != "timeout"} {
-					set state(Zapros_modbus_) [necessary_double_1 $reply_2] 
-					set state(d_t_c) [necessary_double_2 $reply_2] 
-					set state(d_pr_bar) [necessary_double_3 $reply_2] 
+					set state(Zapros_modbus_) [format %.4f [necessary_double  $reply_2 6 21]] 
+					set state(d_t_c) [format %.2f [necessary_double $reply_2 22 37]]
+					set state(d_pr_bar) [format %.4f [necessary_double $reply_2 38 53]]
 				} else { set state(Zapros_modbus_) $reply_2 
 					set state(d_t_c) $reply_2 
 					set state(d_pr_bar) $reply_2 

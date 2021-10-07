@@ -61,9 +61,9 @@ label .window.botom.l$field_modbus_ -text $label_modbus_ -anchor w
 entry .window.botom.e$field_modbus_ -textvariable state($field_modbus_) -width 45 -justify center -relief sunken
 grid .window.botom.l$field_modbus_ .window.botom.e$field_modbus_ -sticky news 
 }
-set state(Otvet_modbus_) "0a0305e90002" 
-set state(Zapros_modbus_) "0a03065b0004"
-set state(f_pr_bar) "0a0305ed0002"
-set state(d_pr_bar) "0a0306630004"
-set state(f_t_c) "0a0305eb0002"
-set state(d_t_c) "0a03065f0004"
+set state(Otvet_modbus_) "0a0305ea0002" 
+set state(Zapros_modbus_) "0a03065c0004"
+set state(f_pr_bar) "0a0305ee0002"
+set state(d_pr_bar) "0a0306640004"
+set state(f_t_c) "0a0305ec0002"
+set state(d_t_c) "0a0306600004"

@@ -1375,18 +1375,18 @@ void SendToEcoSonic (unsigned char number)
     bufs[0]=Device.adr_mvs[number];
     switch (Sensor[number].evt)
     {
-      case 0: /*1507 (1508-Flow Rate m3/h) переменные*/
-        bufs[1]=3; bufs[2]=5; bufs[3]=227; bufs[4]=0; bufs[5]=2; 
+      case 0: /*05e4-1508-Flow Rate m3/h переменные*/
+        bufs[1]=3; bufs[2]=5; bufs[3]=228; bufs[4]=0; bufs[5]=2; 
         count=6; typ_pool=1;
       break;
 
-      case 1: /*1517 (1518-Pressure Bar) переменные*/
-        bufs[1]=3; bufs[2]=5; bufs[3]=237; bufs[4]=0; bufs[5]=2; 
+      case 1: /*05ee-1518-Pressure Bar переменные*/
+        bufs[1]=3; bufs[2]=5; bufs[3]=238; bufs[4]=0; bufs[5]=2; 
         count=6; typ_pool=2;
       break;
       
-      case 2: /*1515 (1516-Temperature C) переменные*/
-        bufs[1]=3; bufs[2]=5; bufs[3]=235; bufs[4]=0; bufs[5]=2; 
+      case 2: /*05ec-1516-Temperature C переменные*/
+        bufs[1]=3; bufs[2]=5; bufs[3]=236; bufs[4]=0; bufs[5]=2; 
         count=6; typ_pool=3;
       break;
     } 
@@ -1408,18 +1408,18 @@ void ReadFromEcoSonic (unsigned char number, unsigned char buf[])
   switch (typ_pool)
   {
     case 1:
-      ConvToFloatVerify (&Sensor[number].data[1], buf[num+1], buf[num], buf[num+3],buf[num+2]);
+      ConvToFloatVerify (&Sensor[number].data[1],  buf[num+3], buf[num+2], buf[num+1], buf[num]);
 	    Sensor[number].avg[0]=Sensor[number].data[1];
 	    Sensor[number].evt=1;
     break;
     case 2:
-      ConvToFloatVerify (&Sensor[number].data[2], buf[num+1], buf[num], buf[num+3],buf[num+2]);
+      ConvToFloatVerify (&Sensor[number].data[2], buf[num+3], buf[num+2], buf[num+1], buf[num]);
       Sensor[number].data[2] *= 100; // датчик отдает в Бар, а надо КПа -> 1Бар=100КПа
 	    Sensor[number].avg[1]=Sensor[number].data[2];
 	    Sensor[number].evt=2;
     break;
     case 3:
-      ConvToFloatVerify (&Sensor[number].data[3], buf[num+1], buf[num], buf[num+3],buf[num+2]);
+      ConvToFloatVerify (&Sensor[number].data[3], buf[num+3], buf[num+2], buf[num+1], buf[num]);
 	    Sensor[number].avg[2]=Sensor[number].data[3];
 	    Sensor[number].evt=0;
     break;
