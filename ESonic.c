@@ -20,6 +20,16 @@
 #include "esy.c"
 #include "mmi_new.c"
 
+//13.10.2021 YN
+double operating_flow=0.0;
+float k_one = 1.0;
+float k_two = 1.0;
+float k_three = 1.0;
+float k_four = 1.0;
+float k_five = 1.0;
+float k_six = 1.0;
+float k_seven = 1.0;
+
 #define Max_pnt            4
 struct comport             Port[4];
 struct mvs                 Sensor[Max_mvs];
@@ -277,6 +287,10 @@ void main (void)
     }
     if (flg_sec == 1) /* усреднение значений для MVS и аналог. датчиков*/
     { /*периодическое раз в секунду сохранение значений даты и времени*/
+
+      //13.10.2021 YN add: operating_flow=
+	    operating_flow=Basic[0].dyn[0];
+
       GetDate(&year,&month,&day);
       GetTime(&hour,&min,&sec);
       if (min != Prt.old_min) 
@@ -880,6 +894,25 @@ unsigned char SetExpandDescript (void)
   for (i=0;i<flag;i++) if (exp_dyn[i][2]>0 && exp_dyn[i][2]<4)
                               count=count+exp_size_prm[exp_dyn[i][2]];
   Max_exp_mmi=count;
+
+  //13.10.2021 YN
+  for(i=0; i<7; i++)  //коэффициенты для расходов k_one=11; k_seven=17 константы доп точек
+  {
+    if(exp_const[i+10] > 0 && exp_const[i+10]<2)
+    {
+      switch (i)
+      {
+        case 0: k_one = exp_const[i+10]; break;
+        case 1: k_two = exp_const[i+10]; break;
+        case 2: k_three = exp_const[i+10]; break;
+        case 3: k_four = exp_const[i+10]; break;
+        case 4: k_five = exp_const[i+10]; break;
+        case 5: k_six = exp_const[i+10]; break;
+        case 6: k_seven = exp_const[i+10]; break;
+      }
+    }
+  }
+
   return flag;
 }
 
@@ -1409,7 +1442,7 @@ void ReadFromEcoSonic (unsigned char number, unsigned char buf[])
   {
     case 1:
       ConvToFloatVerify (&Sensor[number].data[1],  buf[num+3], buf[num+2], buf[num+1], buf[num]);
-	    Sensor[number].avg[0]=Sensor[number].data[1];
+      Sensor[number].avg[0]=Sensor[number].data[1];
 	    Sensor[number].evt=1;
     break;
     case 2:

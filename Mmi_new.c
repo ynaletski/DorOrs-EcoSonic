@@ -12,6 +12,21 @@ unsigned char OK=9;
 unsigned char count_menu=0;
 //------------- -----//\\-----
 
+//13.10.2021 YN -----\\//-----
+extern float k_one;
+extern float k_two;
+extern float k_three;
+extern float k_four;
+extern float k_five;
+extern float k_six;
+extern float k_seven;
+float k_flow = 1.0;
+extern int flag_mode_verif;
+int display_ver_mode = 0;
+extern double operating_flow;
+int dot_flow = 1;
+//------------- -----//\\-----
+
 #define Max_pnt           4   /*число точек учёта*/
 #define Key_0        0x30
 #define Key_1        0x31
@@ -121,7 +136,12 @@ unsigned char *str_page[]=
 	"    ООО Факом технолоджиз     ", //24+25
 	"                     ESC Меню ", //25
 	"   Вычислитель расхода ВРФ    ", //26+27+25
-	"    Учет природного газа      "  //27
+	"    Учет природного газа      ", //27
+	"        Режим поверки         ", //28 //13.10.2021 YN
+	"------------------------------", //29
+	"        Точка номер           ", //30
+	" Коэффициент    :             ", //31
+	" Раб.расход м3/ч:             "  //32
 };
 
 //------------- -----//\\-----
@@ -129,7 +149,8 @@ unsigned char *str_menu[]={
  "Общие настройки вычислителя",
  "Переменные процесса","Настройки процесса","Архив параметров суточный",
  "Архив параметров часовой","Настройки токовых модулей","Модули токового входа",
- "Многоканальные датчики","Счетчики импульсов","Инициализация модема","Коррекция дата-время"};
+ "Многоканальные датчики","Счетчики импульсов","Инициализация модема",
+ "Коррекция дата-время","Режим поверки"}; //13.10.2021 YN added "Режим поверки"
 
 unsigned char *str_menu1[]={
  "Первая точка учета",
@@ -741,30 +762,131 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
     case 0: case 1: case 2: case 3: case 4: case 5:
     case 6: case 7: case 8: case 9:/*заголовок*/
       if (KeyFound (buf_mmi,Key_0,Key_6,count)==1) /*"D"*/
-      GoToMenuMMI(10); else
-      { /* визуализация контрольной суммы */
-		ClearBuffer(); 
-		Display.suspend=0; 
-		k=0;
-        for (i=0;i<3;i++) /*выводит дату*/
-        { 
-          ByteToString(ReadNVRAM(2-i),k,0);if (i != 2) mmi_str[k+2]=Key_dot;
-		  k=k+3;
-		} 
-		k=9;
-		count_smb=18;
-		for (i=0;i<3;i++) /*выводит время*/
-		{ 
-          	ByteToString(ReadNVRAM(3+i),k,0);if (i != 2) mmi_str[k+2]=0x3a;k=k+3;
-		} 
-		Horizont=5;
-		Vertical=4;
-		Display.evt=2;
+	  {
+		//13.10.2021 YN  
+		flag_mode_verif=0;
+		dot_flow = 1;
+
+      	GoToMenuMMI(10);
+	  }
+	  else
+      { 
+		//13.10.2021 YN --\\//-- 
+		if(flag_mode_verif == 0)
+		{
+			time:
+			ClearBuffer(); 
+			Display.suspend=0; 
+			k=0;
+        	for (i=0;i<3;i++) /*выводит дату*/
+        	{ 
+          		ByteToString(ReadNVRAM(2-i),k,0);if (i != 2) mmi_str[k+2]=Key_dot;
+		  		k=k+3;
+			} 
+			k=9;
+			count_smb=18;
+			for (i=0;i<3;i++) /*выводит время*/
+			{ 
+          		ByteToString(ReadNVRAM(3+i),k,0);if (i != 2) mmi_str[k+2]=0x3a;k=k+3;
+			} 
+			Horizont=5;
+			Vertical=4;
+			Display.evt=2;
+		}  
+		else
+		{
+			if (KeyFound (buf_mmi,Key_0,Key_C,count)==1) /*"1"*/
+	  		{
+		  		dot_flow = 1;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_D,count)==1) /*"2"*/
+	  		{
+		   		dot_flow = 2;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_F,count)==1) /*"3"*/
+	  		{
+		   		dot_flow = 3;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_E,count)==1) /*"4"*/
+	  		{
+		   		dot_flow = 4;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_8,count)==1) /*"5"*/
+	  		{
+		   		dot_flow = 5;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_9,count)==1) /*"6"*/
+	  		{
+		   		dot_flow = 6;
+				display_ver_mode = 2;
+	  		}
+	  		else if (KeyFound (buf_mmi,Key_0,Key_B,count)==1) /*"7"*/
+	  		{
+		   		dot_flow = 7;
+				display_ver_mode = 2;
+	  		}
+
+			switch (dot_flow)
+			{
+				case 1:	k_flow = k_one; break;
+				case 2:	k_flow = k_two; break;
+				case 3:	k_flow = k_three; break;
+				case 4:	k_flow = k_four; break;
+				case 5:	k_flow = k_five; break;
+				case 6:	k_flow = k_six; break;
+				case 7:	k_flow = k_seven; break;			
+			}
+
+			if(display_ver_mode == 0)
+			{
+				display_ver_mode = 1;
+				goto time;
+			}
+			else if (display_ver_mode == 1) //значение расхода
+			{
+				display_ver_mode = 2;
+				ClearBuffer();
+				Display.suspend=0; 
+				FloatToString(operating_flow*k_flow,mmi_str,0);
+				count_smb=8;
+				Horizont=20;
+				Vertical=13;
+				Display.evt=2;
+			}
+			else if (display_ver_mode == 2)	//значение номер точки
+			{
+				display_ver_mode = 3;
+				ClearBuffer(); 
+				Display.suspend=0;
+				IntegerToString(dot_flow);
+				count_smb=1;
+				Horizont=20;
+				Vertical=9;
+				Display.evt=2;
+			}
+			else if (display_ver_mode == 3)	//значение коэффициента
+			{
+				display_ver_mode = 0;
+				ClearBuffer(); 
+				Display.suspend=0;
+				FloatToString(k_flow ,mmi_str,0);
+				count_smb=8;
+				Horizont=20;
+				Vertical=11;
+				Display.evt=2;
+			}
+		}
+		//               --//\\--
       } 
 	break;
     case 10:/*основное меню*/
        	if (Display.flag==1)
-       		WriteMenuToMMI(str_menu[Display.num+Display.row],11); 
+       		WriteMenuToMMI(str_menu[Display.num+Display.row],12); //13.10.2021 YN was 11 now 12
 	   	else
        		MoveCursorMMI(buf_mmi,Cursor.size,count);
        	MoveListMMI (buf_mmi,count,10);
@@ -799,6 +921,8 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 		 		SetDisplayPage(17);
 			break;
 	 		case 10:Display.point=60; Display.write=0;GoToMenuMMI(20);break;
+			//13.10.2021 YN add case 11:
+			case 11:Display.flag=0;flag_mode_verif=1;ReturnToMenuMMI();break;
        	}
 	break;
     case 11:/*меню выбора точки для просмотра*/
@@ -1408,6 +1532,16 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 		   		case 6: case 7: case 8: case 9: //"   Вычислитель расхода ВРФ    ", //26+27+25
 					if(page_str_pass==0) page_screen(0,0,26,1);
 					else if(page_str_pass==1) page_screen(0,1,27,2);
+					//13.10.2021 YN
+					else if(flag_mode_verif && page_str_pass>1)
+					{
+						if(page_str_pass==2) page_screen(0,6,29,3);
+						else if(page_str_pass==3) page_screen(0,7,28,4);
+						else if(page_str_pass==4) page_screen(0,9,30,5);
+						else if(page_str_pass==5) page_screen(0,11,31,6);
+						else if(page_str_pass==6) page_screen(0,13,32,7);
+						else if(page_str_pass==7) page_screen(0,15,25,OK);
+					}
 					else page_screen(0,15,25,OK);
 			    break;
 				///////////////////////////////////////////////////////////////

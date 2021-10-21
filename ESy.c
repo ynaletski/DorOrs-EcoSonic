@@ -3,6 +3,9 @@
 /*26-06-09 введён массив индексов имён алармов ind_prm_alm[8]    */
 #include<math.h>
 
+//13.10.2021 YN
+int flag_mode_verif = 0;
+extern float k_flow;
 
 #define Max_dyn_all        43   /**/
 #define Max_save          128   /**/
@@ -1020,6 +1023,7 @@ unsigned char CalcFlowMain (struct configparam Prm,struct dynparams *Bs)
   ugl=Bs->dyn[20]/100;
   tabs=Bs->dyn[8]+273.15;
   pmega=Bs->dyn[4]/1E3;
+
   work_flow=Bs->dyn[0]; // m3/h
 
   std= CalcSFactor(Bs->dyn[12],azt,ugl);
@@ -1040,7 +1044,17 @@ unsigned char CalcFlowMain (struct configparam Prm,struct dynparams *Bs)
   if (Bs->dyn[4] > 500)
     Bs->dyn[39]= CalcViscExt(Bs->dyn[39],Pp,Tp,pmega,tabs);
   Bs->dyn[42]= CalcDensWork(Bs->dyn[12],Bs->dyn[4],tabs,Bs->dyn[32]);
+
+  //13.10.2021 YN
+  if(flag_mode_verif)
+  {
+    Bs->dyn[24]= work_flow * k_flow;
+  }
+  else
+  {
   Bs->dyn[24]= CalcFlowRate(work_flow,Bs->dyn[4],tabs,Bs->dyn[32]);
+  }
+
   Bs->dyn[40]= CalcVelosity(Bs->dyn[12],Bs->dyn[24],Bs->dyn[42],pipe_m);
   Bs->dyn[38]= CalcReinAnnubar(Prm.sens_size,Bs->dyn[40],Bs->dyn[42],Bs->dyn[39]);
   M:return result;

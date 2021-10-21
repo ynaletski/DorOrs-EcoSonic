@@ -16,3 +16,8 @@ added calculation
 
 //20.09.2021
 //trim appearance
+
+------------
+
+//13.10.2021
+//added the verification mode
