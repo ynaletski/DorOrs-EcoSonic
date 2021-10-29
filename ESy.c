@@ -4,8 +4,17 @@
 #include<math.h>
 
 //13.10.2021 YN
+//#define verificationMode //Закоментировать если в режиме нет необходимости
+#if defined (verificationMode)
 int flag_mode_verif = 0;
 extern float k_flow;
+#endif
+
+//29.10.2021 YN
+#define VerModeAndMd5 //Закоментировать если в режиме нет необходимости
+#if defined (VerModeAndMd5)
+int flag_mode_verif = 0;
+#endif
 
 #define Max_dyn_all        43   /**/
 #define Max_save          128   /**/
@@ -1046,11 +1055,13 @@ unsigned char CalcFlowMain (struct configparam Prm,struct dynparams *Bs)
   Bs->dyn[42]= CalcDensWork(Bs->dyn[12],Bs->dyn[4],tabs,Bs->dyn[32]);
 
   //13.10.2021 YN
+  #if defined (verificationMode)
   if(flag_mode_verif)
   {
     Bs->dyn[24]= work_flow * k_flow;
   }
   else
+  #endif
   {
   Bs->dyn[24]= CalcFlowRate(work_flow,Bs->dyn[4],tabs,Bs->dyn[32]);
   }

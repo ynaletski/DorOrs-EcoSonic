@@ -21,6 +21,7 @@
 #include "mmi_new.c"
 
 //13.10.2021 YN
+#if defined (verificationMode)
 double operating_flow=0.0;
 float k_one = 1.0;
 float k_two = 1.0;
@@ -29,6 +30,18 @@ float k_four = 1.0;
 float k_five = 1.0;
 float k_six = 1.0;
 float k_seven = 1.0;
+#endif
+
+//29.10.2021 YN
+#if defined (VerModeAndMd5)
+extern float operating_flow;
+int writeValues=0;
+extern float temperature;
+extern float pressure;
+extern float k_compress;
+extern float stand_flow;
+int firstPass = 0;
+#endif
 
 #define Max_pnt            4
 struct comport             Port[4];
@@ -289,7 +302,34 @@ void main (void)
     { /*периодическое раз в секунду сохранение значений даты и времени*/
 
       //13.10.2021 YN add: operating_flow=
+      #if defined (verificationMode)
 	    operating_flow=Basic[0].dyn[0];
+      #endif
+
+      //29.10.2021 YN
+      #if defined (VerModeAndMd5)
+        if(writeValues)
+        {
+          Basic[0].dyn[0] = 1000;
+          if(firstPass)
+          {
+            Basic[0].dyn[4] = 300;
+            Basic[0].dyn[8] = 20;
+            firstPass = 0;
+          }
+          else
+          {
+            Basic[0].dyn[4] = pressure;
+            Basic[0].dyn[8] = temperature;
+          }
+          writeValues=0;
+        }
+        operating_flow = Basic[0].dyn[0];
+        pressure = Basic[0].dyn[4];
+        temperature = Basic[0].dyn[8];
+        k_compress=Basic[0].dyn[32];
+        stand_flow=Basic[0].dyn[24];
+      #endif
 
       GetDate(&year,&month,&day);
       GetTime(&hour,&min,&sec);
@@ -896,6 +936,7 @@ unsigned char SetExpandDescript (void)
   Max_exp_mmi=count;
 
   //13.10.2021 YN
+  #if defined (verificationMode)
   for(i=0; i<7; i++)  //коэффициенты для расходов k_one=11; k_seven=17 константы доп точек
   {
     if(exp_const[i+10] > 0 && exp_const[i+10]<2)
@@ -912,6 +953,7 @@ unsigned char SetExpandDescript (void)
       }
     }
   }
+  #endif
 
   return flag;
 }
