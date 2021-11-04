@@ -3,13 +3,6 @@
 /*26-06-09 введён массив индексов имён алармов ind_prm_alm[8]    */
 #include<math.h>
 
-//13.10.2021 YN
-//#define verificationMode //Закоментировать если в режиме нет необходимости
-#if defined (verificationMode)
-int flag_mode_verif = 0;
-extern float k_flow;
-#endif
-
 //29.10.2021 YN
 #define VerModeAndMd5 //Закоментировать если в режиме нет необходимости
 #if defined (VerModeAndMd5)
@@ -1054,17 +1047,7 @@ unsigned char CalcFlowMain (struct configparam Prm,struct dynparams *Bs)
     Bs->dyn[39]= CalcViscExt(Bs->dyn[39],Pp,Tp,pmega,tabs);
   Bs->dyn[42]= CalcDensWork(Bs->dyn[12],Bs->dyn[4],tabs,Bs->dyn[32]);
 
-  //13.10.2021 YN
-  #if defined (verificationMode)
-  if(flag_mode_verif)
-  {
-    Bs->dyn[24]= work_flow * k_flow;
-  }
-  else
-  #endif
-  {
   Bs->dyn[24]= CalcFlowRate(work_flow,Bs->dyn[4],tabs,Bs->dyn[32]);
-  }
 
   Bs->dyn[40]= CalcVelosity(Bs->dyn[12],Bs->dyn[24],Bs->dyn[42],pipe_m);
   Bs->dyn[38]= CalcReinAnnubar(Prm.sens_size,Bs->dyn[40],Bs->dyn[42],Bs->dyn[39]);

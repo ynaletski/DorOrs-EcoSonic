@@ -20,18 +20,6 @@
 #include "esy.c"
 #include "mmi_new.c"
 
-//13.10.2021 YN
-#if defined (verificationMode)
-double operating_flow=0.0;
-float k_one = 1.0;
-float k_two = 1.0;
-float k_three = 1.0;
-float k_four = 1.0;
-float k_five = 1.0;
-float k_six = 1.0;
-float k_seven = 1.0;
-#endif
-
 //29.10.2021 YN
 #if defined (VerModeAndMd5)
 extern float operating_flow;
@@ -41,6 +29,19 @@ extern float pressure;
 extern float k_compress;
 extern float stand_flow;
 int firstPass = 0;
+float nitrogen = 0;
+float carbon_dioxid = 0;
+float density = 0;
+unsigned char flagScript = 0;
+
+extern float densForMmi;
+extern float nitrForMmi;
+extern float carbForMmi;
+
+unsigned char flagS_diff = 0;
+unsigned char flagS_press = 0;
+unsigned char flagS_tempr = 0;
+
 #endif
 
 #define Max_pnt            4
@@ -206,9 +207,9 @@ void main (void)
     if (icp_pool == 0) /* выдача запроса в модуль через первый порт */
     {
       Prt.nmb_icp++;
-      if (Prt.nmb_icp > 4) Prt.nmb_icp=0;
-      if (Prt.nmb_icp <4) icp_pool=SendToICP(Prt.nmb_icp);
-      else if (Prt.nmb_icp==4 && Device.mmi==1)
+      if (Prt.nmb_icp > 10) Prt.nmb_icp=0;
+      if (Prt.nmb_icp < 4) icp_pool=SendToICP(Prt.nmb_icp);
+      else if (Prt.nmb_icp >= 4 && Device.mmi == 1)
       icp_pool=SendToMMI(Device.mmi);
     }
     if (Port[3].status==2) /*обработка коммуник.запроса и выдача ответа 4 порт*/
@@ -301,20 +302,44 @@ void main (void)
     if (flg_sec == 1) /* усреднение значений для MVS и аналог. датчиков*/
     { /*периодическое раз в секунду сохранение значений даты и времени*/
 
-      //13.10.2021 YN add: operating_flow=
-      #if defined (verificationMode)
-	    operating_flow=Basic[0].dyn[0];
-      #endif
-
       //29.10.2021 YN
       #if defined (VerModeAndMd5)
-        if(writeValues)
+        if(writeValues == 1)
         {
-          Basic[0].dyn[0] = 1000;
           if(firstPass)
           {
-            Basic[0].dyn[4] = 300;
-            Basic[0].dyn[8] = 20;
+            if(Device.script==1)
+            {
+              flagScript = 1;
+              Device.script = 0;
+            }
+            if (Config[0].s_diff != 0)
+            {
+              flagS_diff = Config[0].s_diff; 
+              Config[0].s_diff = 0;
+            } 
+            if(Config[0].s_press != 0)
+            {
+              flagS_press = Config[0].s_press;
+              Config[0].s_press = 0;
+            }
+            if(Config[0].s_tempr != 0)
+            {
+              flagS_tempr = Config[0].s_tempr;
+              Config[0].s_tempr = 0;
+            }
+
+            nitrogen = Basic[0].dyn[16];
+            carbon_dioxid = Basic[0].dyn[20];
+            density = Basic[0].dyn[12];
+
+            Basic[0].dyn[0] = 1000;          //рабочий расход
+            Basic[0].dyn[4] = 300;           //абс.давление
+            Basic[0].dyn[8] = 20;            //температура
+            Basic[0].dyn[12] = 0.6784;          //плотность
+            Basic[0].dyn[16] = 1;               //азот
+            Basic[0].dyn[20] = 0.07;            //угл.газ
+
             firstPass = 0;
           }
           else
@@ -324,11 +349,47 @@ void main (void)
           }
           writeValues=0;
         }
+        else if(writeValues == 2)
+        {
+          if(flagScript == 1)
+          {
+            Device.script = 1;
+            flagScript = 0;
+          }
+
+          if (flagS_diff != 0)
+          {
+            Config[0].s_diff = flagS_diff; 
+            flagS_diff = 0;
+          } 
+          if(flagS_press != 0)
+          {
+            Config[0].s_press = flagS_press;
+            flagS_press = 0;
+          }
+          if(flagS_tempr != 0)
+          {
+            Config[0].s_tempr = flagS_tempr;
+            flagS_tempr = 0;
+          }
+
+          Basic[0].dyn[16] = nitrogen;        //азот
+          Basic[0].dyn[20] = carbon_dioxid;   //углекислый газ
+          Basic[0].dyn[12] = density;         //плотность
+          Basic[0].dyn[0] = 0.;               //диффдавл
+          Basic[0].dyn[4] = 0.;               //абс.давление
+          Basic[0].dyn[8] = 0.;               //температура
+          writeValues = 0;
+        }
         operating_flow = Basic[0].dyn[0];
         pressure = Basic[0].dyn[4];
         temperature = Basic[0].dyn[8];
         k_compress=Basic[0].dyn[32];
         stand_flow=Basic[0].dyn[24];
+
+        densForMmi = Basic[0].dyn[12];
+        nitrForMmi = Basic[0].dyn[16];
+        carbForMmi = Basic[0].dyn[20];
       #endif
 
       GetDate(&year,&month,&day);
@@ -934,27 +995,6 @@ unsigned char SetExpandDescript (void)
   for (i=0;i<flag;i++) if (exp_dyn[i][2]>0 && exp_dyn[i][2]<4)
                               count=count+exp_size_prm[exp_dyn[i][2]];
   Max_exp_mmi=count;
-
-  //13.10.2021 YN
-  #if defined (verificationMode)
-  for(i=0; i<7; i++)  //коэффициенты для расходов k_one=11; k_seven=17 константы доп точек
-  {
-    if(exp_const[i+10] > 0 && exp_const[i+10]<2)
-    {
-      switch (i)
-      {
-        case 0: k_one = exp_const[i+10]; break;
-        case 1: k_two = exp_const[i+10]; break;
-        case 2: k_three = exp_const[i+10]; break;
-        case 3: k_four = exp_const[i+10]; break;
-        case 4: k_five = exp_const[i+10]; break;
-        case 5: k_six = exp_const[i+10]; break;
-        case 6: k_seven = exp_const[i+10]; break;
-      }
-    }
-  }
-  #endif
-
   return flag;
 }
 

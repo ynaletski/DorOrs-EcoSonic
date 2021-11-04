@@ -8,25 +8,11 @@ int step =0;
 unsigned char page_clear=2;
 unsigned char page_temporary;
 unsigned char page_str_pass=0;
-unsigned char OK=15;
-unsigned char count_menu=0;
-//------------- -----//\\-----
 
-//13.10.2021 YN -----\\//-----
-#if defined (verificationMode)
-extern float k_one;
-extern float k_two;
-extern float k_three;
-extern float k_four;
-extern float k_five;
-extern float k_six;
-extern float k_seven;
-float k_flow = 1.0;
-extern int flag_mode_verif;
-int display_ver_mode = 0;
-extern double operating_flow;
-int dot_flow = 1;
-#endif
+//29.10.2021 YN was: OK=9;
+unsigned char OK=15;
+
+unsigned char count_menu=0;
 //------------- -----//\\-----
 
 //29.10.2021 YN -----\\//-----
@@ -34,19 +20,16 @@ int dot_flow = 1;
 extern int flag_mode_verif;
 int dot_flow = 1;
 int display_ver_mode = 1;
-float temp_20 = 20.;
-float temp_0 = 0.;
-float temp_minus_20 = -20.;
-float press_300 = 300.;
-float press_600 = 600.;
-float press_1200 = 1200.;
 float operating_flow = 1000;
-float stand_flow = 1111.;
+float stand_flow = 0.;
 float k_compress = 1.;
 float temperature=0;
 float pressure=0;
 extern int writeValues;
 extern int firstPass;
+float densForMmi = 0.;
+float nitrForMmi = 0.;
+float carbForMmi = 0.;
 #endif
 //------------- -----//\\-----
 
@@ -161,27 +144,18 @@ unsigned char *str_page[]=
 	"                     ESC Меню ", //25
 	"   Вычислитель расхода ВРФ    ", //26+27+25
 	"    Учет природного газа      ", //27
-	//13.10.2021 YN
-	#if defined (verificationMode)
-	"        Режим поверки         ", //28
-	"------------------------------", //29
-	"        Точка номер           ", //30
-	" Коэффициент    :             ", //31
-	" Раб.расход м3/ч:             ", //32
-	#else
 	"",								  //28
 	"",								  //29
 	"",								  //30
 	"",								  //31
 	"",								  //32
-	#endif
 	//29.10.2021 YN
 	#if defined(VerModeAndMd5)
 	"      Md5 (Esonic.exe) =      ", //33
 	"       b4320a34448f14c8       ", //34
 	"       1d47ff69852cff28       ", //35
 	"------------------------------", //36
-	"        Режим поверки         ", //37
+	"СО2=0,07   N2=1      P=0,6784 ", //37
 	"           Точка N1           ", //38
 	" Раб.расход м3/ч :            ", //39
 	" Давление кПа    :            ", //40
@@ -211,9 +185,6 @@ unsigned char *str_menu[]={
  "Архив параметров часовой","Настройки токовых модулей","Модули токового входа",
  "Многоканальные датчики","Счетчики импульсов","Инициализация модема",
  "Коррекция дата-время"
- #if defined (verificationMode)
- ,"Режим поверки" //13.10.2021 YN added "Режим поверки"
- #endif
   #if defined (VerModeAndMd5)
  ,"Режим поверки" //29.10.2021 YN added "Режим поверки"
  #endif
@@ -540,6 +511,18 @@ void FloatToString (float val,unsigned char buf_str[],
   else break;
 }
 
+//29.10.2021
+/*********** Вывод на экран значения переменной *********************/
+void PrintValue (int dispVerMode, unsigned char h, unsigned char v,float f)
+{
+  if(dispVerMode) display_ver_mode++;
+  else display_ver_mode = 0;
+  ClearBuffer();
+  FloatToString(f ,mmi_str,0);
+  Horizont = h;
+  Vertical = v;
+}
+
 /*********** преобразование байта в два символа ***********/
 void ByteToString (unsigned char val,unsigned char index,unsigned char typ)
 { /*используется при выводе архивных даты и времени*/
@@ -830,30 +813,20 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
     case 6: case 7: case 8: case 9:/*заголовок*/
       if (KeyFound (buf_mmi,Key_0,Key_6,count)==1) /*"D"*/
 	  {
-		//13.10.2021 YN  
-		#if defined (verificationMode)
-		flag_mode_verif=0;
-		dot_flow = 1;
-		#endif
-
 		//29.10.2021 YN  
 		#if defined (VerModeAndMd5)
-		flag_mode_verif=0;
+		if(flag_mode_verif)
+		{
+			flag_mode_verif=0;
+			writeValues = 2;
+		}
 		dot_flow = 1;
-		//display_ver_mode=1;
 		#endif
 
       	GoToMenuMMI(10);
 	  }
 	  else
       { 
-		//13.10.2021 YN
-		#if defined(verificationMode)
-		if(flag_mode_verif == 0)
-		{
-			time:
-			#endif
-		
 		//29.10.2021 YN
 		#if defined(VerModeAndMd5)
 		if(flag_mode_verif == 0)
@@ -878,100 +851,6 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 			Horizont=5;
 			Vertical=4;
 			Display.evt=2;
-
-		//13.10.2021 YN
-		#if defined (verificationMode)	
-		}  
-		else
-		{
-			if (KeyFound (buf_mmi,Key_0,Key_C,count)==1) /*"1"*/
-	  		{
-		  		dot_flow = 1;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_D,count)==1) /*"2"*/
-	  		{
-		   		dot_flow = 2;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_F,count)==1) /*"3"*/
-	  		{
-		   		dot_flow = 3;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_E,count)==1) /*"4"*/
-	  		{
-		   		dot_flow = 4;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_8,count)==1) /*"5"*/
-	  		{
-		   		dot_flow = 5;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_9,count)==1) /*"6"*/
-	  		{
-		   		dot_flow = 6;
-				display_ver_mode = 2;
-	  		}
-	  		else if (KeyFound (buf_mmi,Key_0,Key_B,count)==1) /*"7"*/
-	  		{
-		   		dot_flow = 7;
-				display_ver_mode = 2;
-	  		}
-
-			switch (dot_flow)
-			{
-				case 1:	k_flow = k_one; break;
-				case 2:	k_flow = k_two; break;
-				case 3:	k_flow = k_three; break;
-				case 4:	k_flow = k_four; break;
-				case 5:	k_flow = k_five; break;
-				case 6:	k_flow = k_six; break;
-				case 7:	k_flow = k_seven; break;			
-			}
-
-			if(display_ver_mode == 0)
-			{
-				display_ver_mode = 1;
-				goto time;
-			}
-			else if (display_ver_mode == 1) //значение расхода
-			{
-				display_ver_mode = 2;
-				ClearBuffer();
-				Display.suspend=0; 
-				FloatToString(operating_flow*k_flow,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=13;
-				Display.evt=2;
-			}
-			else if (display_ver_mode == 2)	//значение номер точки
-			{
-				display_ver_mode = 3;
-				ClearBuffer(); 
-				Display.suspend=0;
-				IntegerToString(dot_flow);
-				count_smb=1;
-				Horizont=20;
-				Vertical=9;
-				Display.evt=2;
-			}
-			else if (display_ver_mode == 3)	//значение коэффициента
-			{
-				display_ver_mode = 0;
-				ClearBuffer(); 
-				Display.suspend=0;
-				FloatToString(k_flow ,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=11;
-				Display.evt=2;
-			}
-		}
-		#endif
-		//13.10.2021    --//\\--
 
 		//29.10.2021 YN
 		#if defined (VerModeAndMd5)	
@@ -1033,15 +912,15 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 			{
 				switch (dot_flow)
 				{
-					case 1:	temperature = temp_20; pressure = press_300; break;
-					case 2:	temperature = temp_0; pressure = press_300; break;
-					case 3:	temperature = temp_minus_20; pressure = press_300; break;
-					case 4:	temperature = temp_20; pressure = press_600; break;
-					case 5:	temperature = temp_0; pressure = press_600; break;
-					case 6:	temperature = temp_minus_20; pressure = press_600; break;
-					case 7:	temperature = temp_20; pressure = press_1200; break;
-					case 8:	temperature = temp_0; pressure = press_1200; break;
-					case 9:	temperature = temp_minus_20; pressure = press_1200; break;			
+					case 1:	temperature = 20.; pressure = 300.; break;
+					case 2:	temperature = 0.; pressure = 300.; break;
+					case 3:	temperature = -20.; pressure = 300.; break;
+					case 4:	temperature = 20.; pressure = 600.; break;
+					case 5:	temperature = 0.; pressure = 600.; break;
+					case 6:	temperature = -20.; pressure = 600.; break;
+					case 7:	temperature = 20.; pressure = 1200.; break;
+					case 8:	temperature = 0.; pressure = 1200.; break;
+					case 9:	temperature = -20.; pressure = 1200.; break;			
 				}
 			}
 
@@ -1060,62 +939,31 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 				Horizont=18;
 				Vertical=7;
 				Display.evt=2;
+				break;
 			}
 			else if (display_ver_mode == 2) //значение рабочего расхода
-			{
-				display_ver_mode = 3;
-				ClearBuffer();
-				Display.suspend=0; 
-				FloatToString(operating_flow,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=9;
-				Display.evt=2;
-			}
+				PrintValue(1,20,9,operating_flow);
 			else if (display_ver_mode == 3)	//значение давления
-			{
-				display_ver_mode = 4;
-				ClearBuffer(); 
-				Display.suspend=0;
-				FloatToString(pressure ,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=10;
-				Display.evt=2;
-			}
+				PrintValue(1,20,10,pressure);
 			else if (display_ver_mode == 4)	//значение температуры
-			{
-				display_ver_mode = 5;
-				ClearBuffer(); 
-				Display.suspend=0;
-				FloatToString(temperature ,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=11;
-				Display.evt=2;
-			}
+				PrintValue(1,20,11,temperature);
 			else if (display_ver_mode == 5)	//значение коэффициента сжимаемости
-			{
-				display_ver_mode = 6;
-				ClearBuffer(); 
-				Display.suspend=0;
-				FloatToString(k_compress ,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=13;
-				Display.evt=2;
-			}
+				PrintValue(1,20,13,k_compress);
 			else if (display_ver_mode == 6)	//значение стандартного расхода
-			{
-				display_ver_mode = 0;
-				ClearBuffer(); 
-				Display.suspend=0;
-				FloatToString(stand_flow ,mmi_str,0);
-				count_smb=8;
-				Horizont=20;
-				Vertical=14;
-				Display.evt=2;
-			}
+				PrintValue(1,20,14,stand_flow);
+			else if ((display_ver_mode == 7)) //значение концентрации угл. газа
+				PrintValue(1,4,6,carbForMmi);
+			else if ((display_ver_mode == 8)) //значение концентрации азота
+				PrintValue(1,14,6,nitrForMmi);
+			else if ((display_ver_mode == 9)) //значение плотности
+				PrintValue(0,23,6,densForMmi);
+
+			if(display_ver_mode > 0 && display_ver_mode < 8 )
+				count_smb = 8;
+			else count_smb = 6;
+
+			Display.suspend=0;
+			Display.evt=2;
 		}
 		#endif
 		//29.10.2021    --//\\--
@@ -1124,9 +972,7 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 	break;
     case 10:/*основное меню*/
        	if (Display.flag==1)
-		    #if defined(verificationMode)
-       			WriteMenuToMMI(str_menu[Display.num+Display.row],12); //13.10.2021 YN was 11 now 12
-			#elif defined(VerModeAndMd5)
+			#if defined(VerModeAndMd5)
 				WriteMenuToMMI(str_menu[Display.num+Display.row],12); //29.10.2021 YN was 11 now 12
 			#else
 				WriteMenuToMMI(str_menu[Display.num+Display.row],11);
@@ -1165,10 +1011,6 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 		 		SetDisplayPage(17);
 			break;
 	 		case 10:Display.point=60; Display.write=0;GoToMenuMMI(20);break;
-			//13.10.2021 YN add case 11:
-			#if defined (verificationMode)
-			case 11:Display.flag=0;flag_mode_verif=1;ReturnToMenuMMI();break;
-			#endif
 			//29.10.2021 YN add case 11:
 			#if defined (VerModeAndMd5)
 			case 11:Display.flag=0;flag_mode_verif=1;firstPass=writeValues=1;ReturnToMenuMMI();break;
@@ -1782,19 +1624,6 @@ void ReadFromMMI (unsigned char buf_mmi[],unsigned char count,
 		   		case 6: case 7: case 8: case 9: //"   Вычислитель расхода ВРФ    ", //26+27+25
 					if(page_str_pass==0) page_screen(0,0,26,1);
 					else if(page_str_pass==1) page_screen(0,1,27,2);
-
-					//13.10.2021 YN
-					#if defined (verificationMode)
-					else if(flag_mode_verif && page_str_pass>1)
-					{
-						if(page_str_pass==2) page_screen(0,6,29,3);
-						else if(page_str_pass==3) page_screen(0,7,28,4);
-						else if(page_str_pass==4) page_screen(0,9,30,5);
-						else if(page_str_pass==5) page_screen(0,11,31,6);
-						else if(page_str_pass==6) page_screen(0,13,32,7);
-						else if(page_str_pass==7) page_screen(0,15,25,OK);
-					}
-					#endif
 
 					//29.10.2021 YN
 					#if defined (VerModeAndMd5)
