@@ -29,3 +29,6 @@ uncomment if need to use it. File name is Esy.c
 //29.10.2021
 // added  the verification mode with md5
 //#define VerModeAndMd5
+
+//19.01.2021
+//changed the unit flow
