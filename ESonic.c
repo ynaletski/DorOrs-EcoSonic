@@ -20,6 +20,9 @@
 #include "esy.c"
 #include "mmi_new.c"
 
+//23.05.2022 YN
+#define VALUE_ERROR -1.0
+
 //29.10.2021 YN
 #if defined (VerModeAndMd5)
 extern float operating_flow;
@@ -73,12 +76,29 @@ const unsigned char mb_page[8][2]={{0,1},{1,1},{2,2},{4,2},{6,1},{7,1},
 const unsigned char ind_rst[4]={1,2,4,6};/*час,сутки,месяц,год*/
 const unsigned char  exp_size_prm[4]={1,1,7,1};
 unsigned char mvs_val[4],mvs_cmd[2];/* для калибровки */
-unsigned char typ_pool,ind_dsp,mmi_pool,icp_lnt,flg_month,flg_auto,flg_init_arc,
-  flg_arc_h,flg_arc_d,flg_min,flg_sec,flg_arc_clr, /* флаги вычисления, записи
+
+//27.05.2022 YN 
+unsigned char typ_pool = 0;
+unsigned char ind_dsp = 0;
+unsigned char flg_month = 0;
+unsigned char flg_auto = 0;
+unsigned char flg_init_arc = 0;
+unsigned char flg_arc_h = 0;
+unsigned char flg_arc_d = 0;
+unsigned char flg_min = 0;
+unsigned char flg_sec = 0;
+unsigned char flg_arc_clr = 0;
+ /* флаги вычисления, записи
 	в архив, расчёта за минуту, усреднения входов */
-  avg_old,dlt_tm,cnt_cbr,mmi_flg_ver,icp_pool,
-  //15.09.2021
-  cnt_ecosonic,cnt_ecosonic_old;
+unsigned char avg_old = 0;
+unsigned char dlt_tm = 0;
+unsigned char cnt_cbr = 0;
+unsigned char mmi_flg_ver = 0;
+unsigned char icp_pool = 0;
+
+//15.09.2021
+unsigned char cnt_ecosonic = 0;
+unsigned char cnt_ecosonic_old = 0;
 
 unsigned char cnt_init,icp_wr[3];/*признак периодической инициализации и счётчик*/
 unsigned char Err[Max_error],flg_err[Max_error],ind_err,size_max,musor;
@@ -204,6 +224,9 @@ void main (void)
       InitModem(); 
       flg_modem=0; 
     }
+
+
+
     if (icp_pool == 0) /* выдача запроса в модуль через первый порт */
     {
       Prt.nmb_icp++;
@@ -212,6 +235,9 @@ void main (void)
       else if (Prt.nmb_icp >= 4 && Device.mmi == 1)
       icp_pool=SendToMMI(Device.mmi);
     }
+
+
+
     if (Port[3].status==2) /*обработка коммуник.запроса и выдача ответа 4 порт*/
     { 
       Port[3].status=0;
@@ -242,7 +268,6 @@ void main (void)
        //SendToMVS(Prt.nmb);
        SendToEcoSonic(Prt.nmb);
     }
-
     //15.09.2021
     if (Port[1].status == 4) /* обработка ответа от EcoSonic */
     {
@@ -260,8 +285,16 @@ void main (void)
       typ_pool=Port[1].index=0;
     }
 
-
-
+    //23.05.2022 YN added:
+    if(Config[Prt.nmb].wildcard_values) // вкл
+    {
+      if (Err[Prt.nmb] > 2)
+      {
+        Sensor[Prt.nmb].avg[0] = VALUE_ERROR;  // расход
+        Sensor[Prt.nmb].avg[1] = VALUE_ERROR;  // давление
+        Sensor[Prt.nmb].avg[2] = VALUE_ERROR;  // температура
+      }
+    }
 
     if (Port[0].status == 4) /* обработка ответа от модулей или индикатора */
     {
@@ -289,6 +322,9 @@ void main (void)
       } 
       icp_pool=Port[0].index=0;
     }
+
+
+
     if (flg_arc_clr == 1) 
     { 
       ClearArchive();
@@ -431,10 +467,28 @@ void main (void)
           }
 	      }
       }
+
+      //23.05.2022 YN
+      if ((Device.typ_icp[Prt.nmb_icp] == 0 || Device.typ_icp[Prt.nmb_icp] == 1) 
+        && (Device.adr_icp[Prt.nmb_icp] > 0))
+      {
+        if (Err[Prt.nmb_icp + 4] > 2) // Если ошибка по таймауту > 2
+        {
+          for (i = 0; i < 8; i++)
+          {
+            Ain[Device.typ_icp[Prt.nmb_icp]].prm[i] = VALUE_ERROR;
+          }
+        }
+      }
+
       for (j=0;j< Max_icp_ain;j++)
         for (i=0;i< 8;i++) Ain[j].avg[i]=(Ain[j].avg[i]*Prt.cnt_avg+
 			                                  Ain[j].prm[i])/(Prt.cnt_avg+1);
-      Prt.cnt_avg++;flg_sec=0;
+
+
+      Prt.cnt_avg++;
+      flg_sec=0;
+
       for (i=0;i < Max_pnt;i++)
       { /*проверка и запись в журнал алармов*/
 	      SetClearAlarms(&Config[i],Basic[i],i);
@@ -444,33 +498,35 @@ void main (void)
       for (i=0;i < Max_icp_ain;i++) SetClearAlarmsAIN(i,&Ain[i]);
       AverageMinutExpandParam();
     }
+
+
+
+
+
     for (i=0;i<Max_pnt;i++) if (Config[i].flag == 1)
     { 
       CalculateMain(i);
       Config[i].flag=0;
       break;
     }/*расчёт расхода*/
+
     if (Prt.flg_err == 1) 
     { 
       ViewError();
       Prt.flg_err=0;
       Prt.cnt_avg=0; 
     }/*визуализация ошибок*/
+
     if (flg_min == 1) /* вычисление расхода за минуту,инкремент и сохранение
                         счётчиков в памяти часов реального времени*/
     {
       flg_min=0;/* обновление инициализации датчиков */
-
-
-
-
+      
       //15.09.2021
       for (i=0;i<Max_mvs;i++)
       //if (Sensor[i].evt<1 && Sensor[i].evt>3) Sensor[i].evt=1;
       //Sensor[i].evt=3;
       Sensor[i].evt=0;
-
-
 
       for (i=0;i<Max_icp_ain;i++) Ain[i].evt=0;
       for (i=0;i<Max_icp_aout;i++) if (Aout[i].evt<4) Aout[i].evt=0;
@@ -606,14 +662,18 @@ void MyTimer (void)
     Prt.old_sec = sec;
     flg_sec=1;
   }
+
+
+
+
   /*получение данных от модулей и индикатора через первый порт*/
   if (icp_pool != 0) while (IsCom_1())
   {
     a=ReadCom_1();
     if (icp_pool > 4)
     {
-      Port[0].status=3;
-      Port[0].buf[Port[0].index]=a;
+      Port[0].status = 3;
+      Port[0].buf[Port[0].index] = a;
       Port[0].index++;
     }
   }
@@ -622,22 +682,27 @@ void MyTimer (void)
     Port[0].timer++;
     if (Port[0].timer > Port[0].ta)
     {
-	    Port[0].timer=Port[0].index=Port[0].status=0;
-	    icp_pool=0;
+	    Port[0].timer = Port[0].index  =Port[0].status = 0;
+	    icp_pool = 0;
       ClearCom(1);
-	    if (Err[Prt.nmb_icp+4] <10) Err[Prt.nmb_icp+4]++;/*счётчики тайм-аутов*/
+	    if (Err[Prt.nmb_icp + 4] < 10) Err[Prt.nmb_icp + 4]++;/*счётчики тайм-аутов*/
     }
-    if (icp_pool>4 && Port[0].status==3)
-      for (a=0;a<Port[0].index;a++) if (Port[0].buf[a]==Key_termin)
-      {
-	      Port[0].status=4;
-        Port[0].timer=0;
-        Port[0].index=a;
-	      ClearCom_1();
-        Err[Prt.nmb_icp+4]=0;
-        break;
-      }
-    }
+    if (icp_pool > 4 && Port[0].status == 3)
+      for ( a = 0; a < Port[0].index; a++) 
+        if (Port[0].buf[a] == Key_termin)
+        {
+	        Port[0].status = 4;
+          Port[0].timer = 0;
+          Port[0].index = a;
+	        ClearCom_1();
+          Err[Prt.nmb_icp + 4] = 0;
+          break;
+        }
+  }
+
+
+
+
   /*получение данных по коммуникациям от четвёртого порта*/
   while (IsCom_4())
   {
@@ -678,25 +743,21 @@ void MyTimer (void)
         Port[1].index++; 
       }
     }*/
-    Port[1].status=1; 
-    Port[1].buf[Port[1].index]=ReadCom_2();
+    Port[1].status = 1; 
+    Port[1].buf[Port[1].index] = ReadCom_2();
     Port[1].index++; 
-    cnt_ecosonic=Port[1].index;
+    cnt_ecosonic = Port[1].index;
   }
-
-
-
-
   //15.09.2021 
   if (typ_pool != 0)
   {
     Port[1].timer++;
     if (Port[1].timer > Port[1].ta)
     {
-	    Port[1].timer=Port[1].index=Port[1].status=0;
-      typ_pool=0;
+	    Port[1].timer = Port[1].index = Port[1].status = 0;
+      typ_pool = 0;
       ClearCom(2);
-	    if (Err[Prt.nmb] <10) Err[Prt.nmb]++;/*счётчики тайм-аутов*/
+	    if (Err[Prt.nmb] < 10) Err[Prt.nmb]++;/*счётчики тайм-аутов*/
     }
     /*if (((typ_pool==1)&&(Port[1].index >= 27)) ||
 	          ((typ_pool==2)&&(Port[1].index >= 107)) ||
@@ -707,15 +768,15 @@ void MyTimer (void)
       ClearCom_2();
       Err[Prt.nmb]=0;
     }*/
-    if (Port[1].status==1)
+    if (Port[1].status == 1)
     {
-      if (cnt_ecosonic!=cnt_ecosonic_old) cnt_ecosonic_old=cnt_ecosonic; 
+      if (cnt_ecosonic != cnt_ecosonic_old) cnt_ecosonic_old = cnt_ecosonic; 
       else
       {
-        Port[1].status=4; 
-        Port[1].timer=0; 
+        Port[1].status = 4; 
+        Port[1].timer = 0; 
         ClearCom_2();
-        Err[Prt.nmb]=0;
+        Err[Prt.nmb] = 0;
       }
     }
   } 
@@ -1190,7 +1251,8 @@ void WriteAlarmsSetup (unsigned char buf_com[])
   {
     if (buf_com[9] == 0) /* для MVS*/
     {
-      typ[0]=11;typ[1]=9;
+      typ[0]=11;
+      typ[1]=9;
       typ[2]=3;
       typ[3]=12;
       ofs1=64;
@@ -1200,8 +1262,10 @@ void WriteAlarmsSetup (unsigned char buf_com[])
     } 
     else
     {
-      typ[0]=12;typ[1]=40;
-      typ[2]=5;typ[3]=20;
+      typ[0]=12;
+      typ[1]=40;
+      typ[2]=5;
+      typ[3]=20;
       ofs1=0x100;
       ofs2=0x100;
       typ[4]=168;
@@ -1277,16 +1341,19 @@ unsigned char SetClearAlarmsPrmAIN (float borders[],
 {
   /*начальный адрес статусов алармов в ЭНП:0С1A0-первый,0C2A0-второй */
   unsigned char flag,flg,cr[4],j,buf_alm[16];
-  if (borders[4]>0.0) for (j=0;j<3;j++) if (borders[j+1]>borders[j]) flag=0;
-  else 
-  {
-    flag=1;
-    break;
-  }
+  if (borders[4]>0.0) 
+    for (j=0;j<3;j++) 
+      if (borders[j+1]>borders[j]) flag=0;
+      else 
+      {
+        flag=1;
+        break;
+      }
   if (flag == 0)
   {
     FormateEvent(buf_alm);
-    buf_alm[13]=num_pnt*8+num_prm+8;flg=0;
+    buf_alm[13] = num_pnt * 8 + num_prm + 8; 
+    flg=0;
     if (status == 0  && value > borders[2])
     {
       status=3;
@@ -1349,7 +1416,7 @@ unsigned char SetClearAlarmsPrmAIN (float borders[],
       for (j=0;j<4;j++) buf_alm[6+j]=cr[j];
       WriteEvent(buf_alm,1);
       cr[0]=status;
-      X607_WriteFn(0xc1a0+num_pnt*0x100+num_prm,1,cr);
+      X607_WriteFn(0xc1a0 + num_pnt * 0x100 + num_prm, 1, cr);
     }
   } 
   return status;
@@ -1359,9 +1426,9 @@ unsigned char SetClearAlarmsPrmAIN (float borders[],
 void SetClearAlarmsAIN (unsigned char num_pnt,struct modul_ai *modul)
 {
   unsigned char i;
-  for (i=0;i<8;i++) if ((modul->alm_enb & etl[i])>0)
-    modul->alm_status[i]=SetClearAlarmsPrmAIN(modul->alm_set[i],
-	    modul->alm_status[i],modul->prm[i],num_pnt,i);
+  for (i = 0; i < 8; i++) if ((modul -> alm_enb & etl[i]) > 0)
+    modul -> alm_status[i] = SetClearAlarmsPrmAIN(modul -> alm_set[i],
+	    modul -> alm_status[i], modul -> prm[i], num_pnt, i);
 }
 
 /* инициализация, запись:события откл.пит,час.архив,восст.счётчиков*/
@@ -1373,103 +1440,97 @@ void InitializeMain (void)
   int pnt_arc,year,month,day,hour,min,sec;
   unsigned char tp_arc,k,buf_evt[16],cr[4];
   GetSerialNumber(serial_num);
-  for (i=0;i<Max_icp_ain;i++)
+  for (i = 0; i < Max_icp_ain; i++)
   {
     InitModuleStruct(i);
-    Ain[i].evt=0;
+    Ain[i].evt = 0;
     RestoreSetAlarmsAIN(i);
   }
-  for (i=0;i<Max_icp_aout;i++) 
+  for (i = 0; i < Max_icp_aout; i++) 
   {
     InitModuleOutStruct(i);
-    Aout[i].evt=0;
+    Aout[i].evt = 0;
   }
-  flg_arc_clr=0;
-  Size_str=InitArchive(&Device);
-  for (i=0;i<4;i++)
+  flg_arc_clr = 0;
+  Size_str = InitArchive(&Device);
+  for (i = 0; i < 4; i++)
   { 
-    Port[i].status=Port[i].timer=Port[i].index=Port[i].reinst=0;
+    Port[i].status = Port[i].timer = Port[i].index = Port[i].reinst = 0;
   }
-
-
-
 
   //15.09.2021
-  for (i=0;i<Max_mvs;i++)
+  for (i = 0; i < Max_mvs; i++)
   {
-    Sensor[i].wait=0;
-    //Sensor[i].evt=1;
+    Sensor[i].wait = 0;
+    //Sensor[i].evt = 1;
     RestoreSetAlarmsMVS(i); 
-    //Sensor[i].evt=3;
-    Sensor[i].evt=0;
+    //Sensor[i].evt = 3;
+    Sensor[i].evt = 0;
   }
 
-
-
-
-  flg_init=flg_month=flg_arc_d=ind_dsp=cnt_cbr=flg_init_arc=0;
-  typ_pool=Prt.cnt_avg=flg_min=flg_arc_h=0;
+  flg_init = flg_month = flg_arc_d = ind_dsp = cnt_cbr = flg_init_arc = 0;
+  typ_pool = Prt.cnt_avg = flg_min = flg_arc_h = 0;
   InitStationStruct(&Device);
-  icp_pool=Display.flag=0;
+  icp_pool = Display.flag = 0;
   SetDisplayPage(Typ_task);
-  for (j=0;j<2;j++) for (i=0;i<65535;i++)
-    checksum=checksum+FlashRead(segm[j],i);
+  for (j = 0; j < 2; j++) for (i = 0; i < 65535; i++)
+    checksum = checksum + FlashRead(segm[j], i);
   if (Device.task != Typ_task)
   { /*начальная инициализация:запись типа точки учёта:0-газ,1-тепло,
      2-уровень;очистка событий и архива*/
     EnableEEP();
-    for (i=0;i<8;i++) for (j=0;j<256;j++) WriteEEP(i,j,0);
-    WriteEEP(7,0,Typ_task);
-    WriteEEP(7,1,1);
+    for (i = 0; i < 8; i++) for (j = 0; j < 256; j++) WriteEEP(i, j, 0);
+    WriteEEP(7, 0, Typ_task);
+    WriteEEP(7, 1, 1);
     ProtectEEP();
-    for (i=6;i<22;i++) WriteNVRAM(i,0);
+    for (i = 6; i < 22; i++) WriteNVRAM(i, 0);
     FlashErase(0xd000);
-    for (i=0;i<16;i++) buf_evt[i]=0;
-    for (i=0;i<8192;i++) X607_WriteFn(0x0000+i*16,16,buf_evt);
+    for (i = 0; i < 16; i++) buf_evt[i] = 0;
+    for (i = 0; i < 8192; i++) X607_WriteFn(0x0000 + i * 16, 16, buf_evt);
   }/*запись события отключения питания*/
-  for (i=0;i<Max_pnt;i++)
+  for (i = 0; i < Max_pnt; i++)
   {
-    InitBasicStruct(i,&Config[i],&Basic[i]);
-    X607_ReadFn(0x0c320+i*4,4,Config[i].status_alm);
+    InitBasicStruct(i, &Config[i], &Basic[i]);
+    X607_ReadFn(0x0c320 + i * 4, 4, Config[i].status_alm);
   }
-  Prt.old_month=ReadNVRAM(30);
-  Real_exp_dyn=SetExpandDescript();
+  Prt.old_month = ReadNVRAM(30);
+  Real_exp_dyn = SetExpandDescript();
   RestoreExpandParameters();
   GetDateTime(buf_evt);
-  for (i=0;i<6;i++) buf_evt[i+6]=ReadNVRAM(i);
-  for (i=0;i<3;i++) buf_evt[i+12]=0;
-  buf_evt[15]=9;
-  WriteEvent(buf_evt,0);
-  GetDate(&year,&month,&day);
-  GetTime(&hour,&min,&sec);
-  if ((ReadNVRAM(2)==day && ReadNVRAM(3)>=Device.contrh)||
-    (ReadNVRAM(2)==day && ReadNVRAM(3)<Device.contrh && hour<Device.contrh)||
-      (ReadNVRAM(2)!=day && ReadNVRAM(3)>=Device.contrh && hour<Device.contrh))
+  for (i = 0; i < 6; i++) buf_evt[i + 6]=ReadNVRAM(i);
+  for (i = 0; i < 3; i++) buf_evt[i + 12]=0;
+  buf_evt[15] = 9;
+  WriteEvent(buf_evt, 0);
+  GetDate(&year, &month, &day);
+  GetTime(&hour, &min, &sec);
+  if ((ReadNVRAM(2) == day && ReadNVRAM(3) >= Device.contrh) ||
+    (ReadNVRAM(2) == day && ReadNVRAM(3) < Device.contrh && hour < Device.contrh) ||
+      (ReadNVRAM(2) != day && ReadNVRAM(3) >= Device.contrh && hour < Device.contrh))
         /*выбор типа архива:часовой или суточный*/
-          tp_arc=0;
-  else tp_arc=1;
+          tp_arc = 0;
+  else tp_arc = 1;
   WriteArchive(tp_arc);
-  Prt.old_min=min;
-  Prt.old_hour=hour;
-  for (k=0;k<Max_pnt;k++) /*обнуление счётчиков*/
+  Prt.old_min = min;
+  Prt.old_hour = hour;
+  for (k = 0; k < Max_pnt; k++) /*обнуление счётчиков*/
   {
-    for (i=0;i< Max_dyn;i++) if (main_dyn[i][2] ==2)
+    for (i = 0; i < Max_dyn; i++) if (main_dyn[i][2] == 2)
     {
-      Basic[k].dyn[main_dyn[i][0]+1]=0.0;
-      if (tp_arc==1)
+      Basic[k].dyn[main_dyn[i][0] + 1] = 0.0;
+      if (tp_arc == 1)
       {
-	      Basic[k].dyn[main_dyn[i][0]+3]=Basic[k].dyn[main_dyn[i][0]+2];
-	      Basic[k].dyn[main_dyn[i][0]+2]=0.0;
+	      Basic[k].dyn[main_dyn[i][0] + 3] = Basic[k].dyn[main_dyn[i][0] + 2];
+	      Basic[k].dyn[main_dyn[i][0] + 2] = 0.0;
       }
     }
   }
-  for (i=0;i< Real_exp_dyn;i++) if (exp_dyn[i][2] ==2)
+  for (i = 0; i < Real_exp_dyn; i++) if (exp_dyn[i][2] == 2)
   {
-    Expand.dyn[exp_dyn[i][0]+1]=0.0;
-    if (tp_arc==1)
+    Expand.dyn[exp_dyn[i][0] + 1] = 0.0;
+    if (tp_arc == 1)
     {
-      Expand.dyn[exp_dyn[i][0]+3]=Expand.dyn[exp_dyn[i][0]+2];
-      Expand.dyn[exp_dyn[i][0]+2]=0.0;
+      Expand.dyn[exp_dyn[i][0] + 3] = Expand.dyn[exp_dyn[i][0] + 2];
+      Expand.dyn[exp_dyn[i][0] + 2] = 0.0;
     }
   }
 }
@@ -1558,7 +1619,8 @@ void GetDataEcoSonic(unsigned char buf_com[])
     {
       ConvToBynare(Sensor[buf_com[7]].data[i+4],cr);
       for (k=0;k< 4;k++) buf_com[24+i*4+k]=cr[k];
-    } for (i=0;i<3;i++) buf_com[48+i]=Sensor[buf_com[7]].err[i];
+    } 
+    for (i=0;i<3;i++) buf_com[48+i]=Sensor[buf_com[7]].err[i];
     buf_com[6]=56;
   }
 }
@@ -1834,151 +1896,156 @@ void ReadFromICP (unsigned char number)
   float buf_data[8];
   switch (Device.typ_icp[number])
   {
-    case 0:status[3]=Ain[0].status[3];break;
-    case 1:status[3]=Ain[1].status[3];break;
-    case 2:status[3]=Aout[0].status[3];break;
-    case 3:status[3]=Aout[1].status[3];break;
-    case 4:status[3]=Dio[0].status[3];break;
-    case 5:status[3]=Dio[1].status[3];break;
-    case 6:status[3]=Counters.status[3];break;
+    case 0: status[3] = Ain[0].status[3]; break;
+    case 1: status[3] = Ain[1].status[3]; break;
+    case 2: status[3] = Aout[0].status[3]; break;
+    case 3: status[3] = Aout[1].status[3]; break;
+    case 4: status[3] = Dio[0].status[3]; break;
+    case 5: status[3] = Dio[1].status[3]; break;
+    case 6: status[3] = Counters.status[3]; break;
   }
   switch (icp_pool)
   {
     case 5:
-      if (Port[0].buf[0]==0x21) for (i=0;i< 6;i++)
-	      if ((Port[0].buf[5]==name_icp[i][0])&&(Port[0].buf[6]==name_icp[i][1]))
+      if (Port[0].buf[0] == 0x21) for (i = 0; i < 6; i++)
+	      if ((Port[0].buf[5] == name_icp[i][0]) && (Port[0].buf[6] == name_icp[i][1]))
 	    {
-        status[3]=i+1;
+        status[3] = i + 1;
         break;
       }
 	    switch (Device.typ_icp[number])
 	    {
-	      case 0:Ain[0].status[3]=status[3];break;
-	      case 1:Ain[1].status[3]=status[3];break;
-	      case 2:Aout[0].status[3]=status[3];break;
-	      case 3:Aout[1].status[3]=status[3];break;
-	      case 4:Dio[0].status[3]=status[3];break;
-	      case 5:Dio[1].status[3]=status[3];break;
-	      case 6:Counters.status[3]=status[3];break;
+	      case 0: Ain[0].status[3] = status[3]; break;
+	      case 1: Ain[1].status[3] = status[3]; break;
+	      case 2: Aout[0].status[3] = status[3]; break;
+	      case 3: Aout[1].status[3] = status[3]; break;
+	      case 4: Dio[0].status[3] = status[3]; break;
+	      case 5: Dio[1].status[3] = status[3]; break;
+	      case 6: Counters.status[3] = status[3]; break;
 	    } 
     break;/*чтение имени модуля ICP*/
     case 6:
-      if (Port[0].buf[0]==0x21)
+      if (Port[0].buf[0] == 0x21)
 	    {
-	      status[0]=ascii_to_hex(Port[0].buf[3])*16+
+	      status[0] = ascii_to_hex(Port[0].buf[3]) * 16 +
 				      ascii_to_hex(Port[0].buf[4]);/*тип входа*/
-	      status[1]=ascii_to_hex(Port[0].buf[7])*16+
+	      status[1] = ascii_to_hex(Port[0].buf[7]) * 16 +
 				      ascii_to_hex(Port[0].buf[8]);/*формат и фильтр*/
-	       status[2]=ascii_to_hex(Port[0].buf[1])*16+
+	       status[2] = ascii_to_hex(Port[0].buf[1]) * 16 +
 				      ascii_to_hex(Port[0].buf[2]);/*адрес модуля*/
 	    }
 	    switch (Device.typ_icp[number])
 	    {
-	      case 0:for (i=0;i<3;i++) Ain[0].status[i]=status[i];break;
-	      case 1:for (i=0;i<3;i++) Ain[1].status[i]=status[i];break;
-	      case 2:for (i=0;i<3;i++) Aout[0].status[i]=status[i];break;
-	      case 3:for (i=0;i<3;i++) Aout[1].status[i]=status[i];break;
-	      case 4:for (i=0;i<3;i++) Dio[0].status[i]=status[i];break;
-	      case 5:for (i=0;i<3;i++) Dio[1].status[i]=status[i];break;
-	      case 6:for (i=0;i<3;i++) Counters.status[i]=status[i];break;
+	      case 0: for (i = 0; i < 3; i++) Ain[0].status[i] = status[i]; break;
+	      case 1: for (i = 0; i < 3; i++) Ain[1].status[i] = status[i]; break;
+	      case 2: for (i = 0; i < 3; i++) Aout[0].status[i] = status[i]; break;
+	      case 3: for (i = 0; i < 3; i++) Aout[1].status[i] = status[i]; break;
+	      case 4: for (i = 0; i < 3; i++) Dio[0].status[i] = status[i]; break;
+	      case 5: for (i = 0; i < 3; i++) Dio[1].status[i] = status[i]; break;
+	      case 6: for (i = 0; i < 3; i++) Counters.status[i] = status[i]; break;
 	    } 
     break;/*чтение статуса модуля ICP 7060*/
+
     case 7:
-      if (Port[0].buf[0]==0x3e)
+      if (Port[0].buf[0] == 0x3e)
 	    {
-	      if (status[3]==1 || status[3]==2)
+	      if (status[3] == 1 || status[3] == 2)
 	      { /*чтение данных модуля аналоговых входов*/
-	        TextToFloat(Port[0].index,Port[0].buf,buf_data);
-	        for (i=0;i<8;i++)
+	        TextToFloat(Port[0].index, Port[0].buf, buf_data);
+	        for (i = 0; i < 8; i++)
 	        {
-		        Ain[Device.typ_icp[number]].prm[i]=buf_data[i]*1.025;
-		        if (Ain[Device.typ_icp[number]].hi_brd[i] >
-		          Ain[Device.typ_icp[number]].lo_brd[i])
-		            Ain[Device.typ_icp[number]].prm[i]=
-		              (Ain[Device.typ_icp[number]].prm[i]-4.0)*
-		                (Ain[Device.typ_icp[number]].hi_brd[i]-
-		                  Ain[Device.typ_icp[number]].lo_brd[i])/16+
-		                    Ain[Device.typ_icp[number]].lo_brd[i];
+		        Ain[Device.typ_icp[number]].prm[i] = buf_data[i] * 1.025;
+		        if (Ain[Device.typ_icp[number]].hi_brd[i] > Ain[Device.typ_icp[number]].lo_brd[i])
+		            Ain[Device.typ_icp[number]].prm[i] =
+		              (Ain[Device.typ_icp[number]].prm[i] - 4.0) * (Ain[Device.typ_icp[number]].hi_brd[i]-
+		                  Ain[Device.typ_icp[number]].lo_brd[i]) / 16 + Ain[Device.typ_icp[number]].lo_brd[i];
+
+            //23.05.2022 YN
+            if (Ain[Device.typ_icp[number]].prm[i] < (0.0 - 10000.0)) // Ошибка по токовой петле
+            {
+              Ain[Device.typ_icp[number]].prm[i] = VALUE_ERROR/*ICP_ERROR*/;
+            }
 	        }
 	      } 
-        else if (status[3]==5)
+        else if (status[3] == 5)
 	      {
-	        inp=ascii_to_hex(Port[0].buf[3])*16+ascii_to_hex(Port[0].buf[4]);  //!!!!!!!!!!!!!!поолучение данных о входах и выходах 7060
-	        stat_out=ascii_to_hex(Port[0].buf[1])*16+
+	        inp = ascii_to_hex(Port[0].buf[3]) * 16 + ascii_to_hex(Port[0].buf[4]);  //!!!!!!!!!!!!!!поолучение данных о входах и выходах 7060
+	        stat_out = ascii_to_hex(Port[0].buf[1]) * 16 +
 				    ascii_to_hex(Port[0].buf[2]);
 	        switch (Device.typ_icp[number])
 	        {
-		        case 4:Dio[0].inp=inp;Dio[0].stat_out=stat_out;break;
-		        case 5:Dio[1].inp=inp;Dio[1].stat_out=stat_out;break;
+		        case 4: Dio[0].inp = inp;Dio[0].stat_out = stat_out; break;
+		        case 5: Dio[1].inp = inp;Dio[1].stat_out = stat_out; break;
 	        }
 	      }
 	    } 
     break;
+
     case 8:
-      if (status[3]!=5 && Port[0].buf[0]==0x21) /*запись события если адрес ICP изменён*/
+      if (status[3] != 5 && Port[0].buf[0] == 0x21) /*запись события если адрес ICP изменён*/
 	    {
-	      m = ascii_to_hex(Port[0].buf[1])*16+ascii_to_hex(Port[0].buf[2]);
+	      m = ascii_to_hex(Port[0].buf[1]) * 16 + ascii_to_hex(Port[0].buf[2]);
 	      if (Device.adr_icp[number] != m)
 	      {
 		      EnableEEP();
-          WriteEEP(7,8+(number),m);
+          WriteEEP(7, 8 + (number), m);
           ProtectEEP();
 		      FormateEvent(buf_evt);
-          buf_evt[15]=8;
-		      buf_evt[14]=8+(number);
-          buf_evt[6]=Device.adr_icp[number];
-		      buf_evt[10]=m;
-          WriteEvent(buf_evt,0);
+          buf_evt[15] = 8;
+		      buf_evt[14] = 8 + (number);
+          buf_evt[6] = Device.adr_icp[number];
+		      buf_evt[10] = m;
+          WriteEvent(buf_evt, 0);
 	      }
 	    } 
     break;
     case 9:
-      if (Port[0].buf[0]==0x21)
+      if (Port[0].buf[0] == 0x21)
 	    {
-	      status[0]=(status[0] & 0xf0)+ascii_to_hex(Port[0].buf[3]);/*тип входа*/
-	      status[0]=(status[0] & 0xf)+(ascii_to_hex(Port[0].buf[4]) << 4);
+	      status[0] = (status[0] & 0xf0) + ascii_to_hex(Port[0].buf[3]);/*тип входа*/
+	      status[0] = (status[0] & 0xf) + (ascii_to_hex(Port[0].buf[4]) << 4);
 	      switch (Device.typ_icp[number])
 	      {
-		      case 2:Aout[0].status[4]=status[0];break;
-		      case 3:Aout[1].status[4]=status[0];break;
+		      case 2: Aout[0].status[4] = status[0]; break;
+		      case 3: Aout[1].status[4] = status[0]; break;
 	      }
 	    } 
     break;/*чтение допстатуса модуля аналог выхода 0*/
     case 10:
-      if (Port[0].buf[0]==0x21)
+      if (Port[0].buf[0] == 0x21)
 	    {
-	      status[0]=(status[0] & 0xf0)+ascii_to_hex(Port[0].buf[3]);/*тип входа*/
-	      status[0]=(status[0] & 0xf)+(ascii_to_hex(Port[0].buf[4]) << 4);
+	      status[0] = (status[0] & 0xf0) + ascii_to_hex(Port[0].buf[3]);/*тип входа*/
+	      status[0] = (status[0] & 0xf) + (ascii_to_hex(Port[0].buf[4]) << 4);
 	      switch (Device.typ_icp[number])
 	      {
-		      case 2:Aout[0].status[5]=status[0];break;
-		      case 3:Aout[1].status[5]=status[0];break;
+		      case 2: Aout[0].status[5] = status[0]; break;
+		      case 3: Aout[1].status[5] = status[0]; break;
 	      }
 	    } 
     break;/*чтение допстатуса модуля аналог выхода 1*/
     case 11:
-      Counters.start[Counters.chan]=ascii_to_hex(Port[0].buf[3]);
+      Counters.start[Counters.chan] = ascii_to_hex(Port[0].buf[3]);
 	      Counters.chan++;
-	      if (Counters.chan >1) 
+	      if (Counters.chan > 1) 
         {
-          Counters.chan=0;
-          Counters.evt=13;
+          Counters.chan = 0;
+          Counters.evt = 13;
         }
     break;/*чтение статуса счётчика*/
     case 12:
-      if (Port[0].buf[0]==0x3e) /*0x3e ">" */
+      if (Port[0].buf[0] == 0x3e) /*0x3e ">" */
 	    { /*здесь должно быть вычисление зн счётчика*/
-	      Counters.counter[Counters.chan]=(ascii_to_hex(Port[0].buf[1])*4096.0+
-		      ascii_to_hex(Port[0].buf[2])*256.0+
-		        ascii_to_hex(Port[0].buf[3])*16.0+
-		          ascii_to_hex(Port[0].buf[4]))*65536.0+
-		            (ascii_to_hex(Port[0].buf[5])*16.0+ascii_to_hex(Port[0].buf[6]))*256.0+
-		              ascii_to_hex(Port[0].buf[7])*16.0+ascii_to_hex(Port[0].buf[8]);
-	      if (Counters.factor[Counters.chan]>0) /*в технических единицах*/
-	      Counters.value[Counters.chan]=Counters.counter[Counters.chan]/
+	      Counters.counter[Counters.chan] = (ascii_to_hex(Port[0].buf[1]) * 4096.0 +
+		      ascii_to_hex(Port[0].buf[2]) * 256.0 +
+		        ascii_to_hex(Port[0].buf[3]) * 16.0 +
+		          ascii_to_hex(Port[0].buf[4])) * 65536.0 +
+		            (ascii_to_hex(Port[0].buf[5]) * 16.0 + ascii_to_hex(Port[0].buf[6])) * 256.0 +
+		              ascii_to_hex(Port[0].buf[7]) * 16.0 + ascii_to_hex(Port[0].buf[8]);
+	      if (Counters.factor[Counters.chan] > 0) /*в технических единицах*/
+	      Counters.value[Counters.chan] = Counters.counter[Counters.chan]/
 					Counters.factor[Counters.chan];
 	      Counters.chan++; 
-        if (Counters.chan >1) Counters.chan=0;
+        if (Counters.chan > 1) Counters.chan = 0;
 	    } 
     break;/*чтение значения счётчика*/
   }
@@ -2025,9 +2092,12 @@ void AverageBasicParam (unsigned char num,struct dynparams *bs)
   if ((Config[num].status) == 1) /*если точка учёта включена*/
   {
     if (SelectSensor (Config[num].s_diff,0,&val_diff)!=0) goto M1;/*перепад в ручном*/
-    if (SelectSensor (Config[num].stack,0,&musor)==0)
+    
+
+    //23.05.2022 YN
+    /*if (SelectSensor (Config[num].stack,0,&musor)==0)
     { /*дополнительный перепадчик подключен,проверка границ переключения*/
-      if ((Config[num].hi_stack<=0)||(Config[num].lo_stack<=0)
+    /*  if ((Config[num].hi_stack<=0)||(Config[num].lo_stack<=0)
 	      ||(Config[num].hi_stack<=Config[num].lo_stack))
       {
 	      if (Err[8+err_pnt[num]]<10)
@@ -2036,7 +2106,7 @@ void AverageBasicParam (unsigned char num,struct dynparams *bs)
       else Err[8+err_pnt[num]]=0;
       if (Config[num].cur_sens==0)
       { /*если используется дополнительный перепадчик*/
-	      if (musor>=Config[num].hi_stack)
+	  /*    if (musor>=Config[num].hi_stack)
 	      {
           Config[num].cur_sens=1;
           bs->dyn[0]=val_diff;
@@ -2045,7 +2115,7 @@ void AverageBasicParam (unsigned char num,struct dynparams *bs)
       } 
       else
       { /*если используется основной перепадчик*/
-	      if (val_diff<=Config[num].lo_stack)
+	  /*    if (val_diff<=Config[num].lo_stack)
 	      {
           Config[num].cur_sens=0;
           bs->dyn[0]=musor;
@@ -2054,11 +2124,45 @@ void AverageBasicParam (unsigned char num,struct dynparams *bs)
       } 
       goto M1;
     }   /*подключение перепада*/
+
+
     M:  bs->dyn[0]=val_diff;/*получение значения перепада*/
     M1: if (SelectSensor (Config[num].s_press,1,&musor)==0)
 	        bs->dyn[4]=musor;/*получение давления*/
+
+
+        //23.05.2022 YN
+        if (Config[num].wildcard_values)  // вкл.
+        {
+          if (bs->dyn[4] == VALUE_ERROR )
+          {
+            if (Config[num].wildcard_press != 0)
+            {
+              bs->dyn[4] = Config[num].wildcard_press;
+            }
+            else bs->dyn[4] = 0.0;
+          }
+        }
+
+
         if (SelectSensor (Config[num].s_tempr,2,&musor)==0)
 	      bs->dyn[8]=musor;/*получение температуры*/
+
+
+        //23.05.2022 YN
+        if (Config[num].wildcard_values)  // вкл.
+        {
+          if (bs->dyn[8] == VALUE_ERROR)
+          {
+            if (Config[num].wildcard_temp != 0)
+            {
+              bs->dyn[8] = Config[num].wildcard_temp;
+            }
+            else bs->dyn[8] = 0.0;
+          }
+        }
+        
+
         for (i=0;i<Max_dyn;i++)
         { /*все минутные усреднения и накопления*/
           if (main_dyn[i][2] == 3)
@@ -2300,7 +2404,7 @@ void ReadFromEvents (unsigned char buf_com[])
 void ViewError ()
 {
   unsigned char i,buf[16];
-  if (ind_err>=Max_error) 
+  if (ind_err >= Max_error) 
   {
     ind_err=0;
   }/*визуализация ошибки*/
@@ -2308,10 +2412,10 @@ M:if (Err[ind_err] < 10)
   {
     if (flg_err[ind_err] != 0)
     {
-	    flg_err[ind_err]=0;
+	    flg_err[ind_err] = 0;
       FormateEvent(buf);
-      buf[13]=ind_err+1;
-	    WriteEvent(buf,2);/*запись о сбросе нештатной ситуации*/
+      buf[13] = ind_err + 1;
+	    WriteEvent(buf, 2);/*запись о сбросе нештатной ситуации*/
     } 
     ind_err++;
     if (ind_err < Max_error) goto M;
@@ -2320,14 +2424,14 @@ M:if (Err[ind_err] < 10)
   { /*показывает слово "Err" и код ошибки*/
     if (flg_err[ind_err] == 0)
     {
-	    flg_err[ind_err]=1;
+	    flg_err[ind_err] = 1;
       FormateEvent(buf);
-      buf[10]=1;
-      buf[13]=ind_err+1;
-	    WriteEvent(buf,2);/*запись об установке нештатной ситуации*/
+      buf[10] = 1;
+      buf[13] = ind_err + 1;
+	    WriteEvent(buf, 2);/*запись об установке нештатной ситуации*/
     } 
-    i=(ind_err+1)/10;
-    i=ind_err+1-i*10;
+    i = (ind_err + 1) / 10;
+    i = ind_err + 1 - i * 10;
     ind_err++;
   }
 }

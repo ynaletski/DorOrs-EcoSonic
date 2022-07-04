@@ -2,132 +2,132 @@
  Start  Stop   Length Name               Class
 
  00000H 02D2AH 02D2BH _TEXT              CODE
- 02D2BH 12AB5H 0FD8BH ESONIC_TEXT        CODE
- 12AB6H 12ACFH 0001AH WDT_TEXT           CODE
- 12AD0H 12ADBH 0000CH CLOCKH_TEXT        CODE
- 12ADCH 12B08H 0002DH CLOCKHL_TEXT       CODE
- 12B09H 12B14H 0000CH CLOCKL_TEXT        CODE
- 12B15H 12C91H 0017DH DS1302_TEXT        CODE
- 12C92H 12CDEH 0004DH GETDATE_TEXT       CODE
- 12CDFH 12D11H 00033H GETTIME_TEXT       CODE
- 12D12H 12D45H 00034H READRAM_TEXT       CODE
- 12D46H 12E04H 000BFH GETT_D_TEXT        CODE
- 12E05H 12F79H 00175H SETDATE_TEXT       CODE
- 12F7AH 13007H 0008EH SETTIME_TEXT       CODE
- 13008H 13035H 0002EH WRITERAM_TEXT      CODE
- 13036H 13036H 00000H SYS_VAR_TEXT       CODE
- 13036H 13102H 000CDH INITLIB_TEXT       CODE
- 13103H 13252H 00150H EEP_BASE_TEXT      CODE
- 13253H 13269H 00017H EE_DISWR_TEXT      CODE
- 1326AH 13271H 00008H EE_ENWR_TEXT       CODE
- 13272H 1330FH 0009EH EE_MREAD_TEXT      CODE
- 13310H 1337DH 0006EH EE_MWR_TEXT        CODE
- 1337EH 133BDH 00040H EE_RDNXT_TEXT      CODE
- 133BEH 13430H 00073H EE_READ_TEXT       CODE
- 13431H 13431H 00000H EE_VAR_TEXT        CODE
- 13431H 13487H 00057H EE_WR_TEXT         CODE
- 13488H 134E9H 00062H FLASHER_TEXT       CODE
- 134EAH 1365CH 00173H FLASHID_TEXT       CODE
- 1365DH 1368EH 00032H FLASHRD_TEXT       CODE
- 1368FH 136EEH 00060H FLASHWR_TEXT       CODE
- 136EFH 13722H 00034H DELAY_TEXT         CODE
- 13723H 1384DH 0012BH TIMER_TEXT         CODE
- 1384EH 1386CH 0001FH TIMERD_TEXT        CODE
- 1386DH 1387CH 00010H TIMERST_TEXT       CODE
- 1387DH 138C6H 0004AH BAUDDIV_TEXT       CODE
- 138C7H 138DEH 00018H CHKPORT_TEXT       CODE
- 138DFH 13904H 00026H CLRCOM_TEXT        CODE
- 13905H 1393CH 00038H COMINST_TEXT       CODE
- 1393DH 1393DH 00000H UART_VAR_TEXT      CODE
- 1393DH 13962H 00026H WAIT485_TEXT       CODE
- 13963H 13990H 0002EH CHG_DATA_TEXT      CODE
- 13991H 13AD4H 00144H C1_BAUD_TEXT       CODE
- 13AD5H 13AF0H 0001CH C1_CLEAR_TEXT      CODE
- 13AF1H 13D92H 002A2H C1_DMA_TEXT        CODE
- 13D93H 13DBAH 00028H C1_ISCOM_TEXT      CODE
- 13DBBH 14266H 004ACH C1_ISR_TEXT        CODE
- 14267H 14273H 0000DH C1_OE_TEXT         CODE
- 14274H 142E3H 00070H C1_READ_TEXT       CODE
- 142E4H 14433H 00150H C1_SENDN_TEXT      CODE
- 14434H 144D3H 000A0H C1_TOCOM_TEXT      CODE
- 144D4H 14502H 0002FH C1_WAIT_TEXT       CODE
- 14503H 14646H 00144H C2_BAUD_TEXT       CODE
- 14647H 14662H 0001CH C2_CLEAR_TEXT      CODE
- 14663H 14904H 002A2H C2_DMA_TEXT        CODE
- 14905H 1492CH 00028H C2_ISCOM_TEXT      CODE
- 1492DH 14DD8H 004ACH C2_ISR_TEXT        CODE
- 14DD9H 14DE5H 0000DH C2_OE_TEXT         CODE
- 14DE6H 14E55H 00070H C2_READ_TEXT       CODE
- 14E56H 14FA5H 00150H C2_SENDN_TEXT      CODE
- 14FA6H 15045H 000A0H C2_TOCOM_TEXT      CODE
- 15046H 15074H 0002FH C2_WAIT_TEXT       CODE
- 15075H 15162H 000EEH C3_BAUD_TEXT       CODE
- 15163H 151A9H 00047H C3_CLEAR_TEXT      CODE
- 151AAH 152E8H 0013FH C3_COMN_TEXT       CODE
- 152E9H 15303H 0001BH C3_ISCOM_TEXT      CODE
- 15304H 15310H 0000DH C3_OE_TEXT         CODE
- 15311H 15379H 00069H C3_READ_TEXT       CODE
- 1537AH 1543CH 000C3H C3_TOCOM_TEXT      CODE
- 1543DH 15B38H 006FCH C3_UART_TEXT       CODE
- 15B39H 15B6DH 00035H C3_WAIT_TEXT       CODE
- 15B6EH 15C5BH 000EEH C4_BAUD_TEXT       CODE
- 15C5CH 15C7AH 0001FH C4_CLEAR_TEXT      CODE
- 15C7BH 15DABH 00131H C4_COMN_TEXT       CODE
- 15DACH 15DC6H 0001BH C4_ISCOM_TEXT      CODE
- 15DC7H 15DD3H 0000DH C4_OE_TEXT         CODE
- 15DD4H 15E14H 00041H C4_READ_TEXT       CODE
- 15E15H 15EC9H 000B5H C4_TOCOM_TEXT      CODE
- 15ECAH 16349H 00480H C4_UART_TEXT       CODE
- 1634AH 1637EH 00035H C4_WAIT_TEXT       CODE
- 1637FH 1646CH 000EEH C5_BAUD_TEXT       CODE
- 1646DH 164B3H 00047H C5_CLEAR_TEXT      CODE
- 164B4H 164C0H 0000DH C5_OE_TEXT         CODE
- 164C1H 16BBCH 006FCH C5_UART_TEXT       CODE
- 16BBDH 16BF1H 00035H C5_WAIT_TEXT       CODE
- 16BF2H 16CDFH 000EEH C6_BAUD_TEXT       CODE
- 16CE0H 16D26H 00047H C6_CLEAR_TEXT      CODE
- 16D27H 16D33H 0000DH C6_OE_TEXT         CODE
- 16D34H 1742FH 006FCH C6_UART_TEXT       CODE
- 17430H 17464H 00035H C6_WAIT_TEXT       CODE
- 17465H 17552H 000EEH C7_BAUD_TEXT       CODE
- 17553H 17599H 00047H C7_CLEAR_TEXT      CODE
- 1759AH 175A6H 0000DH C7_OE_TEXT         CODE
- 175A7H 17CA2H 006FCH C7_UART_TEXT       CODE
- 17CA3H 17CD7H 00035H C7_WAIT_TEXT       CODE
- 17CD8H 17D17H 00040H HEXASCII_TEXT      CODE
- 17D18H 17D86H 0006FH PIO14_TEXT         CODE
- 17D87H 18061H 002DBH DS2502_TEXT        CODE
- 18062H 181EBH 0018AH X607_TEXT          CODE
- 181F0H 1A966H 02777H EMU_PROG           CODE
- 1A970H 1AF37H 005C8H E87_PROG           CODE
- 1AF40H 1AF40H 00000H _FARDATA           FAR_DATA
- 1AF40H 1AF40H 00000H _FARBSS            FAR_BSS
- 1AF40H 1AF40H 00000H _OVERLAY_          OVRINFO
- 1AF40H 1AF40H 00000H _1STUB_            STUBSEG
- 1AF40H 1E5C5H 03686H _DATA              DATA
- 1E5C6H 1E5C9H 00004H _CVTSEG            DATA
- 1E5CAH 1E5D5H 0000CH _SCNSEG            DATA
- 1E5D6H 1E5D6H 00000H _CONST             CONST
- 1E5D6H 1E5E1H 0000CH _INIT_             INITDATA
- 1E5E2H 1E5E2H 00000H _INITEND_          INITDATA
- 1E5E2H 1E5E7H 00006H _EXIT_             EXITDATA
- 1E5E8H 1E5E8H 00000H _EXITEND_          EXITDATA
- 1E5E8H 1FCB3H 016CCH _BSS               BSS
- 1FCB4H 1FCB4H 00000H _BSSEND            BSSEND
- 1FCC0H 1FDCFH 00110H _STACK             STACK
+ 02D2BH 12C98H 0FF6EH ESONIC_TEXT        CODE
+ 12C99H 12CB2H 0001AH WDT_TEXT           CODE
+ 12CB3H 12CBEH 0000CH CLOCKH_TEXT        CODE
+ 12CBFH 12CEBH 0002DH CLOCKHL_TEXT       CODE
+ 12CECH 12CF7H 0000CH CLOCKL_TEXT        CODE
+ 12CF8H 12E74H 0017DH DS1302_TEXT        CODE
+ 12E75H 12EC1H 0004DH GETDATE_TEXT       CODE
+ 12EC2H 12EF4H 00033H GETTIME_TEXT       CODE
+ 12EF5H 12F28H 00034H READRAM_TEXT       CODE
+ 12F29H 12FE7H 000BFH GETT_D_TEXT        CODE
+ 12FE8H 1315CH 00175H SETDATE_TEXT       CODE
+ 1315DH 131EAH 0008EH SETTIME_TEXT       CODE
+ 131EBH 13218H 0002EH WRITERAM_TEXT      CODE
+ 13219H 13219H 00000H SYS_VAR_TEXT       CODE
+ 13219H 132E5H 000CDH INITLIB_TEXT       CODE
+ 132E6H 13435H 00150H EEP_BASE_TEXT      CODE
+ 13436H 1344CH 00017H EE_DISWR_TEXT      CODE
+ 1344DH 13454H 00008H EE_ENWR_TEXT       CODE
+ 13455H 134F2H 0009EH EE_MREAD_TEXT      CODE
+ 134F3H 13560H 0006EH EE_MWR_TEXT        CODE
+ 13561H 135A0H 00040H EE_RDNXT_TEXT      CODE
+ 135A1H 13613H 00073H EE_READ_TEXT       CODE
+ 13614H 13614H 00000H EE_VAR_TEXT        CODE
+ 13614H 1366AH 00057H EE_WR_TEXT         CODE
+ 1366BH 136CCH 00062H FLASHER_TEXT       CODE
+ 136CDH 1383FH 00173H FLASHID_TEXT       CODE
+ 13840H 13871H 00032H FLASHRD_TEXT       CODE
+ 13872H 138D1H 00060H FLASHWR_TEXT       CODE
+ 138D2H 13905H 00034H DELAY_TEXT         CODE
+ 13906H 13A30H 0012BH TIMER_TEXT         CODE
+ 13A31H 13A4FH 0001FH TIMERD_TEXT        CODE
+ 13A50H 13A5FH 00010H TIMERST_TEXT       CODE
+ 13A60H 13AA9H 0004AH BAUDDIV_TEXT       CODE
+ 13AAAH 13AC1H 00018H CHKPORT_TEXT       CODE
+ 13AC2H 13AE7H 00026H CLRCOM_TEXT        CODE
+ 13AE8H 13B1FH 00038H COMINST_TEXT       CODE
+ 13B20H 13B20H 00000H UART_VAR_TEXT      CODE
+ 13B20H 13B45H 00026H WAIT485_TEXT       CODE
+ 13B46H 13B73H 0002EH CHG_DATA_TEXT      CODE
+ 13B74H 13CB7H 00144H C1_BAUD_TEXT       CODE
+ 13CB8H 13CD3H 0001CH C1_CLEAR_TEXT      CODE
+ 13CD4H 13F75H 002A2H C1_DMA_TEXT        CODE
+ 13F76H 13F9DH 00028H C1_ISCOM_TEXT      CODE
+ 13F9EH 14449H 004ACH C1_ISR_TEXT        CODE
+ 1444AH 14456H 0000DH C1_OE_TEXT         CODE
+ 14457H 144C6H 00070H C1_READ_TEXT       CODE
+ 144C7H 14616H 00150H C1_SENDN_TEXT      CODE
+ 14617H 146B6H 000A0H C1_TOCOM_TEXT      CODE
+ 146B7H 146E5H 0002FH C1_WAIT_TEXT       CODE
+ 146E6H 14829H 00144H C2_BAUD_TEXT       CODE
+ 1482AH 14845H 0001CH C2_CLEAR_TEXT      CODE
+ 14846H 14AE7H 002A2H C2_DMA_TEXT        CODE
+ 14AE8H 14B0FH 00028H C2_ISCOM_TEXT      CODE
+ 14B10H 14FBBH 004ACH C2_ISR_TEXT        CODE
+ 14FBCH 14FC8H 0000DH C2_OE_TEXT         CODE
+ 14FC9H 15038H 00070H C2_READ_TEXT       CODE
+ 15039H 15188H 00150H C2_SENDN_TEXT      CODE
+ 15189H 15228H 000A0H C2_TOCOM_TEXT      CODE
+ 15229H 15257H 0002FH C2_WAIT_TEXT       CODE
+ 15258H 15345H 000EEH C3_BAUD_TEXT       CODE
+ 15346H 1538CH 00047H C3_CLEAR_TEXT      CODE
+ 1538DH 154CBH 0013FH C3_COMN_TEXT       CODE
+ 154CCH 154E6H 0001BH C3_ISCOM_TEXT      CODE
+ 154E7H 154F3H 0000DH C3_OE_TEXT         CODE
+ 154F4H 1555CH 00069H C3_READ_TEXT       CODE
+ 1555DH 1561FH 000C3H C3_TOCOM_TEXT      CODE
+ 15620H 15D1BH 006FCH C3_UART_TEXT       CODE
+ 15D1CH 15D50H 00035H C3_WAIT_TEXT       CODE
+ 15D51H 15E3EH 000EEH C4_BAUD_TEXT       CODE
+ 15E3FH 15E5DH 0001FH C4_CLEAR_TEXT      CODE
+ 15E5EH 15F8EH 00131H C4_COMN_TEXT       CODE
+ 15F8FH 15FA9H 0001BH C4_ISCOM_TEXT      CODE
+ 15FAAH 15FB6H 0000DH C4_OE_TEXT         CODE
+ 15FB7H 15FF7H 00041H C4_READ_TEXT       CODE
+ 15FF8H 160ACH 000B5H C4_TOCOM_TEXT      CODE
+ 160ADH 1652CH 00480H C4_UART_TEXT       CODE
+ 1652DH 16561H 00035H C4_WAIT_TEXT       CODE
+ 16562H 1664FH 000EEH C5_BAUD_TEXT       CODE
+ 16650H 16696H 00047H C5_CLEAR_TEXT      CODE
+ 16697H 166A3H 0000DH C5_OE_TEXT         CODE
+ 166A4H 16D9FH 006FCH C5_UART_TEXT       CODE
+ 16DA0H 16DD4H 00035H C5_WAIT_TEXT       CODE
+ 16DD5H 16EC2H 000EEH C6_BAUD_TEXT       CODE
+ 16EC3H 16F09H 00047H C6_CLEAR_TEXT      CODE
+ 16F0AH 16F16H 0000DH C6_OE_TEXT         CODE
+ 16F17H 17612H 006FCH C6_UART_TEXT       CODE
+ 17613H 17647H 00035H C6_WAIT_TEXT       CODE
+ 17648H 17735H 000EEH C7_BAUD_TEXT       CODE
+ 17736H 1777CH 00047H C7_CLEAR_TEXT      CODE
+ 1777DH 17789H 0000DH C7_OE_TEXT         CODE
+ 1778AH 17E85H 006FCH C7_UART_TEXT       CODE
+ 17E86H 17EBAH 00035H C7_WAIT_TEXT       CODE
+ 17EBBH 17EFAH 00040H HEXASCII_TEXT      CODE
+ 17EFBH 17F69H 0006FH PIO14_TEXT         CODE
+ 17F6AH 18244H 002DBH DS2502_TEXT        CODE
+ 18245H 183CEH 0018AH X607_TEXT          CODE
+ 183D0H 1AB46H 02777H EMU_PROG           CODE
+ 1AB50H 1B117H 005C8H E87_PROG           CODE
+ 1B120H 1B120H 00000H _FARDATA           FAR_DATA
+ 1B120H 1B120H 00000H _FARBSS            FAR_BSS
+ 1B120H 1B120H 00000H _OVERLAY_          OVRINFO
+ 1B120H 1B120H 00000H _1STUB_            STUBSEG
+ 1B120H 1E885H 03766H _DATA              DATA
+ 1E886H 1E889H 00004H _CVTSEG            DATA
+ 1E88AH 1E895H 0000CH _SCNSEG            DATA
+ 1E896H 1E896H 00000H _CONST             CONST
+ 1E896H 1E8A1H 0000CH _INIT_             INITDATA
+ 1E8A2H 1E8A2H 00000H _INITEND_          INITDATA
+ 1E8A2H 1E8A7H 00006H _EXIT_             EXITDATA
+ 1E8A8H 1E8A8H 00000H _EXITEND_          EXITDATA
+ 1E8A8H 1FF95H 016EEH _BSS               BSS
+ 1FF96H 1FF96H 00000H _BSSEND            BSSEND
+ 1FFA0H 200AFH 00110H _STACK             STACK
 
   Address         Publics by Name
 
- 1AF4:0000       DATASEG@
+ 1B12:0000       DATASEG@
  0000:0260       DGROUP@
- 181F:2152       e086_Entry
- 181F:26E0       e086_Shortcut
- 1A97:0306       e087_Entry
- 1A97:03C6       e087_Shortcut
- 1A97:0430       e087_Trap
- 1310:002E       EE_BITWRITE
- 1310:010E       EE_INITWRITEMODE
- 1310:00BA       EE_WRITEBYTE
+ 183D:2152       e086_Entry
+ 183D:26E0       e086_Shortcut
+ 1AB5:0306       e087_Entry
+ 1AB5:03C6       e087_Shortcut
+ 1AB5:0430       e087_Trap
+ 132E:0031       EE_BITWRITE
+ 132E:0111       EE_INITWRITEMODE
+ 132E:00BD       EE_WRITEBYTE
  0000:FE32  Abs  FIARQQ
  0000:0E32  Abs  FICRQQ
  0000:5C32  Abs  FIDRQQ
@@ -172,844 +172,842 @@
  0000:027B       SCOPY@
  0000:16B3       SPUSH@
  0000:0249       _abort
- 1AF4:4200       _Ain
- 02D2:14E8       _AnnubarKoeff
- 1AF4:4188       _Aout
- 17CD:0008       _ascii_to_hex
+ 1B12:4301       _Ain
+ 02D2:15EC       _AnnubarKoeff
+ 1B12:4289       _Aout
+ 17EB:000B       _ascii_to_hex
  0000:158D       _atexit
  0000:05DF       _atof
- 02D2:BBF5       _AverageBasicParam
- 02D2:C5D3       _AverageExpandParams
- 02D2:C0B3       _AverageMinutExpandParam
- 1AF4:3735       _avg_old
- 1AF4:3B8D       _Basic
- 1AF4:2F8B       _bCtsChanged_1
- 1AF4:2FFB       _bCtsChanged_5
- 1AF4:303B       _bCtsChanged_6
- 1AF4:307B       _bCtsChanged_7
- 02D2:14D4       _BettaKoeff
- 1AF4:2FA2       _bGetBreak_1
- 1AF4:2FD2       _bGetBreak_2
- 1AF4:2F1D       _bGetBreak_3
- 1AF4:2F65       _bGetBreak_4
- 1AF4:3012       _bGetBreak_5
- 1AF4:3052       _bGetBreak_6
- 1AF4:3092       _bGetBreak_7
- 1AF4:2FD8       _bMsrChanged
- 1AF4:2FA8       _bMsrChanged_1
- 1AF4:3018       _bMsrChanged_5
- 1AF4:3058       _bMsrChanged_6
- 1AF4:3098       _bMsrChanged_7
- 1AF4:2DA8       _bNeedSetSpeed
- 1AF4:2F94       _bUseXonXoff_1
- 1AF4:2EFD       _bUseXonXoff_3
- 1AF4:2F45       _bUseXonXoff_4
- 1AF4:3004       _bUseXonXoff_5
- 1AF4:3044       _bUseXonXoff_6
- 1AF4:3084       _bUseXonXoff_7
- 1AF4:2DD0       _bWrite
- 02D2:438A       _ByteToString
- 02D2:231D       _CalcAdiabat
+ 02D2:BE8E       _AverageBasicParam
+ 02D2:C7B6       _AverageExpandParams
+ 02D2:C296       _AverageMinutExpandParam
+ 1B12:129B       _avg_old
+ 1B12:3C5A       _Basic
+ 1B12:306D       _bCtsChanged_1
+ 1B12:30DD       _bCtsChanged_5
+ 1B12:311D       _bCtsChanged_6
+ 1B12:315D       _bCtsChanged_7
+ 02D2:15D8       _BettaKoeff
+ 1B12:3084       _bGetBreak_1
+ 1B12:30B4       _bGetBreak_2
+ 1B12:2FFF       _bGetBreak_3
+ 1B12:3047       _bGetBreak_4
+ 1B12:30F4       _bGetBreak_5
+ 1B12:3134       _bGetBreak_6
+ 1B12:3174       _bGetBreak_7
+ 1B12:30BA       _bMsrChanged
+ 1B12:308A       _bMsrChanged_1
+ 1B12:30FA       _bMsrChanged_5
+ 1B12:313A       _bMsrChanged_6
+ 1B12:317A       _bMsrChanged_7
+ 1B12:2E8A       _bNeedSetSpeed
+ 1B12:3076       _bUseXonXoff_1
+ 1B12:2FDF       _bUseXonXoff_3
+ 1B12:3027       _bUseXonXoff_4
+ 1B12:30E6       _bUseXonXoff_5
+ 1B12:3126       _bUseXonXoff_6
+ 1B12:3166       _bUseXonXoff_7
+ 1B12:2EB2       _bWrite
+ 02D2:44E8       _ByteToString
+ 02D2:2421       _CalcAdiabat
  02D2:04B2       _CalcCheckSum
  02D2:032D       _CalcCRC16
  02D2:0252       _CalcCRC32
- 02D2:9080       _CalcCurrent
- 02D2:32B5       _CalcDensWork
- 02D2:338C       _CalcFlowMain
- 02D2:3193       _CalcFlowRate
- 02D2:2ACF       _CalcGERG91Koeff
+ 02D2:92B9       _CalcCurrent
+ 02D2:33EA       _CalcDensWork
+ 02D2:34C1       _CalcFlowMain
+ 02D2:3297       _CalcFlowRate
+ 02D2:2BD3       _CalcGERG91Koeff
  02D2:04FA       _CalcModbusSum
- 02D2:2657       _CalcNX19Koeff
- 02D2:15E3       _CalcOrifNewC
- 02D2:1880       _CalcOrifNewEgle
- 02D2:198E       _CalcOrifNewExpand
- 02D2:1B53       _CalcOrifNewRougness
- 02D2:2603       _CalcPpk
- 02D2:334B       _CalcReinAnnubar
- 02D2:25BA       _CalcSFactor
- 02D2:262D       _CalcTpk
- 02D2:C2F1       _CalculateMain
- 02D2:3309       _CalcVelosity
- 02D2:3272       _CalcViscExt
- 02D2:31DC       _CalcViscosity
- 1AF4:0B34       _carbForMmi
- 1AF4:11E9       _carbon_dioxid
- 1303:0006       _CheckCpuSpeed
- 1543:0182       _CheckInputBufSize_1
- 164C:0176       _CheckInputBufSize_5
- 16D3:0179       _CheckInputBufSize_6
- 175A:017C       _CheckInputBufSize_7
- 1AF4:36BF       _checksum
- 1543:016C       _CheckXonXoff_1
- 13DB:00E2       _CheckXonXoff_3
- 1492:00E4       _CheckXonXoff_4
- 164C:0160       _CheckXonXoff_5
- 16D3:0163       _CheckXonXoff_6
- 175A:0166       _CheckXonXoff_7
- 138C:0007       _Chk_Port
- 02D2:8CEE       _ClearArchive
- 02D2:4148       _ClearBuffer
- 138D:000F       _ClearCom
- 1AF4:2E5C       _ClearCom_
- 1516:0003       _ClearCom_1
- 15C5:000C       _ClearCom_2
- 13AD:0005       _ClearCom_3
- 1464:0007       _ClearCom_4
- 1646:000D       _ClearCom_5
- 16CE:0000       _ClearCom_6
- 1755:0003       _ClearCom_7
- 13AF:021C       _ClearCom_DMA_3
- 1466:021E       _ClearCom_DMA_4
- 02D2:886D       _ClearFlashSeg
- 1543:0040       _ClearTxBuffer_1
- 15EC:001B       _ClearTxBuffer_2
- 13DB:003D       _ClearTxBuffer_3
- 1492:003F       _ClearTxBuffer_4
- 164C:0034       _ClearTxBuffer_5
- 16D3:0037       _ClearTxBuffer_6
- 175A:003A       _ClearTxBuffer_7
- 12AD:0000       _ClockHigh
- 12AD:000C       _ClockHighLow
- 12AD:001C       _ClockHighLow_1
- 12B0:0009       _ClockLow
- 1AF4:3733       _cnt_cbr
- 1AF4:3730       _cnt_ecosonic
- 1AF4:372F       _cnt_ecosonic_old
- 1AF4:372E       _cnt_init
- 1AF4:2F6C       _ComBase_1
- 1AF4:2FAE       _ComBase_2
- 1AF4:2FDC       _ComBase_5
- 1AF4:301C       _ComBase_6
- 1AF4:305C       _ComBase_7
- 1AF4:2F05       _ComData7_3
- 1AF4:2F4D       _ComData7_4
- 1AF4:2F72       _ComErr_1
- 1AF4:2FB4       _ComErr_2
- 1AF4:2FE2       _ComErr_5
- 1AF4:3022       _ComErr_6
- 1AF4:3062       _ComErr_7
- 1AF4:2F95       _ComFcr_1
- 1AF4:2FC5       _ComFcr_2
- 1AF4:3005       _ComFcr_5
- 1AF4:3045       _ComFcr_6
- 1AF4:3085       _ComFcr_7
- 1AF4:2F9A       _ComInCount_1
- 1AF4:2FCA       _ComInCount_2
- 1AF4:300A       _ComInCount_5
- 1AF4:304A       _ComInCount_6
- 1AF4:308A       _ComInCount_7
- 02D2:E0A9       _CommunnicLink
- 1AF4:2F9E       _ComOutCount_1
- 1AF4:2FCE       _ComOutCount_2
- 1AF4:300E       _ComOutCount_5
- 1AF4:304E       _ComOutCount_6
- 1AF4:308E       _ComOutCount_7
- 1AF4:3E68       _Config
- 02D2:4829       _ConfigParamChange
- 02D2:F30C       _ConfigSetToMMI
- 1AF4:0C6D       _conf_all
- 1AF4:03CB       _conf_basic
- 1AF4:0712       _conf_exp
- 1AF4:050C       _conf_icp
- 1AF4:01A8       _conf_main
- 1AF4:00BE       _conf_menu
- 1AF4:0450       _conf_select
- 02D2:4613       _ConvertToDec
+ 02D2:275B       _CalcNX19Koeff
+ 02D2:16E7       _CalcOrifNewC
+ 02D2:1984       _CalcOrifNewEgle
+ 02D2:1A92       _CalcOrifNewExpand
+ 02D2:1C57       _CalcOrifNewRougness
+ 02D2:2707       _CalcPpk
+ 02D2:3480       _CalcReinAnnubar
+ 02D2:26BE       _CalcSFactor
+ 02D2:2731       _CalcTpk
+ 02D2:C4D4       _CalculateMain
+ 02D2:343E       _CalcVelosity
+ 02D2:33A7       _CalcViscExt
+ 02D2:3311       _CalcViscosity
+ 1B12:0B6C       _carbForMmi
+ 1B12:1239       _carbon_dioxid
+ 1321:0009       _CheckCpuSpeed
+ 1562:0175       _CheckInputBufSize_1
+ 166A:0179       _CheckInputBufSize_5
+ 16F1:017C       _CheckInputBufSize_6
+ 1778:017F       _CheckInputBufSize_7
+ 1B12:379F       _checksum
+ 1562:015F       _CheckXonXoff_1
+ 13F9:00E5       _CheckXonXoff_3
+ 14B1:00D7       _CheckXonXoff_4
+ 166A:0163       _CheckXonXoff_5
+ 16F1:0166       _CheckXonXoff_6
+ 1778:0169       _CheckXonXoff_7
+ 13AA:000A       _Chk_Port
+ 02D2:8F27       _ClearArchive
+ 02D2:42A6       _ClearBuffer
+ 13AC:0002       _ClearCom
+ 1B12:2F3E       _ClearCom_
+ 1534:0006       _ClearCom_1
+ 15E3:000F       _ClearCom_2
+ 13CB:0008       _ClearCom_3
+ 1482:000A       _ClearCom_4
+ 1665:0000       _ClearCom_5
+ 16EC:0003       _ClearCom_6
+ 1773:0006       _ClearCom_7
+ 13CD:021F       _ClearCom_DMA_3
+ 1484:0221       _ClearCom_DMA_4
+ 02D2:8AA6       _ClearFlashSeg
+ 1562:0033       _ClearTxBuffer_1
+ 160A:001E       _ClearTxBuffer_2
+ 13F9:0040       _ClearTxBuffer_3
+ 14B1:0032       _ClearTxBuffer_4
+ 166A:0037       _ClearTxBuffer_5
+ 16F1:003A       _ClearTxBuffer_6
+ 1778:003D       _ClearTxBuffer_7
+ 12CB:0003       _ClockHigh
+ 12CB:000F       _ClockHighLow
+ 12CB:001F       _ClockHighLow_1
+ 12CE:000C       _ClockLow
+ 1B12:129D       _cnt_cbr
+ 1B12:12A0       _cnt_ecosonic
+ 1B12:12A1       _cnt_ecosonic_old
+ 1B12:380E       _cnt_init
+ 1B12:304E       _ComBase_1
+ 1B12:3090       _ComBase_2
+ 1B12:30BE       _ComBase_5
+ 1B12:30FE       _ComBase_6
+ 1B12:313E       _ComBase_7
+ 1B12:2FE7       _ComData7_3
+ 1B12:302F       _ComData7_4
+ 1B12:3054       _ComErr_1
+ 1B12:3096       _ComErr_2
+ 1B12:30C4       _ComErr_5
+ 1B12:3104       _ComErr_6
+ 1B12:3144       _ComErr_7
+ 1B12:3077       _ComFcr_1
+ 1B12:30A7       _ComFcr_2
+ 1B12:30E7       _ComFcr_5
+ 1B12:3127       _ComFcr_6
+ 1B12:3167       _ComFcr_7
+ 1B12:307C       _ComInCount_1
+ 1B12:30AC       _ComInCount_2
+ 1B12:30EC       _ComInCount_5
+ 1B12:312C       _ComInCount_6
+ 1B12:316C       _ComInCount_7
+ 02D2:E28C       _CommunnicLink
+ 1B12:3080       _ComOutCount_1
+ 1B12:30B0       _ComOutCount_2
+ 1B12:30F0       _ComOutCount_5
+ 1B12:3130       _ComOutCount_6
+ 1B12:3170       _ComOutCount_7
+ 1B12:3F35       _Config
+ 02D2:4987       _ConfigParamChange
+ 02D2:F4EF       _ConfigSetToMMI
+ 1B12:0CA5       _conf_all
+ 1B12:03CB       _conf_basic
+ 1B12:074A       _conf_exp
+ 1B12:0544       _conf_icp
+ 1B12:01A8       _conf_main
+ 1B12:00BE       _conf_menu
+ 1B12:0488       _conf_select
+ 02D2:4771       _ConvertToDec
  02D2:0184       _ConvLongToBynare
  02D2:01EF       _ConvLongToBynNew
  02D2:046B       _ConvToBynare
  02D2:03C7       _ConvToFloat
  02D2:0405       _ConvToFloatVerify
- 1AF4:4B2B       _coord
- 1AF4:2E3C       _CountDownTimer
- 1AF4:3748       _Counters
- 1AF4:0B13       _count_menu
- 1AF4:4B2A       _count_smb
- 1AF4:2F87       _CurCTS_1
- 1AF4:2FF7       _CurCTS_5
- 1AF4:3037       _CurCTS_6
- 1AF4:3077       _CurCTS_7
- 1AF4:4CBE       _CurMsr
- 1AF4:4CBC       _CurMsr_1
- 1AF4:4CD4       _CurMsr_5
- 1AF4:4CE0       _CurMsr_6
- 1AF4:4CEC       _CurMsr_7
- 1AF4:2F89       _CurRTS_1
- 1AF4:2FF9       _CurRTS_5
- 1AF4:3039       _CurRTS_6
- 1AF4:3079       _CurRTS_7
- 1AF4:4B74       _Cursor
- 13AF:01E0       _DataSizeInCom_DMA_3
- 1466:01E2       _DataSizeInCom_DMA_4
- 136E:000F       _Delay
- 02D2:4557       _DeleteKey
- 1AF4:0B2C       _densForMmi
- 1AF4:11ED       _density
- 1AF4:4087       _Device
- 02D2:24FD       _DiameterCorrectD
- 02D2:2440       _DiameterCorrectP
- 1AF4:4178       _Dio
- 1AF4:4B60       _Display
- 1AF4:0B16       _display_ver_mode
- 1AF4:3734       _dlt_tm
- 1AF4:2F96       _DoInputData_1
- 1AF4:2FC6       _DoInputData_2
- 1AF4:3006       _DoInputData_5
- 1AF4:3046       _DoInputData_6
- 1AF4:3086       _DoInputData_7
- 1AF4:0B14       _dot_flow
- 1AF4:0E05       _dyn_all
- 1AF4:010F       _dyn_set
- 1AF4:2DC0       _EE1_MultiRead
- 1AF4:2DC8       _EE1_MultiWrite
- 1AF4:2DB8       _EE1_RandomRead
- 1AF4:2DC4       _EE1_RandomWrite
- 1AF4:2DBC       _EE1_ReadNext
- 1AF4:2DD6       _EepAddrOffset
- 1AF4:2DD4       _EepBlockOffset
- 1AF4:2DD2       _EepType
- 1AF4:2DB4       _EE_ClockHighLow
- 1AF4:2DCE       _EE_Err
- 1327:0002       _EE_MultiRead
- 1331:0000       _EE_MultiWrite
- 133B:000E       _EE_RandomRead
- 1343:0001       _EE_RandomWrite
- 1310:0085       _EE_ReadAck
- 1310:00E1       _EE_ReadByte
- 1337:000E       _EE_ReadNext
- 1310:00A3       _EE_SendAck
- 1310:0050       _EE_Start
- 1310:0073       _EE_Stop
- 1326:000A       _EE_WriteEnable
- 1325:0003       _EE_WriteProtect
- 02D2:4598       _EnterFigure
- 02D2:4511       _EnterKey
- 1AF4:4B3D       _enter_ind
- 1AF4:36F9       _Err
- 1AF4:007F       _errno
- 1AF4:2EFE       _err_3
- 1AF4:2F46       _err_4
- 1AF4:11FD       _err_pnt
- 1AF4:009E       _etl
- 02D2:DE4C       _ExecuteInitialize
+ 1B12:4C2C       _coord
+ 1B12:2F1E       _CountDownTimer
+ 1B12:3815       _Counters
+ 1B12:0B4B       _count_menu
+ 1B12:4C2B       _count_smb
+ 1B12:3069       _CurCTS_1
+ 1B12:30D9       _CurCTS_5
+ 1B12:3119       _CurCTS_6
+ 1B12:3159       _CurCTS_7
+ 1B12:4DC0       _CurMsr
+ 1B12:4DBE       _CurMsr_1
+ 1B12:4DD6       _CurMsr_5
+ 1B12:4DE2       _CurMsr_6
+ 1B12:4DEE       _CurMsr_7
+ 1B12:306B       _CurRTS_1
+ 1B12:30DB       _CurRTS_5
+ 1B12:311B       _CurRTS_6
+ 1B12:315B       _CurRTS_7
+ 1B12:4C75       _Cursor
+ 13CD:01E3       _DataSizeInCom_DMA_3
+ 1484:01E5       _DataSizeInCom_DMA_4
+ 138D:0002       _Delay
+ 02D2:46B5       _DeleteKey
+ 1B12:0B64       _densForMmi
+ 1B12:123D       _density
+ 1B12:4188       _Device
+ 02D2:2601       _DiameterCorrectD
+ 02D2:2544       _DiameterCorrectP
+ 1B12:4279       _Dio
+ 1B12:4C61       _Display
+ 1B12:0B4E       _display_ver_mode
+ 1B12:129C       _dlt_tm
+ 1B12:3078       _DoInputData_1
+ 1B12:30A8       _DoInputData_2
+ 1B12:30E8       _DoInputData_5
+ 1B12:3128       _DoInputData_6
+ 1B12:3168       _DoInputData_7
+ 1B12:0B4C       _dot_flow
+ 1B12:0E51       _dyn_all
+ 1B12:010F       _dyn_set
+ 1B12:2EA2       _EE1_MultiRead
+ 1B12:2EAA       _EE1_MultiWrite
+ 1B12:2E9A       _EE1_RandomRead
+ 1B12:2EA6       _EE1_RandomWrite
+ 1B12:2E9E       _EE1_ReadNext
+ 1B12:2EB8       _EepAddrOffset
+ 1B12:2EB6       _EepBlockOffset
+ 1B12:2EB4       _EepType
+ 1B12:2E96       _EE_ClockHighLow
+ 1B12:2EB0       _EE_Err
+ 1345:0005       _EE_MultiRead
+ 134F:0003       _EE_MultiWrite
+ 135A:0001       _EE_RandomRead
+ 1361:0004       _EE_RandomWrite
+ 132E:0088       _EE_ReadAck
+ 132E:00E4       _EE_ReadByte
+ 1356:0001       _EE_ReadNext
+ 132E:00A6       _EE_SendAck
+ 132E:0053       _EE_Start
+ 132E:0076       _EE_Stop
+ 1344:000D       _EE_WriteEnable
+ 1343:0006       _EE_WriteProtect
+ 02D2:46F6       _EnterFigure
+ 02D2:466F       _EnterKey
+ 1B12:4C3E       _enter_ind
+ 1B12:37D9       _Err
+ 1B12:007F       _errno
+ 1B12:2FE0       _err_3
+ 1B12:3028       _err_4
+ 1B12:124D       _err_pnt
+ 1B12:009E       _etl
+ 02D2:E02F       _ExecuteInitialize
  0000:1612       _exit
  0000:110B       _exp
- 1AF4:3785       _Expand
- 1AF4:4B7A       _exp_const
- 1AF4:4BCA       _exp_dyn
- 1AF4:123D       _exp_size_prm
+ 1B12:3852       _Expand
+ 1B12:4C7B       _exp_const
+ 1B12:4CCB       _exp_dyn
+ 1B12:128D       _exp_size_prm
  0000:05F6       _fabs
  0000:1F1F       _farfree
  0000:2033       _farmalloc
  0000:2197       _farrealloc
- 1AF4:2DDA       _fCheck
- 1AF4:2F83       _fCtsControlMode_1
- 1AF4:2FF3       _fCtsControlMode_5
- 1AF4:3033       _fCtsControlMode_6
- 1AF4:3073       _fCtsControlMode_7
+ 1B12:2EBC       _fCheck
+ 1B12:3065       _fCtsControlMode_1
+ 1B12:30D5       _fCtsControlMode_5
+ 1B12:3115       _fCtsControlMode_6
+ 1B12:3155       _fCtsControlMode_7
  0000:2380       _fflush
- 1AF4:11E3       _firstPass
- 1AF4:11F1       _flagScript
- 1AF4:11F2       _flagS_diff
- 1AF4:11F3       _flagS_press
- 1AF4:11F4       _flagS_tempr
- 1AF4:0094       _flag_mode_verif
- 134E:0020       _FlashCmd
- 1348:0008       _FlashErase
- 1AF4:2DDE       _FlashId
- 1365:000D       _FlashReadB
- 1365:001D       _FlashReadI
- 134E:010D       _FlashReadId
- 1365:002D       _FlashReadL
- 134E:0039       _FlashResetToReadMode
- 1AF4:2DE0       _FlashSize
- 134E:000A       _FlashUnlock
- 1368:000F       _FlashWrite
- 1AF4:3736       _flg_arc_clr
- 1AF4:3739       _flg_arc_d
- 1AF4:373A       _flg_arc_h
- 1AF4:373C       _flg_auto
- 1AF4:36C7       _flg_err
- 1AF4:4B39       _flg_init
- 1AF4:373B       _flg_init_arc
- 1AF4:3738       _flg_min
- 1AF4:4B29       _flg_modem
- 1AF4:373D       _flg_month
- 1AF4:3737       _flg_sec
- 02D2:4163       _FloatToString
+ 1B12:1233       _firstPass
+ 1B12:1241       _flagScript
+ 1B12:1242       _flagS_diff
+ 1B12:1243       _flagS_press
+ 1B12:1244       _flagS_tempr
+ 1B12:0094       _flag_mode_verif
+ 136C:0023       _FlashCmd
+ 1366:000B       _FlashErase
+ 1B12:2EC0       _FlashId
+ 1384:0000       _FlashReadB
+ 1384:0010       _FlashReadI
+ 136C:0110       _FlashReadId
+ 1384:0020       _FlashReadL
+ 136C:003C       _FlashResetToReadMode
+ 1B12:2EC2       _FlashSize
+ 136C:000D       _FlashUnlock
+ 1387:0002       _FlashWrite
+ 1B12:129A       _flg_arc_clr
+ 1B12:1297       _flg_arc_d
+ 1B12:1296       _flg_arc_h
+ 1B12:1294       _flg_auto
+ 1B12:37A7       _flg_err
+ 1B12:4C3A       _flg_init
+ 1B12:1295       _flg_init_arc
+ 1B12:1298       _flg_min
+ 1B12:4C2A       _flg_modem
+ 1B12:1293       _flg_month
+ 1B12:1299       _flg_sec
+ 02D2:42C1       _FloatToString
  02D2:0682       _FloatToText
  0000:1179       _floor
  0000:244D       _flushall
- 02D2:38D3       _FormateArchive
+ 02D2:3A31       _FormateArchive
  02D2:087C       _FormateEvent
  0000:248F       _fprintf
  0000:2688       _fputc
  0000:281B       _fputchar
  0000:1F1F       _free
- 1AF4:2F85       _fRtsControlMode_1
- 1AF4:2FF5       _fRtsControlMode_5
- 1AF4:3035       _fRtsControlMode_6
- 1AF4:3075       _fRtsControlMode_7
+ 1B12:3067       _fRtsControlMode_1
+ 1B12:30D7       _fRtsControlMode_5
+ 1B12:3117       _fRtsControlMode_6
+ 1B12:3157       _fRtsControlMode_7
  0000:252D       _fseek
  0000:25AD       _ftell
  0000:0605       _gcvt
- 02D2:CE80       _GetAllDescript
+ 02D2:D063       _GetAllDescript
  02D2:000B       _GetArcPoint
- 02D2:4657       _GetArcReadPoint
- 02D2:A9F3       _GetDataEcoSonic
- 12C9:0002       _GetDate
- 02D2:89C1       _GetDateTime
- 17D1:006F       _GetDio14
- 15EC:00C3       _GetInputBufFreeSize
- 1543:00E8       _GetInputBufFreeSize_1
- 164C:00DC       _GetInputBufFreeSize_5
- 16D3:00DF       _GetInputBufFreeSize_6
- 175A:00E2       _GetInputBufFreeSize_7
- 02D2:D84B       _GetModuleAin
- 02D2:DAD5       _GetModuleAout
- 02D2:DCCB       _GetModuleCounters
- 02D2:DC81       _GetModuleDio
- 17D8:020D       _GetSerialNumber
- 12CD:000F       _GetTime
- 12D4:0006       _GetTimeDate
- 1543:0059       _GetTxBufferFreeSize_1
- 15EC:0034       _GetTxBufferFreeSize_2
- 13DB:0049       _GetTxBufferFreeSize_3
- 1492:004B       _GetTxBufferFreeSize_4
- 164C:004D       _GetTxBufferFreeSize_5
- 16D3:0050       _GetTxBufferFreeSize_6
- 175A:0053       _GetTxBufferFreeSize_7
- 02D2:CE00       _GetValuesScale
- 12C9:0034       _GetWeekDay
- 02D2:3D44       _GoToMenuMMI
- 1AF4:309C       _hex_to_ascii
- 1AF4:4B3F       _Horizont
- 1AF4:3E5D       _Host
- 1AF4:373E       _icp_lnt
- 1AF4:3731       _icp_pool
- 1AF4:372B       _icp_wr
- 1AF4:2EE2       _In7188Buf_3
- 1AF4:2F2A       _In7188Buf_4
- 1AF4:2EEE       _InBeginIdx_3
- 1AF4:2F36       _InBeginIdx_4
- 1AF4:2F7B       _InBufSize_1
- 1AF4:2FBD       _InBufSize_2
- 1AF4:2EEA       _InBufSize_3
- 1AF4:2F32       _InBufSize_4
- 1AF4:2FEB       _InBufSize_5
- 1AF4:302B       _InBufSize_6
- 1AF4:306B       _InBufSize_7
- 1AF4:2F73       _InData_1
- 1AF4:2FB5       _InData_2
- 1AF4:2FE3       _InData_5
- 1AF4:3023       _InData_6
- 1AF4:3063       _InData_7
- 1AF4:00B4       _ind_accum
- 1AF4:3740       _ind_dsp
- 1AF4:36C6       _ind_err
- 1AF4:00A8       _ind_prm_alm
- 1AF4:1239       _ind_rst
- 1AF4:2EF0       _InEndIdx_3
- 1AF4:2F38       _InEndIdx_4
- 1AF4:2F6E       _InInIdx_1
- 1AF4:2FB0       _InInIdx_2
- 1AF4:2FDE       _InInIdx_5
- 1AF4:301E       _InInIdx_6
- 1AF4:305E       _InInIdx_7
- 02D2:1347       _InitArchive
+ 02D2:47B5       _GetArcReadPoint
+ 02D2:AC2C       _GetDataEcoSonic
+ 12E7:0005       _GetDate
+ 02D2:8BFA       _GetDateTime
+ 17EF:0072       _GetDio14
+ 160A:00C6       _GetInputBufFreeSize
+ 1562:00DB       _GetInputBufFreeSize_1
+ 166A:00DF       _GetInputBufFreeSize_5
+ 16F1:00E2       _GetInputBufFreeSize_6
+ 1778:00E5       _GetInputBufFreeSize_7
+ 02D2:DA2E       _GetModuleAin
+ 02D2:DCB8       _GetModuleAout
+ 02D2:DEAE       _GetModuleCounters
+ 02D2:DE64       _GetModuleDio
+ 17F6:0210       _GetSerialNumber
+ 12EC:0002       _GetTime
+ 12F2:0009       _GetTimeDate
+ 1562:004C       _GetTxBufferFreeSize_1
+ 160A:0037       _GetTxBufferFreeSize_2
+ 13F9:004C       _GetTxBufferFreeSize_3
+ 14B1:003E       _GetTxBufferFreeSize_4
+ 166A:0050       _GetTxBufferFreeSize_5
+ 16F1:0053       _GetTxBufferFreeSize_6
+ 1778:0056       _GetTxBufferFreeSize_7
+ 02D2:CFE3       _GetValuesScale
+ 12E7:0037       _GetWeekDay
+ 02D2:3EA2       _GoToMenuMMI
+ 1B12:317E       _hex_to_ascii
+ 1B12:4C40       _Horizont
+ 1B12:3F2A       _Host
+ 1B12:129F       _icp_pool
+ 1B12:380B       _icp_wr
+ 1B12:2FC4       _In7188Buf_3
+ 1B12:300C       _In7188Buf_4
+ 1B12:2FD0       _InBeginIdx_3
+ 1B12:3018       _InBeginIdx_4
+ 1B12:305D       _InBufSize_1
+ 1B12:309F       _InBufSize_2
+ 1B12:2FCC       _InBufSize_3
+ 1B12:3014       _InBufSize_4
+ 1B12:30CD       _InBufSize_5
+ 1B12:310D       _InBufSize_6
+ 1B12:314D       _InBufSize_7
+ 1B12:3055       _InData_1
+ 1B12:3097       _InData_2
+ 1B12:30C5       _InData_5
+ 1B12:3105       _InData_6
+ 1B12:3145       _InData_7
+ 1B12:00B4       _ind_accum
+ 1B12:1292       _ind_dsp
+ 1B12:37A6       _ind_err
+ 1B12:00A8       _ind_prm_alm
+ 1B12:1289       _ind_rst
+ 1B12:2FD2       _InEndIdx_3
+ 1B12:301A       _InEndIdx_4
+ 1B12:3050       _InInIdx_1
+ 1B12:3092       _InInIdx_2
+ 1B12:30C0       _InInIdx_5
+ 1B12:3100       _InInIdx_6
+ 1B12:3140       _InInIdx_7
+ 02D2:144B       _InitArchive
  02D2:0EFE       _InitBasicStruct
- 02D2:A119       _InitializeMain
- 1303:00C1       _InitLib
- 02D2:8EBD       _InitModem
- 02D2:916C       _InitModuleOutStruct
- 02D2:8F2D       _InitModuleStruct
+ 02D2:A352       _InitializeMain
+ 1321:00C4       _InitLib
+ 02D2:90F6       _InitModem
+ 02D2:93A5       _InitModuleOutStruct
+ 02D2:9166       _InitModuleStruct
  02D2:0BC7       _InitStationStruct
- 1AF4:2F70       _InOutIdx_1
- 1AF4:2FB2       _InOutIdx_2
- 1AF4:2FE0       _InOutIdx_5
- 1AF4:3020       _InOutIdx_6
- 1AF4:3060       _InOutIdx_7
- 1390:0005       _InstallCom
- 1543:015A       _InstallComInputData_1
- 15EC:010F       _InstallComInputData_2
- 13DB:00D0       _InstallComInputData_3
- 1492:00D2       _InstallComInputData_4
- 164C:014E       _InstallComInputData_5
- 16D3:0151       _InstallComInputData_6
- 175A:0154       _InstallComInputData_7
- 1AF4:2E7C       _InstallCom_
- 1543:0501       _InstallCom_1
- 15EC:02AB       _InstallCom_2
- 13DB:02E2       _InstallCom_3
- 1492:02E4       _InstallCom_4
- 164C:04F5       _InstallCom_5
- 16D3:04F8       _InstallCom_6
- 175A:04FB       _InstallCom_7
- 13AF:00A1       _InstallCom_DMA_3
- 1466:00A3       _InstallCom_DMA_4
- 1372:0039       _Int1CIsr
- 1372:0004       _Int9Isr
- 02D2:4468       _IntegerToString
- 1AF4:2D96       _IntVect
+ 1B12:3052       _InOutIdx_1
+ 1B12:3094       _InOutIdx_2
+ 1B12:30C2       _InOutIdx_5
+ 1B12:3102       _InOutIdx_6
+ 1B12:3142       _InOutIdx_7
+ 13AE:0008       _InstallCom
+ 1562:014D       _InstallComInputData_1
+ 160A:0112       _InstallComInputData_2
+ 13F9:00D3       _InstallComInputData_3
+ 14B1:00C5       _InstallComInputData_4
+ 166A:0151       _InstallComInputData_5
+ 16F1:0154       _InstallComInputData_6
+ 1778:0157       _InstallComInputData_7
+ 1B12:2F5E       _InstallCom_
+ 1562:04F4       _InstallCom_1
+ 160A:02AE       _InstallCom_2
+ 13F9:02E5       _InstallCom_3
+ 14B1:02D7       _InstallCom_4
+ 166A:04F8       _InstallCom_5
+ 16F1:04FB       _InstallCom_6
+ 1778:04FE       _InstallCom_7
+ 13CD:00A4       _InstallCom_DMA_3
+ 1484:00A6       _InstallCom_DMA_4
+ 1390:003C       _Int1CIsr
+ 1390:0007       _Int9Isr
+ 02D2:45C6       _IntegerToString
+ 1B12:2E78       _IntVect
  0000:171F       _isatty
- 1530:0004       _IsComOutBufEmpty_1
- 15DC:0007       _IsComOutBufEmpty_2
- 1426:0007       _IsComOutBufEmpty_3
- 14DD:0009       _IsComOutBufEmpty_4
- 164B:0004       _IsComOutBufEmpty_5
- 16D2:0007       _IsComOutBufEmpty_6
- 1759:000A       _IsComOutBufEmpty_7
- 152E:0009       _IsCom_1
- 15DA:000C       _IsCom_2
- 13D9:0003       _IsCom_3
- 1490:0005       _IsCom_4
- 13AF:023B       _IsCom_DMA_3
- 1466:023D       _IsCom_DMA_4
- 12E0:0005       _IsLeapYear
- 15B3:0009       _IsTxBufEmpty_1
- 1634:000A       _IsTxBufEmpty_2
- 144D:0004       _IsTxBufEmpty_3
- 1504:0006       _IsTxBufEmpty_4
- 16BB:000D       _IsTxBufEmpty_5
- 1743:0000       _IsTxBufEmpty_6
- 17CA:0003       _IsTxBufEmpty_7
- 02D2:40E6       _KeyFound
- 1AF4:0B20       _k_compress
- 1AF4:1203       _lnt_mvs
+ 154E:0007       _IsComOutBufEmpty_1
+ 15FA:000A       _IsComOutBufEmpty_2
+ 1444:000A       _IsComOutBufEmpty_3
+ 14FB:000C       _IsComOutBufEmpty_4
+ 1669:0007       _IsComOutBufEmpty_5
+ 16F0:000A       _IsComOutBufEmpty_6
+ 1777:000D       _IsComOutBufEmpty_7
+ 154C:000C       _IsCom_1
+ 15F8:000F       _IsCom_2
+ 13F7:0006       _IsCom_3
+ 14AE:0008       _IsCom_4
+ 13CD:023E       _IsCom_DMA_3
+ 1484:0240       _IsCom_DMA_4
+ 12FE:0008       _IsLeapYear
+ 15D1:000C       _IsTxBufEmpty_1
+ 1652:000D       _IsTxBufEmpty_2
+ 146B:0007       _IsTxBufEmpty_3
+ 1522:0009       _IsTxBufEmpty_4
+ 16DA:0000       _IsTxBufEmpty_5
+ 1761:0003       _IsTxBufEmpty_6
+ 17E8:0006       _IsTxBufEmpty_7
+ 02D2:4244       _KeyFound
+ 1B12:0B58       _k_compress
+ 1B12:1253       _lnt_mvs
  0000:143C       _log
  0000:1193       _log10
- 1387:000D       _LongDiv
- 1AF4:2F53       _LossCnt_0_4
- 1AF4:2F0F       _LossCnt_1_3
- 1AF4:2F57       _LossCnt_1_4
- 1AF4:2F13       _LossCnt_2_3
- 1AF4:2F5B       _LossCnt_2_4
- 1AF4:2F0B       _LossCnt__3
+ 13A6:0000       _LongDiv
+ 1B12:3035       _LossCnt_0_4
+ 1B12:2FF1       _LossCnt_1_3
+ 1B12:3039       _LossCnt_1_4
+ 1B12:2FF5       _LossCnt_2_3
+ 1B12:303D       _LossCnt_2_4
+ 1B12:2FED       _LossCnt__3
  0000:17D2       _lseek
- 1AF4:2FAA       _LsrError_1
- 1AF4:2FDA       _LsrError_2
- 1AF4:301A       _LsrError_5
- 1AF4:305A       _LsrError_6
- 1AF4:309A       _LsrError_7
- 02D2:6D48       _main
- 1AF4:00EE       _main_dyn
- 1AF4:038B       _main_select
+ 1B12:308C       _LsrError_1
+ 1B12:30BC       _LsrError_2
+ 1B12:30FC       _LsrError_5
+ 1B12:313C       _LsrError_6
+ 1B12:317C       _LsrError_7
+ 02D2:6EA6       _main
+ 1B12:00EE       _main_dyn
+ 1B12:038B       _main_select
  0000:2029       _malloc
  0000:109F       _matherr
- 1AF4:2D76       _MaxDay
- 1AF4:36C4       _Max_exp_mmi
- 1AF4:1229       _mb_page
+ 1B12:2E58       _MaxDay
+ 1B12:37A4       _Max_exp_mmi
+ 1B12:1279       _mb_page
  0000:2605       _memcpy
  0000:264D       _memset
- 1AF4:4B23       _mmi_adr
- 1AF4:4B27       _mmi_arc
- 1AF4:4B3A       _mmi_arc_page
- 1AF4:3732       _mmi_flg_ver
- 1AF4:4B3C       _mmi_num_sel
- 1AF4:4B3E       _mmi_pass
- 1AF4:373F       _mmi_pool
- 1AF4:4B25       _mmi_seg
- 1AF4:4B04       _mmi_sel
- 1AF4:4B3B       _mmi_size
- 1AF4:4B42       _mmi_str
- 1AF4:4B33       _mmi_val
- 1AF4:4C92       _Modbus
+ 1B12:4C24       _mmi_adr
+ 1B12:4C28       _mmi_arc
+ 1B12:4C3B       _mmi_arc_page
+ 1B12:129E       _mmi_flg_ver
+ 1B12:4C3D       _mmi_num_sel
+ 1B12:4C3F       _mmi_pass
+ 1B12:4C26       _mmi_seg
+ 1B12:4C05       _mmi_sel
+ 1B12:4C3C       _mmi_size
+ 1B12:4C43       _mmi_str
+ 1B12:4C34       _mmi_val
+ 1B12:4D93       _Modbus
  0000:120F       _modf
- 02D2:46ED       _MoveCursorMMI
- 02D2:4910       _MoveListMMI
- 1AF4:36C5       _musor
- 1AF4:1223       _mvs_cbr
- 1AF4:3742       _mvs_cmd
- 1AF4:1213       _mvs_rd
- 1AF4:1218       _mvs_rdl
- 1AF4:3744       _mvs_val
- 1AF4:121D       _mvs_wr
- 02D2:7E72       _MyTimer
- 1AF4:11C5       _name_arch
- 1AF4:1207       _name_icp
- 1AF4:0F21       _name_mmi_exp
- 1AF4:11AD       _name_mmi_select
- 1AF4:0FC1       _name_sel_all
- 1AF4:2F92       _NeedXoff_1
- 1AF4:2EFB       _NeedXoff_3
- 1AF4:2F43       _NeedXoff_4
- 1AF4:3002       _NeedXoff_5
- 1AF4:3042       _NeedXoff_6
- 1AF4:3082       _NeedXoff_7
- 1AF4:0B30       _nitrForMmi
- 1AF4:11E5       _nitrogen
- 1AF4:0B12       _OK
- 1AF4:2E08       _OldInt09Isr
- 1AF4:2E0C       _OldInt1CIsr
- 1AF4:2F01       _OldVectA
- 1AF4:2F49       _OldVectB
- 1AF4:0B18       _operating_flow
- 1AF4:2EE6       _Out7188Buf_3
- 1AF4:2F2E       _Out7188Buf_4
- 1AF4:2EF2       _OutBeginIdx_3
- 1AF4:2F3A       _OutBeginIdx_4
- 1AF4:2F7D       _OutBufSize_1
- 1AF4:2FBF       _OutBufSize_2
- 1AF4:2EEC       _OutBufSize_3
- 1AF4:2F34       _OutBufSize_4
- 1AF4:2FED       _OutBufSize_5
- 1AF4:302D       _OutBufSize_6
- 1AF4:306D       _OutBufSize_7
- 1AF4:2F77       _OutData_1
- 1AF4:2FB9       _OutData_2
- 1AF4:2FE7       _OutData_5
- 1AF4:3027       _OutData_6
- 1AF4:3067       _OutData_7
- 1AF4:2EF4       _OutEndIdx_3
- 1AF4:2F3C       _OutEndIdx_4
- 1AF4:2F7F       _OutInIdx_1
- 1AF4:2FC1       _OutInIdx_2
- 1AF4:2FEF       _OutInIdx_5
- 1AF4:302F       _OutInIdx_6
- 1AF4:306F       _OutInIdx_7
- 1AF4:2F81       _OutOutIdx_1
- 1AF4:2FC3       _OutOutIdx_2
- 1AF4:2FF1       _OutOutIdx_5
- 1AF4:3031       _OutOutIdx_6
- 1AF4:3071       _OutOutIdx_7
- 1AF4:0B10       _page_clear
- 02D2:3CE2       _page_screen
- 1AF4:0B11       _page_str_pass
- 1AF4:4B79       _page_temporary
- 1AF4:46F0       _Port
+ 02D2:484B       _MoveCursorMMI
+ 02D2:4A6E       _MoveListMMI
+ 1B12:37A5       _musor
+ 1B12:1273       _mvs_cbr
+ 1B12:380F       _mvs_cmd
+ 1B12:1263       _mvs_rd
+ 1B12:1268       _mvs_rdl
+ 1B12:3811       _mvs_val
+ 1B12:126D       _mvs_wr
+ 02D2:80AB       _MyTimer
+ 1B12:1215       _name_arch
+ 1B12:1257       _name_icp
+ 1B12:0F6D       _name_mmi_exp
+ 1B12:11FD       _name_mmi_select
+ 1B12:1011       _name_sel_all
+ 1B12:3074       _NeedXoff_1
+ 1B12:2FDD       _NeedXoff_3
+ 1B12:3025       _NeedXoff_4
+ 1B12:30E4       _NeedXoff_5
+ 1B12:3124       _NeedXoff_6
+ 1B12:3164       _NeedXoff_7
+ 1B12:0B68       _nitrForMmi
+ 1B12:1235       _nitrogen
+ 1B12:0B4A       _OK
+ 1B12:2EEA       _OldInt09Isr
+ 1B12:2EEE       _OldInt1CIsr
+ 1B12:2FE3       _OldVectA
+ 1B12:302B       _OldVectB
+ 1B12:0B50       _operating_flow
+ 1B12:2FC8       _Out7188Buf_3
+ 1B12:3010       _Out7188Buf_4
+ 1B12:2FD4       _OutBeginIdx_3
+ 1B12:301C       _OutBeginIdx_4
+ 1B12:305F       _OutBufSize_1
+ 1B12:30A1       _OutBufSize_2
+ 1B12:2FCE       _OutBufSize_3
+ 1B12:3016       _OutBufSize_4
+ 1B12:30CF       _OutBufSize_5
+ 1B12:310F       _OutBufSize_6
+ 1B12:314F       _OutBufSize_7
+ 1B12:3059       _OutData_1
+ 1B12:309B       _OutData_2
+ 1B12:30C9       _OutData_5
+ 1B12:3109       _OutData_6
+ 1B12:3149       _OutData_7
+ 1B12:2FD6       _OutEndIdx_3
+ 1B12:301E       _OutEndIdx_4
+ 1B12:3061       _OutInIdx_1
+ 1B12:30A3       _OutInIdx_2
+ 1B12:30D1       _OutInIdx_5
+ 1B12:3111       _OutInIdx_6
+ 1B12:3151       _OutInIdx_7
+ 1B12:3063       _OutOutIdx_1
+ 1B12:30A5       _OutOutIdx_2
+ 1B12:30D3       _OutOutIdx_5
+ 1B12:3113       _OutOutIdx_6
+ 1B12:3153       _OutOutIdx_7
+ 1B12:0B48       _page_clear
+ 02D2:3E40       _page_screen
+ 1B12:0B49       _page_str_pass
+ 1B12:4C7A       _page_temporary
+ 1B12:47F1       _Port
  0000:12AF       _pow
  0000:1094       _pow10
- 1AF4:0B28       _pressure
- 02D2:4347       _PrintValue
- 1AF4:36A8       _proba
- 1AF4:2DD8       _ProtectMode
- 1AF4:407C       _Prt
- 1AF4:0C3C       _psw
- 1AF4:2F07       _Rcnt_3
- 1AF4:2F4F       _Rcnt_4
- 02D2:DFE6       _ReadCodeScript
- 13AF:012C       _ReadComn_DMA_3
- 1466:012E       _ReadComn_DMA_4
- 1531:0001       _ReadCom_1
- 15DD:0004       _ReadCom_2
- 1427:0004       _ReadCom_3
- 14DE:0006       _ReadCom_4
- 13AF:024A       _ReadCom_DMA_3
- 1466:024C       _ReadCom_DMA_4
- 02D2:CBD4       _ReadConfigModbus
- 02D2:C6CB       _ReadFromArchive
- 02D2:A7EA       _ReadFromEcoSonic
- 02D2:C9B1       _ReadFromEvents
- 02D2:B298       _ReadFromICP
- 02D2:C8B5       _ReadFromMinArch
- 02D2:4A83       _ReadFromMMI
- 12D1:0002       _ReadNVRAM
- 12B1:0070       _ReadRTC
- 12B1:00EC       _ReadRTC_Burst
+ 1B12:0B60       _pressure
+ 02D2:44A5       _PrintValue
+ 1B12:3788       _proba
+ 1B12:2EBA       _ProtectMode
+ 1B12:417D       _Prt
+ 1B12:0C74       _psw
+ 1B12:2FE9       _Rcnt_3
+ 1B12:3031       _Rcnt_4
+ 02D2:E1C9       _ReadCodeScript
+ 13CD:012F       _ReadComn_DMA_3
+ 1484:0131       _ReadComn_DMA_4
+ 154F:0004       _ReadCom_1
+ 15FB:0007       _ReadCom_2
+ 1445:0007       _ReadCom_3
+ 14FC:0009       _ReadCom_4
+ 13CD:024D       _ReadCom_DMA_3
+ 1484:024F       _ReadCom_DMA_4
+ 02D2:CDB7       _ReadConfigModbus
+ 02D2:C8AE       _ReadFromArchive
+ 02D2:AA23       _ReadFromEcoSonic
+ 02D2:CB94       _ReadFromEvents
+ 02D2:B4D1       _ReadFromICP
+ 02D2:CA98       _ReadFromMinArch
+ 02D2:4BE1       _ReadFromMMI
+ 12EF:0005       _ReadNVRAM
+ 12CF:0073       _ReadRTC
+ 12CF:00EF       _ReadRTC_Burst
  0000:2190       _realloc
- 1AF4:36C3       _Real_exp_dyn
- 1AF4:2F91       _ReceiveXoff_1
- 1AF4:2EFA       _ReceiveXoff_3
- 1AF4:2F42       _ReceiveXoff_4
- 1AF4:3001       _ReceiveXoff_5
- 1AF4:3041       _ReceiveXoff_6
- 1AF4:3081       _ReceiveXoff_7
- 12AB:0006       _RefreshWDT
- 02D2:CD2C       _ReinstallPort
- 1AF4:2D92       _ResetMode
- 02D2:934B       _RestoreBasicParameters
- 1543:0671       _RestoreCom_1
- 15EC:03F2       _RestoreCom_2
- 13DB:0413       _RestoreCom_3
- 1492:0415       _RestoreCom_4
- 164C:0665       _RestoreCom_5
- 16D3:0668       _RestoreCom_6
- 175A:066B       _RestoreCom_7
- 02D2:9585       _RestoreExpandParameters
- 02D2:98A7       _RestoreSetAlarmsAIN
- 02D2:9733       _RestoreSetAlarmsMVS
- 02D2:47D4       _ReturnToMenuMMI
- 02D2:19EF       _RoundFloat
- 02D2:1A7D       _RoundToTwo
- 02D2:FC5E       _SaveExpParams
- 02D2:3D2C       _SaveOldPageMMI
- 02D2:FB5E       _SaveParameters
- 1AF4:3768       _Script
- 02D2:80FD       _ScriptArgumentSelect
- 02D2:8374       _ScriptOperateExecution
- 1AF4:2DE2       _SectorSize256
- 1AF4:2DEE       _SectorSize512
+ 1B12:37A3       _Real_exp_dyn
+ 1B12:3073       _ReceiveXoff_1
+ 1B12:2FDC       _ReceiveXoff_3
+ 1B12:3024       _ReceiveXoff_4
+ 1B12:30E3       _ReceiveXoff_5
+ 1B12:3123       _ReceiveXoff_6
+ 1B12:3163       _ReceiveXoff_7
+ 12C9:0009       _RefreshWDT
+ 02D2:CF0F       _ReinstallPort
+ 1B12:2E74       _ResetMode
+ 02D2:9584       _RestoreBasicParameters
+ 1562:0664       _RestoreCom_1
+ 160A:03F5       _RestoreCom_2
+ 13F9:0416       _RestoreCom_3
+ 14B1:0408       _RestoreCom_4
+ 166A:0668       _RestoreCom_5
+ 16F1:066B       _RestoreCom_6
+ 1778:066E       _RestoreCom_7
+ 02D2:97BE       _RestoreExpandParameters
+ 02D2:9AE0       _RestoreSetAlarmsAIN
+ 02D2:996C       _RestoreSetAlarmsMVS
+ 02D2:4932       _ReturnToMenuMMI
+ 02D2:1AF3       _RoundFloat
+ 02D2:1B81       _RoundToTwo
+ 02D2:FE41       _SaveExpParams
+ 02D2:3E8A       _SaveOldPageMMI
+ 02D2:FD41       _SaveParameters
+ 1B12:3835       _Script
+ 02D2:8336       _ScriptArgumentSelect
+ 02D2:85AD       _ScriptOperateExecution
+ 1B12:2EC4       _SectorSize256
+ 1B12:2ED0       _SectorSize512
  02D2:0539       _SecurityConvert
- 02D2:BAAE       _SelectSensor
- 1AF4:00B8       _sel_units
- 02D2:A6D9       _SendToEcoSonic
- 02D2:AB86       _SendToICP
- 02D2:3D7E       _SendToMMI
- 1AF4:2F93       _SendXoff_1
- 1AF4:2EFC       _SendXoff_3
- 1AF4:2F44       _SendXoff_4
- 1AF4:3003       _SendXoff_5
- 1AF4:3043       _SendXoff_6
- 1AF4:3083       _SendXoff_7
- 1AF4:446C       _Sensor
- 13DB:00F8       _Serial_Isr_3
- 1492:00FA       _Serial_Isr_4
- 1AF4:36B7       _serial_num
- 1507:0005       _SetBaudrate_1
- 15B6:000E       _SetBaudrate_2
- 1399:0001       _SetBaudrate_3
- 1450:0003       _SetBaudrate_4
- 1637:000F       _SetBaudrate_5
- 16BF:0002       _SetBaudrate_6
- 1746:0005       _SetBaudrate_7
+ 02D2:BD47       _SelectSensor
+ 1B12:00B8       _sel_units
+ 02D2:A912       _SendToEcoSonic
+ 02D2:ADBF       _SendToICP
+ 02D2:3EDC       _SendToMMI
+ 1B12:3075       _SendXoff_1
+ 1B12:2FDE       _SendXoff_3
+ 1B12:3026       _SendXoff_4
+ 1B12:30E5       _SendXoff_5
+ 1B12:3125       _SendXoff_6
+ 1B12:3165       _SendXoff_7
+ 1B12:456D       _Sensor
+ 13F9:00FB       _Serial_Isr_3
+ 14B1:00ED       _Serial_Isr_4
+ 1B12:3797       _serial_num
+ 1525:0008       _SetBaudrate_1
+ 15D5:0001       _SetBaudrate_2
+ 13B7:0004       _SetBaudrate_3
+ 146E:0006       _SetBaudrate_4
+ 1656:0002       _SetBaudrate_5
+ 16DD:0005       _SetBaudrate_6
+ 1764:0008       _SetBaudrate_7
  0000:2364       _setblock
  02D2:0AD4       _SetClearAlarms
- 02D2:A08B       _SetClearAlarmsAIN
- 02D2:9D33       _SetClearAlarmsMVS
+ 02D2:A2C4       _SetClearAlarmsAIN
+ 02D2:9F6C       _SetClearAlarmsMVS
  02D2:08CF       _SetClearAlarmsPrm
- 02D2:9DC0       _SetClearAlarmsPrmAIN
- 1543:0070       _SetComFifoTriggerLevel_1
- 15EC:004B       _SetComFifoTriggerLevel_2
- 164C:0064       _SetComFifoTriggerLevel_5
- 16D3:0067       _SetComFifoTriggerLevel_6
- 175A:006A       _SetComFifoTriggerLevel_7
- 1543:0018       _SetComPortBufferSize_1
- 15EC:000A       _SetComPortBufferSize_2
- 13DB:0016       _SetComPortBufferSize_3
- 1492:0018       _SetComPortBufferSize_4
- 164C:000C       _SetComPortBufferSize_5
- 16D3:000F       _SetComPortBufferSize_6
- 175A:0012       _SetComPortBufferSize_7
- 15E1:0005       _SetComTimeout
- 1537:000A       _SetComTimeout_1
- 1443:0004       _SetComTimeout_3
- 14FA:0006       _SetComTimeout_4
- 1507:0062       _SetDataFormat_1
- 15B6:006B       _SetDataFormat_2
- 1399:0060       _SetDataFormat_3
- 1450:0062       _SetDataFormat_4
- 1637:006C       _SetDataFormat_5
- 16BF:005F       _SetDataFormat_6
- 1746:0062       _SetDataFormat_7
- 12E0:0041       _SetDate
- 17D1:0008       _SetDio14Dir
- 17D1:0057       _SetDio14High
- 17D1:0063       _SetDio14Low
- 02D2:3D17       _SetDisplayPage
- 02D2:8A36       _SetExpandDescript
+ 02D2:9FF9       _SetClearAlarmsPrmAIN
+ 1562:0063       _SetComFifoTriggerLevel_1
+ 160A:004E       _SetComFifoTriggerLevel_2
+ 166A:0067       _SetComFifoTriggerLevel_5
+ 16F1:006A       _SetComFifoTriggerLevel_6
+ 1778:006D       _SetComFifoTriggerLevel_7
+ 1562:000B       _SetComPortBufferSize_1
+ 160A:000D       _SetComPortBufferSize_2
+ 13F9:0019       _SetComPortBufferSize_3
+ 14B1:000B       _SetComPortBufferSize_4
+ 166A:000F       _SetComPortBufferSize_5
+ 16F1:0012       _SetComPortBufferSize_6
+ 1778:0015       _SetComPortBufferSize_7
+ 15FF:0008       _SetComTimeout
+ 1555:000D       _SetComTimeout_1
+ 1461:0007       _SetComTimeout_3
+ 1518:0009       _SetComTimeout_4
+ 1525:0065       _SetDataFormat_1
+ 15D5:005E       _SetDataFormat_2
+ 13B7:0063       _SetDataFormat_3
+ 146E:0065       _SetDataFormat_4
+ 1656:005F       _SetDataFormat_5
+ 16DD:0062       _SetDataFormat_6
+ 1764:0065       _SetDataFormat_7
+ 12FE:0044       _SetDate
+ 17EF:000B       _SetDio14Dir
+ 17EF:005A       _SetDio14High
+ 17EF:0066       _SetDio14Low
+ 02D2:3E75       _SetDisplayPage
+ 02D2:8C6F       _SetExpandDescript
  0000:2629       _setmem
- 02D2:7E3F       _SetStatusModbus
- 12F7:000A       _SetTime
+ 02D2:8078       _SetStatusModbus
+ 1315:000D       _SetTime
  0000:2A2E       _setvbuf
- 12E0:015B       _SetWeekDay
- 1543:000D       _SetXonXoffControlMode_1
- 13DB:000B       _SetXonXoffControlMode_3
- 1492:000D       _SetXonXoffControlMode_4
- 164C:0001       _SetXonXoffControlMode_5
- 16D3:0004       _SetXonXoffControlMode_6
- 175A:0007       _SetXonXoffControlMode_7
- 1AF4:04F0       _set_archive
- 1AF4:0C4D       _set_bd
- 1AF4:0C4B       _set_dt
- 1AF4:0C46       _set_pr
- 1AF4:0C49       _set_st
- 1AF4:11F5       _set_ta
- 1310:0152       _ShowEEP_setting
- 1AF4:2F8D       _SizeToXoff_1
- 1AF4:2EF6       _SizeToXoff_3
- 1AF4:2F3E       _SizeToXoff_4
- 1AF4:2FFD       _SizeToXoff_5
- 1AF4:303D       _SizeToXoff_6
- 1AF4:307D       _SizeToXoff_7
- 1AF4:2F8F       _SizeToXon_1
- 1AF4:2EF8       _SizeToXon_3
- 1AF4:2F40       _SizeToXon_4
- 1AF4:2FFF       _SizeToXon_5
- 1AF4:303F       _SizeToXon_6
- 1AF4:307F       _SizeToXon_7
- 1AF4:0096       _size_conf
- 1AF4:4B22       _size_max
- 1AF4:4B41       _Size_str
+ 12FE:015E       _SetWeekDay
+ 1562:0000       _SetXonXoffControlMode_1
+ 13F9:000E       _SetXonXoffControlMode_3
+ 14B1:0000       _SetXonXoffControlMode_4
+ 166A:0004       _SetXonXoffControlMode_5
+ 16F1:0007       _SetXonXoffControlMode_6
+ 1778:000A       _SetXonXoffControlMode_7
+ 1B12:0528       _set_archive
+ 1B12:0C85       _set_bd
+ 1B12:0C83       _set_dt
+ 1B12:0C7E       _set_pr
+ 1B12:0C81       _set_st
+ 1B12:1245       _set_ta
+ 132E:0155       _ShowEEP_setting
+ 1B12:306F       _SizeToXoff_1
+ 1B12:2FD8       _SizeToXoff_3
+ 1B12:3020       _SizeToXoff_4
+ 1B12:30DF       _SizeToXoff_5
+ 1B12:311F       _SizeToXoff_6
+ 1B12:315F       _SizeToXoff_7
+ 1B12:3071       _SizeToXon_1
+ 1B12:2FDA       _SizeToXon_3
+ 1B12:3022       _SizeToXon_4
+ 1B12:30E1       _SizeToXon_5
+ 1B12:3121       _SizeToXon_6
+ 1B12:3161       _SizeToXon_7
+ 1B12:0096       _size_conf
+ 1B12:4C23       _size_max
+ 1B12:4C42       _Size_str
  0000:10C9       _sqrt
- 1AF4:0B1C       _stand_flow
- 1AF4:2DDC       _StartSector
- 1AF4:2F17       _status1_3
- 1AF4:2F5F       _status1_4
- 1AF4:2DB0       _STD_PORT
- 1AF4:0B0E       _step
- 1AF4:2E3A       _StopWatchMode
- 1AF4:2E1A       _StopWatchValue
+ 1B12:0B54       _stand_flow
+ 1B12:2EBE       _StartSector
+ 1B12:2FF9       _status1_3
+ 1B12:3041       _status1_4
+ 1B12:2E92       _STD_PORT
+ 1B12:0B46       _step
+ 1B12:2F1C       _StopWatchMode
+ 1B12:2EFC       _StopWatchValue
  0000:2B49       _strlen
  0000:0CE0       _strtod
- 1AF4:0BEC       _str_menu
- 1AF4:0C1C       _str_menu1
- 1AF4:0C2C       _str_menu2
- 1AF4:0B38       _str_page
- 1AF4:2D9A       _SystemSerialNumber
+ 1B12:0C24       _str_menu
+ 1B12:0C54       _str_menu1
+ 1B12:0C64       _str_menu2
+ 1B12:0B70       _str_page
+ 1B12:2E7C       _SystemSerialNumber
  0000:18D2       _tell
- 1AF4:0B24       _temperature
+ 1B12:0B5C       _temperature
  02D2:058E       _TextToFloat
- 1372:00E7       _Timer
- 1372:00B2       _TimerClose
- 1AF4:2E02       _TimerCount
- 1372:0055       _TimerOpen
- 1384:000E       _TimerReadValue
- 1386:000D       _TimerResetValue
- 1AF4:2D8E       _TimeTicks
- 151A:000A       _ToComBufn_1
- 15C7:000B       _ToComBufn_2
- 142E:0004       _ToComBufn_3
- 14E5:0006       _ToComBufn_4
- 1537:0015       _ToCom_1
- 15E1:0010       _ToCom_2
- 1443:000F       _ToCom_3
- 14FA:0011       _ToCom_4
- 02D2:A6C0       _TransmitToSensor
- 1AF4:2E9C       _TriggerLevel
- 1AF4:3741       _typ_pool
- 1AF4:00B0       _typ_port
- 1AF4:0F3D       _units_all
- 1AF4:2DA2       _Unit_ms
- 1AF4:2DA4       _Unit_ms1
- 1AF4:2DA6       _Unit_ms2
- 1AF4:2EFF       _UseDMA_3
- 1AF4:2F47       _UseDMA_4
- 1AF4:2E14       _UserTimer1cFunction
- 1AF4:2E10       _UserTimerFunction
- 1AF4:2E06       _UseTimer
- 1372:0003       _Utimer
- 02D2:1433       _VerifyAnnubar
- 02D2:FD29       _VerifySum
- 1AF4:4B40       _Vertical
- 02D2:463D       _ViewCursor
- 02D2:CAFD       _ViewError
- 02D2:F465       _ViewParamToMMI
- 1AF4:2DCC       _WaitAckCount
- 134E:0049       _WaitFlashCommandEnd
- 1393:000D       _WaitTransmitOver
- 1AF4:2EAA       _WaitTransmitOver_
- 15B3:0017       _WaitTransmitOver_1
- 1634:0018       _WaitTransmitOver_2
- 144D:000C       _WaitTransmitOver_3
- 1504:000E       _WaitTransmitOver_4
- 16BB:001B       _WaitTransmitOver_5
- 1743:000E       _WaitTransmitOver_6
- 17CA:0011       _WaitTransmitOver_7
- 02D2:99F1       _WriteAlarmsSetup
- 02D2:8D2F       _WriteArchive
- 02D2:DF0B       _WriteCodeScript
- 02D2:CC97       _WriteConfigModbus
- 02D2:D67E       _WriteConfigParam
+ 1390:00EA       _Timer
+ 1390:00B5       _TimerClose
+ 1B12:2EE4       _TimerCount
+ 1390:0058       _TimerOpen
+ 13A3:0001       _TimerReadValue
+ 13A5:0000       _TimerResetValue
+ 1B12:2E70       _TimeTicks
+ 1538:000D       _ToComBufn_1
+ 15E5:000E       _ToComBufn_2
+ 144C:0007       _ToComBufn_3
+ 1503:0009       _ToComBufn_4
+ 1555:0018       _ToCom_1
+ 15FF:0013       _ToCom_2
+ 1461:0012       _ToCom_3
+ 1518:0014       _ToCom_4
+ 02D2:A8F9       _TransmitToSensor
+ 1B12:2F7E       _TriggerLevel
+ 1B12:1291       _typ_pool
+ 1B12:00B0       _typ_port
+ 1B12:0F89       _units_all
+ 1B12:2E84       _Unit_ms
+ 1B12:2E86       _Unit_ms1
+ 1B12:2E88       _Unit_ms2
+ 1B12:2FE1       _UseDMA_3
+ 1B12:3029       _UseDMA_4
+ 1B12:2EF6       _UserTimer1cFunction
+ 1B12:2EF2       _UserTimerFunction
+ 1B12:2EE8       _UseTimer
+ 1390:0006       _Utimer
+ 02D2:1537       _VerifyAnnubar
+ 02D2:FF0C       _VerifySum
+ 1B12:4C41       _Vertical
+ 02D2:479B       _ViewCursor
+ 02D2:CCE0       _ViewError
+ 02D2:F648       _ViewParamToMMI
+ 1B12:2EAE       _WaitAckCount
+ 136C:004C       _WaitFlashCommandEnd
+ 13B2:0000       _WaitTransmitOver
+ 1B12:2F8C       _WaitTransmitOver_
+ 15D1:001A       _WaitTransmitOver_1
+ 1652:001B       _WaitTransmitOver_2
+ 146B:000F       _WaitTransmitOver_3
+ 1522:0011       _WaitTransmitOver_4
+ 16DA:000E       _WaitTransmitOver_5
+ 1761:0011       _WaitTransmitOver_6
+ 17E8:0014       _WaitTransmitOver_7
+ 02D2:9C2A       _WriteAlarmsSetup
+ 02D2:8F68       _WriteArchive
+ 02D2:E0EE       _WriteCodeScript
+ 02D2:CE7A       _WriteConfigModbus
+ 02D2:D861       _WriteConfigParam
  02D2:00A0       _WriteEvent
  02D2:0167       _WriteEventFlash
- 02D2:49BF       _WriteMenuToMMI
- 1300:0008       _WriteNVRAM
- 12B1:00C6       _WriteRTC
- 12B1:0151       _WriteRTC_Burst
- 1AF4:11E1       _writeValues
- 1806:001C       _X607_Init
- 1806:0037       _X607_Read
- 1806:00F0       _X607_ReadFn
- 1806:0078       _X607_Write
- 1806:015A       _X607_WriteFn
- 02D2:23E2       _YaKoeff
- 1AF4:30C0       __8087
+ 02D2:4B1D       _WriteMenuToMMI
+ 131E:000B       _WriteNVRAM
+ 12CF:00C9       _WriteRTC
+ 12CF:0154       _WriteRTC_Burst
+ 1B12:1231       _writeValues
+ 1824:001F       _X607_Init
+ 1824:003A       _X607_Read
+ 1824:00F3       _X607_ReadFn
+ 1824:007B       _X607_Write
+ 1824:015D       _X607_WriteFn
+ 02D2:24E6       _YaKoeff
+ 1B12:31A0       __8087
  0000:1000  Abs  __AHINCR
  0000:000C  Abs  __AHSHIFT
- 1AF4:32BA       __atexitcnt
- 1AF4:4CEE       __atexittbl
+ 1B12:339A       __atexitcnt
+ 1B12:4DF0       __atexittbl
  0000:2287       __brk
- 1AF4:008B       __brklvl
- 1AF4:006B       __C0argc
- 1AF4:006D       __C0argv
- 1AF4:0071       __C0environ
+ 1B12:008B       __brklvl
+ 1B12:006B       __C0argc
+ 1B12:006D       __C0argv
+ 1B12:0071       __C0environ
  0000:1633       __cexit
  0000:0167       __checknull
  0000:0154       __cleanup
- 1AF4:2DAE       __CpuSpeed
- 1AF4:32BC       __ctype
+ 1B12:2E90       __CpuSpeed
+ 1B12:339C       __ctype
  0000:0000  Abs  __cvtfak
  0000:1641       __c_exit
- 1AF4:30D4       __default87
- 1AF4:3586       __doserrno
+ 1B12:31B4       __default87
+ 1B12:3666       __doserrno
  0000:170D       __DOSERROR
- 1AF4:3588       __dosErrorToSV
- 1FCC:0000       __emu
- 1AF4:0075       __envLng
- 1AF4:0077       __envseg
- 1AF4:0079       __envSize
+ 1B12:3668       __dosErrorToSV
+ 1FFA:0000       __emu
+ 1B12:0075       __envLng
+ 1B12:0077       __envseg
+ 1B12:0079       __envSize
  0000:1621       __exit
- 1AF4:33BE       __exitbuf
- 1AF4:33C2       __exitfopen
- 1AF4:33C6       __exitopen
+ 1B12:349E       __exitbuf
+ 1B12:34A2       __exitfopen
+ 1B12:34A6       __exitopen
  0000:1242       __EXPL
  0000:8087  Abs  __floatconvert
  0000:0F1C       __fperror
- 1AF4:3584       __fpstklen
+ 1B12:3664       __fpstklen
  0000:05DB       __fpuint
  0000:266C       __fputc
  0000:282F       __FPUTN
- 1AF4:0087       __heapbase
- 1AF4:008F       __heaptop
- 1AF4:30DA       __huge_dble
- 1AF4:30D6       __huge_flt
- 1AF4:30E2       __huge_ldble
- 1AF4:30EC       __indefinite
- 1AF4:005B       __Int0Vector
- 1AF4:005F       __Int4Vector
- 1AF4:0063       __Int5Vector
- 1AF4:0067       __Int6Vector
+ 1B12:0087       __heapbase
+ 1B12:008F       __heaptop
+ 1B12:31BA       __huge_dble
+ 1B12:31B6       __huge_flt
+ 1B12:31C2       __huge_ldble
+ 1B12:31CC       __indefinite
+ 1B12:005B       __Int0Vector
+ 1B12:005F       __Int4Vector
+ 1B12:0063       __Int5Vector
+ 1B12:0067       __Int6Vector
  0000:16D4       __IOERROR
- 1AF4:30D1       __LDT
+ 1B12:31B1       __LDT
  0000:062B       __LDTRUNC
  0000:1730       __LONGTOA
  0000:14B8       __matherr
- 1AF4:30FA       __mathwhy
+ 1B12:31DA       __mathwhy
  0000:0262       __MMODEL
- 1AF4:2ECA       __Modify_Data
- 1AF4:355A       __nfile
- 1AF4:355C       __openfd
- 1AF4:007D       __osmajor
- 1AF4:007E       __osminor
- 1AF4:007D       __osversion
+ 1B12:2FAC       __Modify_Data
+ 1B12:363A       __nfile
+ 1B12:363C       __openfd
+ 1B12:007D       __osmajor
+ 1B12:007E       __osminor
+ 1B12:007D       __osversion
  0000:0FCB       __POW10
- 1AF4:30D0       __protected
- 1AF4:007B       __psp
+ 1B12:31B0       __protected
+ 1B12:007B       __psp
  0000:2354       __REALCVT
- 1AF4:3686       __RealCvtVector
+ 1B12:3766       __RealCvtVector
  0000:01BD       __restorezero
  0000:0882       __ROUND
  0000:22C6       __sbrk
  0000:2360       __scanpop
  0000:235C       __scanrslt
  0000:2358       __scantod
- 1AF4:368A       __ScanTodVector
+ 1B12:376A       __ScanTodVector
  0000:181C       __setupio
- 1AF4:0081       __StartTime
- 1AF4:35E2       __stklen
- 1AF4:2EDA       __Stop2_3
- 1AF4:2F22       __Stop2_4
- 1AF4:33CA       __streams
+ 1B12:0081       __StartTime
+ 1B12:36C2       __stklen
+ 1B12:2FBC       __Stop2_3
+ 1B12:3004       __Stop2_4
+ 1B12:34AA       __streams
  0000:0C74       __strtold
  0000:0168       __terminate
- 1AF4:30F0       __tiny_ldble
+ 1B12:31D0       __tiny_ldble
  0000:0000  Abs  __turboCvt
  0000:8087  Abs  __turboFloat
  0000:17B2       __UTOA
- 1AF4:007D       __version
+ 1B12:007D       __version
  0000:1902       __VPRINTER
  0000:2CB7       __write
  0000:0D14       __XCVT
  0000:2CF3       __xfflush
- 1AF4:2DAA       ___BaudDiv__
- 1AF4:0085       ___brklvl
+ 1B12:2E8C       ___BaudDiv__
+ 1B12:0085       ___brklvl
  0000:1DDF       ___first
  0000:04F4       ___fpreset
  0000:1DE1       ___last
  0000:1DE3       ___rover
- 1AF4:4D6E       ___SignalPtr
+ 1B12:4E70       ___SignalPtr
  0000:2B68       ___write
- 1AF4:2D9E       ____OsType__
+ 1B12:2E80       ____OsType__
 
   Address         Publics by Value
 
@@ -1159,752 +1157,750 @@
  02D2:0AD4       _SetClearAlarms
  02D2:0BC7       _InitStationStruct
  02D2:0EFE       _InitBasicStruct
- 02D2:1347       _InitArchive
- 02D2:1433       _VerifyAnnubar
- 02D2:14D4       _BettaKoeff
- 02D2:14E8       _AnnubarKoeff
- 02D2:15E3       _CalcOrifNewC
- 02D2:1880       _CalcOrifNewEgle
- 02D2:198E       _CalcOrifNewExpand
- 02D2:19EF       _RoundFloat
- 02D2:1A7D       _RoundToTwo
- 02D2:1B53       _CalcOrifNewRougness
- 02D2:231D       _CalcAdiabat
- 02D2:23E2       _YaKoeff
- 02D2:2440       _DiameterCorrectP
- 02D2:24FD       _DiameterCorrectD
- 02D2:25BA       _CalcSFactor
- 02D2:2603       _CalcPpk
- 02D2:262D       _CalcTpk
- 02D2:2657       _CalcNX19Koeff
- 02D2:2ACF       _CalcGERG91Koeff
- 02D2:3193       _CalcFlowRate
- 02D2:31DC       _CalcViscosity
- 02D2:3272       _CalcViscExt
- 02D2:32B5       _CalcDensWork
- 02D2:3309       _CalcVelosity
- 02D2:334B       _CalcReinAnnubar
- 02D2:338C       _CalcFlowMain
- 02D2:38D3       _FormateArchive
- 02D2:3CE2       _page_screen
- 02D2:3D17       _SetDisplayPage
- 02D2:3D2C       _SaveOldPageMMI
- 02D2:3D44       _GoToMenuMMI
- 02D2:3D7E       _SendToMMI
- 02D2:40E6       _KeyFound
- 02D2:4148       _ClearBuffer
- 02D2:4163       _FloatToString
- 02D2:4347       _PrintValue
- 02D2:438A       _ByteToString
- 02D2:4468       _IntegerToString
- 02D2:4511       _EnterKey
- 02D2:4557       _DeleteKey
- 02D2:4598       _EnterFigure
- 02D2:4613       _ConvertToDec
- 02D2:463D       _ViewCursor
- 02D2:4657       _GetArcReadPoint
- 02D2:46ED       _MoveCursorMMI
- 02D2:47D4       _ReturnToMenuMMI
- 02D2:4829       _ConfigParamChange
- 02D2:4910       _MoveListMMI
- 02D2:49BF       _WriteMenuToMMI
- 02D2:4A83       _ReadFromMMI
- 02D2:6D48       _main
- 02D2:7E3F       _SetStatusModbus
- 02D2:7E72       _MyTimer
- 02D2:80FD       _ScriptArgumentSelect
- 02D2:8374       _ScriptOperateExecution
- 02D2:886D       _ClearFlashSeg
- 02D2:89C1       _GetDateTime
- 02D2:8A36       _SetExpandDescript
- 02D2:8CEE       _ClearArchive
- 02D2:8D2F       _WriteArchive
- 02D2:8EBD       _InitModem
- 02D2:8F2D       _InitModuleStruct
- 02D2:9080       _CalcCurrent
- 02D2:916C       _InitModuleOutStruct
- 02D2:934B       _RestoreBasicParameters
- 02D2:9585       _RestoreExpandParameters
- 02D2:9733       _RestoreSetAlarmsMVS
- 02D2:98A7       _RestoreSetAlarmsAIN
- 02D2:99F1       _WriteAlarmsSetup
- 02D2:9D33       _SetClearAlarmsMVS
- 02D2:9DC0       _SetClearAlarmsPrmAIN
- 02D2:A08B       _SetClearAlarmsAIN
- 02D2:A119       _InitializeMain
- 02D2:A6C0       _TransmitToSensor
- 02D2:A6D9       _SendToEcoSonic
- 02D2:A7EA       _ReadFromEcoSonic
- 02D2:A9F3       _GetDataEcoSonic
- 02D2:AB86       _SendToICP
- 02D2:B298       _ReadFromICP
- 02D2:BAAE       _SelectSensor
- 02D2:BBF5       _AverageBasicParam
- 02D2:C0B3       _AverageMinutExpandParam
- 02D2:C2F1       _CalculateMain
- 02D2:C5D3       _AverageExpandParams
- 02D2:C6CB       _ReadFromArchive
- 02D2:C8B5       _ReadFromMinArch
- 02D2:C9B1       _ReadFromEvents
- 02D2:CAFD       _ViewError
- 02D2:CBD4       _ReadConfigModbus
- 02D2:CC97       _WriteConfigModbus
- 02D2:CD2C       _ReinstallPort
- 02D2:CE00       _GetValuesScale
- 02D2:CE80       _GetAllDescript
- 02D2:D67E       _WriteConfigParam
- 02D2:D84B       _GetModuleAin
- 02D2:DAD5       _GetModuleAout
- 02D2:DC81       _GetModuleDio
- 02D2:DCCB       _GetModuleCounters
- 02D2:DE4C       _ExecuteInitialize
- 02D2:DF0B       _WriteCodeScript
- 02D2:DFE6       _ReadCodeScript
- 02D2:E0A9       _CommunnicLink
- 02D2:F30C       _ConfigSetToMMI
- 02D2:F465       _ViewParamToMMI
- 02D2:FB5E       _SaveParameters
- 02D2:FC5E       _SaveExpParams
- 02D2:FD29       _VerifySum
- 12AB:0006       _RefreshWDT
- 12AD:0000       _ClockHigh
- 12AD:000C       _ClockHighLow
- 12AD:001C       _ClockHighLow_1
- 12B0:0009       _ClockLow
- 12B1:0070       _ReadRTC
- 12B1:00C6       _WriteRTC
- 12B1:00EC       _ReadRTC_Burst
- 12B1:0151       _WriteRTC_Burst
- 12C9:0002       _GetDate
- 12C9:0034       _GetWeekDay
- 12CD:000F       _GetTime
- 12D1:0002       _ReadNVRAM
- 12D4:0006       _GetTimeDate
- 12E0:0005       _IsLeapYear
- 12E0:0041       _SetDate
- 12E0:015B       _SetWeekDay
- 12F7:000A       _SetTime
- 1300:0008       _WriteNVRAM
- 1303:0006       _CheckCpuSpeed
- 1303:00C1       _InitLib
- 1310:002E       EE_BITWRITE
- 1310:0050       _EE_Start
- 1310:0073       _EE_Stop
- 1310:0085       _EE_ReadAck
- 1310:00A3       _EE_SendAck
- 1310:00BA       EE_WRITEBYTE
- 1310:00E1       _EE_ReadByte
- 1310:010E       EE_INITWRITEMODE
- 1310:0152       _ShowEEP_setting
- 1325:0003       _EE_WriteProtect
- 1326:000A       _EE_WriteEnable
- 1327:0002       _EE_MultiRead
- 1331:0000       _EE_MultiWrite
- 1337:000E       _EE_ReadNext
- 133B:000E       _EE_RandomRead
- 1343:0001       _EE_RandomWrite
- 1348:0008       _FlashErase
- 134E:000A       _FlashUnlock
- 134E:0020       _FlashCmd
- 134E:0039       _FlashResetToReadMode
- 134E:0049       _WaitFlashCommandEnd
- 134E:010D       _FlashReadId
- 1365:000D       _FlashReadB
- 1365:001D       _FlashReadI
- 1365:002D       _FlashReadL
- 1368:000F       _FlashWrite
- 136E:000F       _Delay
- 1372:0003       _Utimer
- 1372:0004       _Int9Isr
- 1372:0039       _Int1CIsr
- 1372:0055       _TimerOpen
- 1372:00B2       _TimerClose
- 1372:00E7       _Timer
- 1384:000E       _TimerReadValue
- 1386:000D       _TimerResetValue
- 1387:000D       _LongDiv
- 138C:0007       _Chk_Port
- 138D:000F       _ClearCom
- 1390:0005       _InstallCom
- 1393:000D       _WaitTransmitOver
- 1399:0001       _SetBaudrate_3
- 1399:0060       _SetDataFormat_3
- 13AD:0005       _ClearCom_3
- 13AF:00A1       _InstallCom_DMA_3
- 13AF:012C       _ReadComn_DMA_3
- 13AF:01E0       _DataSizeInCom_DMA_3
- 13AF:021C       _ClearCom_DMA_3
- 13AF:023B       _IsCom_DMA_3
- 13AF:024A       _ReadCom_DMA_3
- 13D9:0003       _IsCom_3
- 13DB:000B       _SetXonXoffControlMode_3
- 13DB:0016       _SetComPortBufferSize_3
- 13DB:003D       _ClearTxBuffer_3
- 13DB:0049       _GetTxBufferFreeSize_3
- 13DB:00D0       _InstallComInputData_3
- 13DB:00E2       _CheckXonXoff_3
- 13DB:00F8       _Serial_Isr_3
- 13DB:02E2       _InstallCom_3
- 13DB:0413       _RestoreCom_3
- 1426:0007       _IsComOutBufEmpty_3
- 1427:0004       _ReadCom_3
- 142E:0004       _ToComBufn_3
- 1443:0004       _SetComTimeout_3
- 1443:000F       _ToCom_3
- 144D:0004       _IsTxBufEmpty_3
- 144D:000C       _WaitTransmitOver_3
- 1450:0003       _SetBaudrate_4
- 1450:0062       _SetDataFormat_4
- 1464:0007       _ClearCom_4
- 1466:00A3       _InstallCom_DMA_4
- 1466:012E       _ReadComn_DMA_4
- 1466:01E2       _DataSizeInCom_DMA_4
- 1466:021E       _ClearCom_DMA_4
- 1466:023D       _IsCom_DMA_4
- 1466:024C       _ReadCom_DMA_4
- 1490:0005       _IsCom_4
- 1492:000D       _SetXonXoffControlMode_4
- 1492:0018       _SetComPortBufferSize_4
- 1492:003F       _ClearTxBuffer_4
- 1492:004B       _GetTxBufferFreeSize_4
- 1492:00D2       _InstallComInputData_4
- 1492:00E4       _CheckXonXoff_4
- 1492:00FA       _Serial_Isr_4
- 1492:02E4       _InstallCom_4
- 1492:0415       _RestoreCom_4
- 14DD:0009       _IsComOutBufEmpty_4
- 14DE:0006       _ReadCom_4
- 14E5:0006       _ToComBufn_4
- 14FA:0006       _SetComTimeout_4
- 14FA:0011       _ToCom_4
- 1504:0006       _IsTxBufEmpty_4
- 1504:000E       _WaitTransmitOver_4
- 1507:0005       _SetBaudrate_1
- 1507:0062       _SetDataFormat_1
- 1516:0003       _ClearCom_1
- 151A:000A       _ToComBufn_1
- 152E:0009       _IsCom_1
- 1530:0004       _IsComOutBufEmpty_1
- 1531:0001       _ReadCom_1
- 1537:000A       _SetComTimeout_1
- 1537:0015       _ToCom_1
- 1543:000D       _SetXonXoffControlMode_1
- 1543:0018       _SetComPortBufferSize_1
- 1543:0040       _ClearTxBuffer_1
- 1543:0059       _GetTxBufferFreeSize_1
- 1543:0070       _SetComFifoTriggerLevel_1
- 1543:00E8       _GetInputBufFreeSize_1
- 1543:015A       _InstallComInputData_1
- 1543:016C       _CheckXonXoff_1
- 1543:0182       _CheckInputBufSize_1
- 1543:0501       _InstallCom_1
- 1543:0671       _RestoreCom_1
- 15B3:0009       _IsTxBufEmpty_1
- 15B3:0017       _WaitTransmitOver_1
- 15B6:000E       _SetBaudrate_2
- 15B6:006B       _SetDataFormat_2
- 15C5:000C       _ClearCom_2
- 15C7:000B       _ToComBufn_2
- 15DA:000C       _IsCom_2
- 15DC:0007       _IsComOutBufEmpty_2
- 15DD:0004       _ReadCom_2
- 15E1:0005       _SetComTimeout
- 15E1:0010       _ToCom_2
- 15EC:000A       _SetComPortBufferSize_2
- 15EC:001B       _ClearTxBuffer_2
- 15EC:0034       _GetTxBufferFreeSize_2
- 15EC:004B       _SetComFifoTriggerLevel_2
- 15EC:00C3       _GetInputBufFreeSize
- 15EC:010F       _InstallComInputData_2
- 15EC:02AB       _InstallCom_2
- 15EC:03F2       _RestoreCom_2
- 1634:000A       _IsTxBufEmpty_2
- 1634:0018       _WaitTransmitOver_2
- 1637:000F       _SetBaudrate_5
- 1637:006C       _SetDataFormat_5
- 1646:000D       _ClearCom_5
- 164B:0004       _IsComOutBufEmpty_5
- 164C:0001       _SetXonXoffControlMode_5
- 164C:000C       _SetComPortBufferSize_5
- 164C:0034       _ClearTxBuffer_5
- 164C:004D       _GetTxBufferFreeSize_5
- 164C:0064       _SetComFifoTriggerLevel_5
- 164C:00DC       _GetInputBufFreeSize_5
- 164C:014E       _InstallComInputData_5
- 164C:0160       _CheckXonXoff_5
- 164C:0176       _CheckInputBufSize_5
- 164C:04F5       _InstallCom_5
- 164C:0665       _RestoreCom_5
- 16BB:000D       _IsTxBufEmpty_5
- 16BB:001B       _WaitTransmitOver_5
- 16BF:0002       _SetBaudrate_6
- 16BF:005F       _SetDataFormat_6
- 16CE:0000       _ClearCom_6
- 16D2:0007       _IsComOutBufEmpty_6
- 16D3:0004       _SetXonXoffControlMode_6
- 16D3:000F       _SetComPortBufferSize_6
- 16D3:0037       _ClearTxBuffer_6
- 16D3:0050       _GetTxBufferFreeSize_6
- 16D3:0067       _SetComFifoTriggerLevel_6
- 16D3:00DF       _GetInputBufFreeSize_6
- 16D3:0151       _InstallComInputData_6
- 16D3:0163       _CheckXonXoff_6
- 16D3:0179       _CheckInputBufSize_6
- 16D3:04F8       _InstallCom_6
- 16D3:0668       _RestoreCom_6
- 1743:0000       _IsTxBufEmpty_6
- 1743:000E       _WaitTransmitOver_6
- 1746:0005       _SetBaudrate_7
- 1746:0062       _SetDataFormat_7
- 1755:0003       _ClearCom_7
- 1759:000A       _IsComOutBufEmpty_7
- 175A:0007       _SetXonXoffControlMode_7
- 175A:0012       _SetComPortBufferSize_7
- 175A:003A       _ClearTxBuffer_7
- 175A:0053       _GetTxBufferFreeSize_7
- 175A:006A       _SetComFifoTriggerLevel_7
- 175A:00E2       _GetInputBufFreeSize_7
- 175A:0154       _InstallComInputData_7
- 175A:0166       _CheckXonXoff_7
- 175A:017C       _CheckInputBufSize_7
- 175A:04FB       _InstallCom_7
- 175A:066B       _RestoreCom_7
- 17CA:0003       _IsTxBufEmpty_7
- 17CA:0011       _WaitTransmitOver_7
- 17CD:0008       _ascii_to_hex
- 17D1:0008       _SetDio14Dir
- 17D1:0057       _SetDio14High
- 17D1:0063       _SetDio14Low
- 17D1:006F       _GetDio14
- 17D8:020D       _GetSerialNumber
- 1806:001C       _X607_Init
- 1806:0037       _X607_Read
- 1806:0078       _X607_Write
- 1806:00F0       _X607_ReadFn
- 1806:015A       _X607_WriteFn
- 181F:2152       e086_Entry
- 181F:26E0       e086_Shortcut
- 1A97:0306       e087_Entry
- 1A97:03C6       e087_Shortcut
- 1A97:0430       e087_Trap
- 1AF4:0000       DATASEG@
- 1AF4:005B       __Int0Vector
- 1AF4:005F       __Int4Vector
- 1AF4:0063       __Int5Vector
- 1AF4:0067       __Int6Vector
- 1AF4:006B       __C0argc
- 1AF4:006D       __C0argv
- 1AF4:0071       __C0environ
- 1AF4:0075       __envLng
- 1AF4:0077       __envseg
- 1AF4:0079       __envSize
- 1AF4:007B       __psp
- 1AF4:007D       __osversion
- 1AF4:007D       __osmajor
- 1AF4:007D       __version
- 1AF4:007E       __osminor
- 1AF4:007F       _errno
- 1AF4:0081       __StartTime
- 1AF4:0085       ___brklvl
- 1AF4:0087       __heapbase
- 1AF4:008B       __brklvl
- 1AF4:008F       __heaptop
- 1AF4:0094       _flag_mode_verif
- 1AF4:0096       _size_conf
- 1AF4:009E       _etl
- 1AF4:00A8       _ind_prm_alm
- 1AF4:00B0       _typ_port
- 1AF4:00B4       _ind_accum
- 1AF4:00B8       _sel_units
- 1AF4:00BE       _conf_menu
- 1AF4:00EE       _main_dyn
- 1AF4:010F       _dyn_set
- 1AF4:01A8       _conf_main
- 1AF4:038B       _main_select
- 1AF4:03CB       _conf_basic
- 1AF4:0450       _conf_select
- 1AF4:04F0       _set_archive
- 1AF4:050C       _conf_icp
- 1AF4:0712       _conf_exp
- 1AF4:0B0E       _step
- 1AF4:0B10       _page_clear
- 1AF4:0B11       _page_str_pass
- 1AF4:0B12       _OK
- 1AF4:0B13       _count_menu
- 1AF4:0B14       _dot_flow
- 1AF4:0B16       _display_ver_mode
- 1AF4:0B18       _operating_flow
- 1AF4:0B1C       _stand_flow
- 1AF4:0B20       _k_compress
- 1AF4:0B24       _temperature
- 1AF4:0B28       _pressure
- 1AF4:0B2C       _densForMmi
- 1AF4:0B30       _nitrForMmi
- 1AF4:0B34       _carbForMmi
- 1AF4:0B38       _str_page
- 1AF4:0BEC       _str_menu
- 1AF4:0C1C       _str_menu1
- 1AF4:0C2C       _str_menu2
- 1AF4:0C3C       _psw
- 1AF4:0C46       _set_pr
- 1AF4:0C49       _set_st
- 1AF4:0C4B       _set_dt
- 1AF4:0C4D       _set_bd
- 1AF4:0C6D       _conf_all
- 1AF4:0E05       _dyn_all
- 1AF4:0F21       _name_mmi_exp
- 1AF4:0F3D       _units_all
- 1AF4:0FC1       _name_sel_all
- 1AF4:11AD       _name_mmi_select
- 1AF4:11C5       _name_arch
- 1AF4:11E1       _writeValues
- 1AF4:11E3       _firstPass
- 1AF4:11E5       _nitrogen
- 1AF4:11E9       _carbon_dioxid
- 1AF4:11ED       _density
- 1AF4:11F1       _flagScript
- 1AF4:11F2       _flagS_diff
- 1AF4:11F3       _flagS_press
- 1AF4:11F4       _flagS_tempr
- 1AF4:11F5       _set_ta
- 1AF4:11FD       _err_pnt
- 1AF4:1203       _lnt_mvs
- 1AF4:1207       _name_icp
- 1AF4:1213       _mvs_rd
- 1AF4:1218       _mvs_rdl
- 1AF4:121D       _mvs_wr
- 1AF4:1223       _mvs_cbr
- 1AF4:1229       _mb_page
- 1AF4:1239       _ind_rst
- 1AF4:123D       _exp_size_prm
- 1AF4:2D76       _MaxDay
- 1AF4:2D8E       _TimeTicks
- 1AF4:2D92       _ResetMode
- 1AF4:2D96       _IntVect
- 1AF4:2D9A       _SystemSerialNumber
- 1AF4:2D9E       ____OsType__
- 1AF4:2DA2       _Unit_ms
- 1AF4:2DA4       _Unit_ms1
- 1AF4:2DA6       _Unit_ms2
- 1AF4:2DA8       _bNeedSetSpeed
- 1AF4:2DAA       ___BaudDiv__
- 1AF4:2DAE       __CpuSpeed
- 1AF4:2DB0       _STD_PORT
- 1AF4:2DB4       _EE_ClockHighLow
- 1AF4:2DB8       _EE1_RandomRead
- 1AF4:2DBC       _EE1_ReadNext
- 1AF4:2DC0       _EE1_MultiRead
- 1AF4:2DC4       _EE1_RandomWrite
- 1AF4:2DC8       _EE1_MultiWrite
- 1AF4:2DCC       _WaitAckCount
- 1AF4:2DCE       _EE_Err
- 1AF4:2DD0       _bWrite
- 1AF4:2DD2       _EepType
- 1AF4:2DD4       _EepBlockOffset
- 1AF4:2DD6       _EepAddrOffset
- 1AF4:2DD8       _ProtectMode
- 1AF4:2DDA       _fCheck
- 1AF4:2DDC       _StartSector
- 1AF4:2DDE       _FlashId
- 1AF4:2DE0       _FlashSize
- 1AF4:2DE2       _SectorSize256
- 1AF4:2DEE       _SectorSize512
- 1AF4:2E02       _TimerCount
- 1AF4:2E06       _UseTimer
- 1AF4:2E08       _OldInt09Isr
- 1AF4:2E0C       _OldInt1CIsr
- 1AF4:2E10       _UserTimerFunction
- 1AF4:2E14       _UserTimer1cFunction
- 1AF4:2E1A       _StopWatchValue
- 1AF4:2E3A       _StopWatchMode
- 1AF4:2E3C       _CountDownTimer
- 1AF4:2E5C       _ClearCom_
- 1AF4:2E7C       _InstallCom_
- 1AF4:2E9C       _TriggerLevel
- 1AF4:2EAA       _WaitTransmitOver_
- 1AF4:2ECA       __Modify_Data
- 1AF4:2EDA       __Stop2_3
- 1AF4:2EE2       _In7188Buf_3
- 1AF4:2EE6       _Out7188Buf_3
- 1AF4:2EEA       _InBufSize_3
- 1AF4:2EEC       _OutBufSize_3
- 1AF4:2EEE       _InBeginIdx_3
- 1AF4:2EF0       _InEndIdx_3
- 1AF4:2EF2       _OutBeginIdx_3
- 1AF4:2EF4       _OutEndIdx_3
- 1AF4:2EF6       _SizeToXoff_3
- 1AF4:2EF8       _SizeToXon_3
- 1AF4:2EFA       _ReceiveXoff_3
- 1AF4:2EFB       _NeedXoff_3
- 1AF4:2EFC       _SendXoff_3
- 1AF4:2EFD       _bUseXonXoff_3
- 1AF4:2EFE       _err_3
- 1AF4:2EFF       _UseDMA_3
- 1AF4:2F01       _OldVectA
- 1AF4:2F05       _ComData7_3
- 1AF4:2F07       _Rcnt_3
- 1AF4:2F0B       _LossCnt__3
- 1AF4:2F0F       _LossCnt_1_3
- 1AF4:2F13       _LossCnt_2_3
- 1AF4:2F17       _status1_3
- 1AF4:2F1D       _bGetBreak_3
- 1AF4:2F22       __Stop2_4
- 1AF4:2F2A       _In7188Buf_4
- 1AF4:2F2E       _Out7188Buf_4
- 1AF4:2F32       _InBufSize_4
- 1AF4:2F34       _OutBufSize_4
- 1AF4:2F36       _InBeginIdx_4
- 1AF4:2F38       _InEndIdx_4
- 1AF4:2F3A       _OutBeginIdx_4
- 1AF4:2F3C       _OutEndIdx_4
- 1AF4:2F3E       _SizeToXoff_4
- 1AF4:2F40       _SizeToXon_4
- 1AF4:2F42       _ReceiveXoff_4
- 1AF4:2F43       _NeedXoff_4
- 1AF4:2F44       _SendXoff_4
- 1AF4:2F45       _bUseXonXoff_4
- 1AF4:2F46       _err_4
- 1AF4:2F47       _UseDMA_4
- 1AF4:2F49       _OldVectB
- 1AF4:2F4D       _ComData7_4
- 1AF4:2F4F       _Rcnt_4
- 1AF4:2F53       _LossCnt_0_4
- 1AF4:2F57       _LossCnt_1_4
- 1AF4:2F5B       _LossCnt_2_4
- 1AF4:2F5F       _status1_4
- 1AF4:2F65       _bGetBreak_4
- 1AF4:2F6C       _ComBase_1
- 1AF4:2F6E       _InInIdx_1
- 1AF4:2F70       _InOutIdx_1
- 1AF4:2F72       _ComErr_1
- 1AF4:2F73       _InData_1
- 1AF4:2F77       _OutData_1
- 1AF4:2F7B       _InBufSize_1
- 1AF4:2F7D       _OutBufSize_1
- 1AF4:2F7F       _OutInIdx_1
- 1AF4:2F81       _OutOutIdx_1
- 1AF4:2F83       _fCtsControlMode_1
- 1AF4:2F85       _fRtsControlMode_1
- 1AF4:2F87       _CurCTS_1
- 1AF4:2F89       _CurRTS_1
- 1AF4:2F8B       _bCtsChanged_1
- 1AF4:2F8D       _SizeToXoff_1
- 1AF4:2F8F       _SizeToXon_1
- 1AF4:2F91       _ReceiveXoff_1
- 1AF4:2F92       _NeedXoff_1
- 1AF4:2F93       _SendXoff_1
- 1AF4:2F94       _bUseXonXoff_1
- 1AF4:2F95       _ComFcr_1
- 1AF4:2F96       _DoInputData_1
- 1AF4:2F9A       _ComInCount_1
- 1AF4:2F9E       _ComOutCount_1
- 1AF4:2FA2       _bGetBreak_1
- 1AF4:2FA8       _bMsrChanged_1
- 1AF4:2FAA       _LsrError_1
- 1AF4:2FAE       _ComBase_2
- 1AF4:2FB0       _InInIdx_2
- 1AF4:2FB2       _InOutIdx_2
- 1AF4:2FB4       _ComErr_2
- 1AF4:2FB5       _InData_2
- 1AF4:2FB9       _OutData_2
- 1AF4:2FBD       _InBufSize_2
- 1AF4:2FBF       _OutBufSize_2
- 1AF4:2FC1       _OutInIdx_2
- 1AF4:2FC3       _OutOutIdx_2
- 1AF4:2FC5       _ComFcr_2
- 1AF4:2FC6       _DoInputData_2
- 1AF4:2FCA       _ComInCount_2
- 1AF4:2FCE       _ComOutCount_2
- 1AF4:2FD2       _bGetBreak_2
- 1AF4:2FD8       _bMsrChanged
- 1AF4:2FDA       _LsrError_2
- 1AF4:2FDC       _ComBase_5
- 1AF4:2FDE       _InInIdx_5
- 1AF4:2FE0       _InOutIdx_5
- 1AF4:2FE2       _ComErr_5
- 1AF4:2FE3       _InData_5
- 1AF4:2FE7       _OutData_5
- 1AF4:2FEB       _InBufSize_5
- 1AF4:2FED       _OutBufSize_5
- 1AF4:2FEF       _OutInIdx_5
- 1AF4:2FF1       _OutOutIdx_5
- 1AF4:2FF3       _fCtsControlMode_5
- 1AF4:2FF5       _fRtsControlMode_5
- 1AF4:2FF7       _CurCTS_5
- 1AF4:2FF9       _CurRTS_5
- 1AF4:2FFB       _bCtsChanged_5
- 1AF4:2FFD       _SizeToXoff_5
- 1AF4:2FFF       _SizeToXon_5
- 1AF4:3001       _ReceiveXoff_5
- 1AF4:3002       _NeedXoff_5
- 1AF4:3003       _SendXoff_5
- 1AF4:3004       _bUseXonXoff_5
- 1AF4:3005       _ComFcr_5
- 1AF4:3006       _DoInputData_5
- 1AF4:300A       _ComInCount_5
- 1AF4:300E       _ComOutCount_5
- 1AF4:3012       _bGetBreak_5
- 1AF4:3018       _bMsrChanged_5
- 1AF4:301A       _LsrError_5
- 1AF4:301C       _ComBase_6
- 1AF4:301E       _InInIdx_6
- 1AF4:3020       _InOutIdx_6
- 1AF4:3022       _ComErr_6
- 1AF4:3023       _InData_6
- 1AF4:3027       _OutData_6
- 1AF4:302B       _InBufSize_6
- 1AF4:302D       _OutBufSize_6
- 1AF4:302F       _OutInIdx_6
- 1AF4:3031       _OutOutIdx_6
- 1AF4:3033       _fCtsControlMode_6
- 1AF4:3035       _fRtsControlMode_6
- 1AF4:3037       _CurCTS_6
- 1AF4:3039       _CurRTS_6
- 1AF4:303B       _bCtsChanged_6
- 1AF4:303D       _SizeToXoff_6
- 1AF4:303F       _SizeToXon_6
- 1AF4:3041       _ReceiveXoff_6
- 1AF4:3042       _NeedXoff_6
- 1AF4:3043       _SendXoff_6
- 1AF4:3044       _bUseXonXoff_6
- 1AF4:3045       _ComFcr_6
- 1AF4:3046       _DoInputData_6
- 1AF4:304A       _ComInCount_6
- 1AF4:304E       _ComOutCount_6
- 1AF4:3052       _bGetBreak_6
- 1AF4:3058       _bMsrChanged_6
- 1AF4:305A       _LsrError_6
- 1AF4:305C       _ComBase_7
- 1AF4:305E       _InInIdx_7
- 1AF4:3060       _InOutIdx_7
- 1AF4:3062       _ComErr_7
- 1AF4:3063       _InData_7
- 1AF4:3067       _OutData_7
- 1AF4:306B       _InBufSize_7
- 1AF4:306D       _OutBufSize_7
- 1AF4:306F       _OutInIdx_7
- 1AF4:3071       _OutOutIdx_7
- 1AF4:3073       _fCtsControlMode_7
- 1AF4:3075       _fRtsControlMode_7
- 1AF4:3077       _CurCTS_7
- 1AF4:3079       _CurRTS_7
- 1AF4:307B       _bCtsChanged_7
- 1AF4:307D       _SizeToXoff_7
- 1AF4:307F       _SizeToXon_7
- 1AF4:3081       _ReceiveXoff_7
- 1AF4:3082       _NeedXoff_7
- 1AF4:3083       _SendXoff_7
- 1AF4:3084       _bUseXonXoff_7
- 1AF4:3085       _ComFcr_7
- 1AF4:3086       _DoInputData_7
- 1AF4:308A       _ComInCount_7
- 1AF4:308E       _ComOutCount_7
- 1AF4:3092       _bGetBreak_7
- 1AF4:3098       _bMsrChanged_7
- 1AF4:309A       _LsrError_7
- 1AF4:309C       _hex_to_ascii
- 1AF4:30C0       __8087
- 1AF4:30D0       __protected
- 1AF4:30D1       __LDT
- 1AF4:30D4       __default87
- 1AF4:30D6       __huge_flt
- 1AF4:30DA       __huge_dble
- 1AF4:30E2       __huge_ldble
- 1AF4:30EC       __indefinite
- 1AF4:30F0       __tiny_ldble
- 1AF4:30FA       __mathwhy
- 1AF4:32BA       __atexitcnt
- 1AF4:32BC       __ctype
- 1AF4:33BE       __exitbuf
- 1AF4:33C2       __exitfopen
- 1AF4:33C6       __exitopen
- 1AF4:33CA       __streams
- 1AF4:355A       __nfile
- 1AF4:355C       __openfd
- 1AF4:3584       __fpstklen
- 1AF4:3586       __doserrno
- 1AF4:3588       __dosErrorToSV
- 1AF4:35E2       __stklen
- 1AF4:3686       __RealCvtVector
- 1AF4:368A       __ScanTodVector
- 1AF4:36A8       _proba
- 1AF4:36B7       _serial_num
- 1AF4:36BF       _checksum
- 1AF4:36C3       _Real_exp_dyn
- 1AF4:36C4       _Max_exp_mmi
- 1AF4:36C5       _musor
- 1AF4:36C6       _ind_err
- 1AF4:36C7       _flg_err
- 1AF4:36F9       _Err
- 1AF4:372B       _icp_wr
- 1AF4:372E       _cnt_init
- 1AF4:372F       _cnt_ecosonic_old
- 1AF4:3730       _cnt_ecosonic
- 1AF4:3731       _icp_pool
- 1AF4:3732       _mmi_flg_ver
- 1AF4:3733       _cnt_cbr
- 1AF4:3734       _dlt_tm
- 1AF4:3735       _avg_old
- 1AF4:3736       _flg_arc_clr
- 1AF4:3737       _flg_sec
- 1AF4:3738       _flg_min
- 1AF4:3739       _flg_arc_d
- 1AF4:373A       _flg_arc_h
- 1AF4:373B       _flg_init_arc
- 1AF4:373C       _flg_auto
- 1AF4:373D       _flg_month
- 1AF4:373E       _icp_lnt
- 1AF4:373F       _mmi_pool
- 1AF4:3740       _ind_dsp
- 1AF4:3741       _typ_pool
- 1AF4:3742       _mvs_cmd
- 1AF4:3744       _mvs_val
- 1AF4:3748       _Counters
- 1AF4:3768       _Script
- 1AF4:3785       _Expand
- 1AF4:3B8D       _Basic
- 1AF4:3E5D       _Host
- 1AF4:3E68       _Config
- 1AF4:407C       _Prt
- 1AF4:4087       _Device
- 1AF4:4178       _Dio
- 1AF4:4188       _Aout
- 1AF4:4200       _Ain
- 1AF4:446C       _Sensor
- 1AF4:46F0       _Port
- 1AF4:4B04       _mmi_sel
- 1AF4:4B22       _size_max
- 1AF4:4B23       _mmi_adr
- 1AF4:4B25       _mmi_seg
- 1AF4:4B27       _mmi_arc
- 1AF4:4B29       _flg_modem
- 1AF4:4B2A       _count_smb
- 1AF4:4B2B       _coord
- 1AF4:4B33       _mmi_val
- 1AF4:4B39       _flg_init
- 1AF4:4B3A       _mmi_arc_page
- 1AF4:4B3B       _mmi_size
- 1AF4:4B3C       _mmi_num_sel
- 1AF4:4B3D       _enter_ind
- 1AF4:4B3E       _mmi_pass
- 1AF4:4B3F       _Horizont
- 1AF4:4B40       _Vertical
- 1AF4:4B41       _Size_str
- 1AF4:4B42       _mmi_str
- 1AF4:4B60       _Display
- 1AF4:4B74       _Cursor
- 1AF4:4B79       _page_temporary
- 1AF4:4B7A       _exp_const
- 1AF4:4BCA       _exp_dyn
- 1AF4:4C92       _Modbus
- 1AF4:4CBC       _CurMsr_1
- 1AF4:4CBE       _CurMsr
- 1AF4:4CD4       _CurMsr_5
- 1AF4:4CE0       _CurMsr_6
- 1AF4:4CEC       _CurMsr_7
- 1AF4:4CEE       __atexittbl
- 1AF4:4D6E       ___SignalPtr
- 1FCC:0000       __emu
+ 02D2:144B       _InitArchive
+ 02D2:1537       _VerifyAnnubar
+ 02D2:15D8       _BettaKoeff
+ 02D2:15EC       _AnnubarKoeff
+ 02D2:16E7       _CalcOrifNewC
+ 02D2:1984       _CalcOrifNewEgle
+ 02D2:1A92       _CalcOrifNewExpand
+ 02D2:1AF3       _RoundFloat
+ 02D2:1B81       _RoundToTwo
+ 02D2:1C57       _CalcOrifNewRougness
+ 02D2:2421       _CalcAdiabat
+ 02D2:24E6       _YaKoeff
+ 02D2:2544       _DiameterCorrectP
+ 02D2:2601       _DiameterCorrectD
+ 02D2:26BE       _CalcSFactor
+ 02D2:2707       _CalcPpk
+ 02D2:2731       _CalcTpk
+ 02D2:275B       _CalcNX19Koeff
+ 02D2:2BD3       _CalcGERG91Koeff
+ 02D2:3297       _CalcFlowRate
+ 02D2:3311       _CalcViscosity
+ 02D2:33A7       _CalcViscExt
+ 02D2:33EA       _CalcDensWork
+ 02D2:343E       _CalcVelosity
+ 02D2:3480       _CalcReinAnnubar
+ 02D2:34C1       _CalcFlowMain
+ 02D2:3A31       _FormateArchive
+ 02D2:3E40       _page_screen
+ 02D2:3E75       _SetDisplayPage
+ 02D2:3E8A       _SaveOldPageMMI
+ 02D2:3EA2       _GoToMenuMMI
+ 02D2:3EDC       _SendToMMI
+ 02D2:4244       _KeyFound
+ 02D2:42A6       _ClearBuffer
+ 02D2:42C1       _FloatToString
+ 02D2:44A5       _PrintValue
+ 02D2:44E8       _ByteToString
+ 02D2:45C6       _IntegerToString
+ 02D2:466F       _EnterKey
+ 02D2:46B5       _DeleteKey
+ 02D2:46F6       _EnterFigure
+ 02D2:4771       _ConvertToDec
+ 02D2:479B       _ViewCursor
+ 02D2:47B5       _GetArcReadPoint
+ 02D2:484B       _MoveCursorMMI
+ 02D2:4932       _ReturnToMenuMMI
+ 02D2:4987       _ConfigParamChange
+ 02D2:4A6E       _MoveListMMI
+ 02D2:4B1D       _WriteMenuToMMI
+ 02D2:4BE1       _ReadFromMMI
+ 02D2:6EA6       _main
+ 02D2:8078       _SetStatusModbus
+ 02D2:80AB       _MyTimer
+ 02D2:8336       _ScriptArgumentSelect
+ 02D2:85AD       _ScriptOperateExecution
+ 02D2:8AA6       _ClearFlashSeg
+ 02D2:8BFA       _GetDateTime
+ 02D2:8C6F       _SetExpandDescript
+ 02D2:8F27       _ClearArchive
+ 02D2:8F68       _WriteArchive
+ 02D2:90F6       _InitModem
+ 02D2:9166       _InitModuleStruct
+ 02D2:92B9       _CalcCurrent
+ 02D2:93A5       _InitModuleOutStruct
+ 02D2:9584       _RestoreBasicParameters
+ 02D2:97BE       _RestoreExpandParameters
+ 02D2:996C       _RestoreSetAlarmsMVS
+ 02D2:9AE0       _RestoreSetAlarmsAIN
+ 02D2:9C2A       _WriteAlarmsSetup
+ 02D2:9F6C       _SetClearAlarmsMVS
+ 02D2:9FF9       _SetClearAlarmsPrmAIN
+ 02D2:A2C4       _SetClearAlarmsAIN
+ 02D2:A352       _InitializeMain
+ 02D2:A8F9       _TransmitToSensor
+ 02D2:A912       _SendToEcoSonic
+ 02D2:AA23       _ReadFromEcoSonic
+ 02D2:AC2C       _GetDataEcoSonic
+ 02D2:ADBF       _SendToICP
+ 02D2:B4D1       _ReadFromICP
+ 02D2:BD47       _SelectSensor
+ 02D2:BE8E       _AverageBasicParam
+ 02D2:C296       _AverageMinutExpandParam
+ 02D2:C4D4       _CalculateMain
+ 02D2:C7B6       _AverageExpandParams
+ 02D2:C8AE       _ReadFromArchive
+ 02D2:CA98       _ReadFromMinArch
+ 02D2:CB94       _ReadFromEvents
+ 02D2:CCE0       _ViewError
+ 02D2:CDB7       _ReadConfigModbus
+ 02D2:CE7A       _WriteConfigModbus
+ 02D2:CF0F       _ReinstallPort
+ 02D2:CFE3       _GetValuesScale
+ 02D2:D063       _GetAllDescript
+ 02D2:D861       _WriteConfigParam
+ 02D2:DA2E       _GetModuleAin
+ 02D2:DCB8       _GetModuleAout
+ 02D2:DE64       _GetModuleDio
+ 02D2:DEAE       _GetModuleCounters
+ 02D2:E02F       _ExecuteInitialize
+ 02D2:E0EE       _WriteCodeScript
+ 02D2:E1C9       _ReadCodeScript
+ 02D2:E28C       _CommunnicLink
+ 02D2:F4EF       _ConfigSetToMMI
+ 02D2:F648       _ViewParamToMMI
+ 02D2:FD41       _SaveParameters
+ 02D2:FE41       _SaveExpParams
+ 02D2:FF0C       _VerifySum
+ 12C9:0009       _RefreshWDT
+ 12CB:0003       _ClockHigh
+ 12CB:000F       _ClockHighLow
+ 12CB:001F       _ClockHighLow_1
+ 12CE:000C       _ClockLow
+ 12CF:0073       _ReadRTC
+ 12CF:00C9       _WriteRTC
+ 12CF:00EF       _ReadRTC_Burst
+ 12CF:0154       _WriteRTC_Burst
+ 12E7:0005       _GetDate
+ 12E7:0037       _GetWeekDay
+ 12EC:0002       _GetTime
+ 12EF:0005       _ReadNVRAM
+ 12F2:0009       _GetTimeDate
+ 12FE:0008       _IsLeapYear
+ 12FE:0044       _SetDate
+ 12FE:015E       _SetWeekDay
+ 1315:000D       _SetTime
+ 131E:000B       _WriteNVRAM
+ 1321:0009       _CheckCpuSpeed
+ 1321:00C4       _InitLib
+ 132E:0031       EE_BITWRITE
+ 132E:0053       _EE_Start
+ 132E:0076       _EE_Stop
+ 132E:0088       _EE_ReadAck
+ 132E:00A6       _EE_SendAck
+ 132E:00BD       EE_WRITEBYTE
+ 132E:00E4       _EE_ReadByte
+ 132E:0111       EE_INITWRITEMODE
+ 132E:0155       _ShowEEP_setting
+ 1343:0006       _EE_WriteProtect
+ 1344:000D       _EE_WriteEnable
+ 1345:0005       _EE_MultiRead
+ 134F:0003       _EE_MultiWrite
+ 1356:0001       _EE_ReadNext
+ 135A:0001       _EE_RandomRead
+ 1361:0004       _EE_RandomWrite
+ 1366:000B       _FlashErase
+ 136C:000D       _FlashUnlock
+ 136C:0023       _FlashCmd
+ 136C:003C       _FlashResetToReadMode
+ 136C:004C       _WaitFlashCommandEnd
+ 136C:0110       _FlashReadId
+ 1384:0000       _FlashReadB
+ 1384:0010       _FlashReadI
+ 1384:0020       _FlashReadL
+ 1387:0002       _FlashWrite
+ 138D:0002       _Delay
+ 1390:0006       _Utimer
+ 1390:0007       _Int9Isr
+ 1390:003C       _Int1CIsr
+ 1390:0058       _TimerOpen
+ 1390:00B5       _TimerClose
+ 1390:00EA       _Timer
+ 13A3:0001       _TimerReadValue
+ 13A5:0000       _TimerResetValue
+ 13A6:0000       _LongDiv
+ 13AA:000A       _Chk_Port
+ 13AC:0002       _ClearCom
+ 13AE:0008       _InstallCom
+ 13B2:0000       _WaitTransmitOver
+ 13B7:0004       _SetBaudrate_3
+ 13B7:0063       _SetDataFormat_3
+ 13CB:0008       _ClearCom_3
+ 13CD:00A4       _InstallCom_DMA_3
+ 13CD:012F       _ReadComn_DMA_3
+ 13CD:01E3       _DataSizeInCom_DMA_3
+ 13CD:021F       _ClearCom_DMA_3
+ 13CD:023E       _IsCom_DMA_3
+ 13CD:024D       _ReadCom_DMA_3
+ 13F7:0006       _IsCom_3
+ 13F9:000E       _SetXonXoffControlMode_3
+ 13F9:0019       _SetComPortBufferSize_3
+ 13F9:0040       _ClearTxBuffer_3
+ 13F9:004C       _GetTxBufferFreeSize_3
+ 13F9:00D3       _InstallComInputData_3
+ 13F9:00E5       _CheckXonXoff_3
+ 13F9:00FB       _Serial_Isr_3
+ 13F9:02E5       _InstallCom_3
+ 13F9:0416       _RestoreCom_3
+ 1444:000A       _IsComOutBufEmpty_3
+ 1445:0007       _ReadCom_3
+ 144C:0007       _ToComBufn_3
+ 1461:0007       _SetComTimeout_3
+ 1461:0012       _ToCom_3
+ 146B:0007       _IsTxBufEmpty_3
+ 146B:000F       _WaitTransmitOver_3
+ 146E:0006       _SetBaudrate_4
+ 146E:0065       _SetDataFormat_4
+ 1482:000A       _ClearCom_4
+ 1484:00A6       _InstallCom_DMA_4
+ 1484:0131       _ReadComn_DMA_4
+ 1484:01E5       _DataSizeInCom_DMA_4
+ 1484:0221       _ClearCom_DMA_4
+ 1484:0240       _IsCom_DMA_4
+ 1484:024F       _ReadCom_DMA_4
+ 14AE:0008       _IsCom_4
+ 14B1:0000       _SetXonXoffControlMode_4
+ 14B1:000B       _SetComPortBufferSize_4
+ 14B1:0032       _ClearTxBuffer_4
+ 14B1:003E       _GetTxBufferFreeSize_4
+ 14B1:00C5       _InstallComInputData_4
+ 14B1:00D7       _CheckXonXoff_4
+ 14B1:00ED       _Serial_Isr_4
+ 14B1:02D7       _InstallCom_4
+ 14B1:0408       _RestoreCom_4
+ 14FB:000C       _IsComOutBufEmpty_4
+ 14FC:0009       _ReadCom_4
+ 1503:0009       _ToComBufn_4
+ 1518:0009       _SetComTimeout_4
+ 1518:0014       _ToCom_4
+ 1522:0009       _IsTxBufEmpty_4
+ 1522:0011       _WaitTransmitOver_4
+ 1525:0008       _SetBaudrate_1
+ 1525:0065       _SetDataFormat_1
+ 1534:0006       _ClearCom_1
+ 1538:000D       _ToComBufn_1
+ 154C:000C       _IsCom_1
+ 154E:0007       _IsComOutBufEmpty_1
+ 154F:0004       _ReadCom_1
+ 1555:000D       _SetComTimeout_1
+ 1555:0018       _ToCom_1
+ 1562:0000       _SetXonXoffControlMode_1
+ 1562:000B       _SetComPortBufferSize_1
+ 1562:0033       _ClearTxBuffer_1
+ 1562:004C       _GetTxBufferFreeSize_1
+ 1562:0063       _SetComFifoTriggerLevel_1
+ 1562:00DB       _GetInputBufFreeSize_1
+ 1562:014D       _InstallComInputData_1
+ 1562:015F       _CheckXonXoff_1
+ 1562:0175       _CheckInputBufSize_1
+ 1562:04F4       _InstallCom_1
+ 1562:0664       _RestoreCom_1
+ 15D1:000C       _IsTxBufEmpty_1
+ 15D1:001A       _WaitTransmitOver_1
+ 15D5:0001       _SetBaudrate_2
+ 15D5:005E       _SetDataFormat_2
+ 15E3:000F       _ClearCom_2
+ 15E5:000E       _ToComBufn_2
+ 15F8:000F       _IsCom_2
+ 15FA:000A       _IsComOutBufEmpty_2
+ 15FB:0007       _ReadCom_2
+ 15FF:0008       _SetComTimeout
+ 15FF:0013       _ToCom_2
+ 160A:000D       _SetComPortBufferSize_2
+ 160A:001E       _ClearTxBuffer_2
+ 160A:0037       _GetTxBufferFreeSize_2
+ 160A:004E       _SetComFifoTriggerLevel_2
+ 160A:00C6       _GetInputBufFreeSize
+ 160A:0112       _InstallComInputData_2
+ 160A:02AE       _InstallCom_2
+ 160A:03F5       _RestoreCom_2
+ 1652:000D       _IsTxBufEmpty_2
+ 1652:001B       _WaitTransmitOver_2
+ 1656:0002       _SetBaudrate_5
+ 1656:005F       _SetDataFormat_5
+ 1665:0000       _ClearCom_5
+ 1669:0007       _IsComOutBufEmpty_5
+ 166A:0004       _SetXonXoffControlMode_5
+ 166A:000F       _SetComPortBufferSize_5
+ 166A:0037       _ClearTxBuffer_5
+ 166A:0050       _GetTxBufferFreeSize_5
+ 166A:0067       _SetComFifoTriggerLevel_5
+ 166A:00DF       _GetInputBufFreeSize_5
+ 166A:0151       _InstallComInputData_5
+ 166A:0163       _CheckXonXoff_5
+ 166A:0179       _CheckInputBufSize_5
+ 166A:04F8       _InstallCom_5
+ 166A:0668       _RestoreCom_5
+ 16DA:0000       _IsTxBufEmpty_5
+ 16DA:000E       _WaitTransmitOver_5
+ 16DD:0005       _SetBaudrate_6
+ 16DD:0062       _SetDataFormat_6
+ 16EC:0003       _ClearCom_6
+ 16F0:000A       _IsComOutBufEmpty_6
+ 16F1:0007       _SetXonXoffControlMode_6
+ 16F1:0012       _SetComPortBufferSize_6
+ 16F1:003A       _ClearTxBuffer_6
+ 16F1:0053       _GetTxBufferFreeSize_6
+ 16F1:006A       _SetComFifoTriggerLevel_6
+ 16F1:00E2       _GetInputBufFreeSize_6
+ 16F1:0154       _InstallComInputData_6
+ 16F1:0166       _CheckXonXoff_6
+ 16F1:017C       _CheckInputBufSize_6
+ 16F1:04FB       _InstallCom_6
+ 16F1:066B       _RestoreCom_6
+ 1761:0003       _IsTxBufEmpty_6
+ 1761:0011       _WaitTransmitOver_6
+ 1764:0008       _SetBaudrate_7
+ 1764:0065       _SetDataFormat_7
+ 1773:0006       _ClearCom_7
+ 1777:000D       _IsComOutBufEmpty_7
+ 1778:000A       _SetXonXoffControlMode_7
+ 1778:0015       _SetComPortBufferSize_7
+ 1778:003D       _ClearTxBuffer_7
+ 1778:0056       _GetTxBufferFreeSize_7
+ 1778:006D       _SetComFifoTriggerLevel_7
+ 1778:00E5       _GetInputBufFreeSize_7
+ 1778:0157       _InstallComInputData_7
+ 1778:0169       _CheckXonXoff_7
+ 1778:017F       _CheckInputBufSize_7
+ 1778:04FE       _InstallCom_7
+ 1778:066E       _RestoreCom_7
+ 17E8:0006       _IsTxBufEmpty_7
+ 17E8:0014       _WaitTransmitOver_7
+ 17EB:000B       _ascii_to_hex
+ 17EF:000B       _SetDio14Dir
+ 17EF:005A       _SetDio14High
+ 17EF:0066       _SetDio14Low
+ 17EF:0072       _GetDio14
+ 17F6:0210       _GetSerialNumber
+ 1824:001F       _X607_Init
+ 1824:003A       _X607_Read
+ 1824:007B       _X607_Write
+ 1824:00F3       _X607_ReadFn
+ 1824:015D       _X607_WriteFn
+ 183D:2152       e086_Entry
+ 183D:26E0       e086_Shortcut
+ 1AB5:0306       e087_Entry
+ 1AB5:03C6       e087_Shortcut
+ 1AB5:0430       e087_Trap
+ 1B12:0000       DATASEG@
+ 1B12:005B       __Int0Vector
+ 1B12:005F       __Int4Vector
+ 1B12:0063       __Int5Vector
+ 1B12:0067       __Int6Vector
+ 1B12:006B       __C0argc
+ 1B12:006D       __C0argv
+ 1B12:0071       __C0environ
+ 1B12:0075       __envLng
+ 1B12:0077       __envseg
+ 1B12:0079       __envSize
+ 1B12:007B       __psp
+ 1B12:007D       __osversion
+ 1B12:007D       __osmajor
+ 1B12:007D       __version
+ 1B12:007E       __osminor
+ 1B12:007F       _errno
+ 1B12:0081       __StartTime
+ 1B12:0085       ___brklvl
+ 1B12:0087       __heapbase
+ 1B12:008B       __brklvl
+ 1B12:008F       __heaptop
+ 1B12:0094       _flag_mode_verif
+ 1B12:0096       _size_conf
+ 1B12:009E       _etl
+ 1B12:00A8       _ind_prm_alm
+ 1B12:00B0       _typ_port
+ 1B12:00B4       _ind_accum
+ 1B12:00B8       _sel_units
+ 1B12:00BE       _conf_menu
+ 1B12:00EE       _main_dyn
+ 1B12:010F       _dyn_set
+ 1B12:01A8       _conf_main
+ 1B12:038B       _main_select
+ 1B12:03CB       _conf_basic
+ 1B12:0488       _conf_select
+ 1B12:0528       _set_archive
+ 1B12:0544       _conf_icp
+ 1B12:074A       _conf_exp
+ 1B12:0B46       _step
+ 1B12:0B48       _page_clear
+ 1B12:0B49       _page_str_pass
+ 1B12:0B4A       _OK
+ 1B12:0B4B       _count_menu
+ 1B12:0B4C       _dot_flow
+ 1B12:0B4E       _display_ver_mode
+ 1B12:0B50       _operating_flow
+ 1B12:0B54       _stand_flow
+ 1B12:0B58       _k_compress
+ 1B12:0B5C       _temperature
+ 1B12:0B60       _pressure
+ 1B12:0B64       _densForMmi
+ 1B12:0B68       _nitrForMmi
+ 1B12:0B6C       _carbForMmi
+ 1B12:0B70       _str_page
+ 1B12:0C24       _str_menu
+ 1B12:0C54       _str_menu1
+ 1B12:0C64       _str_menu2
+ 1B12:0C74       _psw
+ 1B12:0C7E       _set_pr
+ 1B12:0C81       _set_st
+ 1B12:0C83       _set_dt
+ 1B12:0C85       _set_bd
+ 1B12:0CA5       _conf_all
+ 1B12:0E51       _dyn_all
+ 1B12:0F6D       _name_mmi_exp
+ 1B12:0F89       _units_all
+ 1B12:1011       _name_sel_all
+ 1B12:11FD       _name_mmi_select
+ 1B12:1215       _name_arch
+ 1B12:1231       _writeValues
+ 1B12:1233       _firstPass
+ 1B12:1235       _nitrogen
+ 1B12:1239       _carbon_dioxid
+ 1B12:123D       _density
+ 1B12:1241       _flagScript
+ 1B12:1242       _flagS_diff
+ 1B12:1243       _flagS_press
+ 1B12:1244       _flagS_tempr
+ 1B12:1245       _set_ta
+ 1B12:124D       _err_pnt
+ 1B12:1253       _lnt_mvs
+ 1B12:1257       _name_icp
+ 1B12:1263       _mvs_rd
+ 1B12:1268       _mvs_rdl
+ 1B12:126D       _mvs_wr
+ 1B12:1273       _mvs_cbr
+ 1B12:1279       _mb_page
+ 1B12:1289       _ind_rst
+ 1B12:128D       _exp_size_prm
+ 1B12:1291       _typ_pool
+ 1B12:1292       _ind_dsp
+ 1B12:1293       _flg_month
+ 1B12:1294       _flg_auto
+ 1B12:1295       _flg_init_arc
+ 1B12:1296       _flg_arc_h
+ 1B12:1297       _flg_arc_d
+ 1B12:1298       _flg_min
+ 1B12:1299       _flg_sec
+ 1B12:129A       _flg_arc_clr
+ 1B12:129B       _avg_old
+ 1B12:129C       _dlt_tm
+ 1B12:129D       _cnt_cbr
+ 1B12:129E       _mmi_flg_ver
+ 1B12:129F       _icp_pool
+ 1B12:12A0       _cnt_ecosonic
+ 1B12:12A1       _cnt_ecosonic_old
+ 1B12:2E58       _MaxDay
+ 1B12:2E70       _TimeTicks
+ 1B12:2E74       _ResetMode
+ 1B12:2E78       _IntVect
+ 1B12:2E7C       _SystemSerialNumber
+ 1B12:2E80       ____OsType__
+ 1B12:2E84       _Unit_ms
+ 1B12:2E86       _Unit_ms1
+ 1B12:2E88       _Unit_ms2
+ 1B12:2E8A       _bNeedSetSpeed
+ 1B12:2E8C       ___BaudDiv__
+ 1B12:2E90       __CpuSpeed
+ 1B12:2E92       _STD_PORT
+ 1B12:2E96       _EE_ClockHighLow
+ 1B12:2E9A       _EE1_RandomRead
+ 1B12:2E9E       _EE1_ReadNext
+ 1B12:2EA2       _EE1_MultiRead
+ 1B12:2EA6       _EE1_RandomWrite
+ 1B12:2EAA       _EE1_MultiWrite
+ 1B12:2EAE       _WaitAckCount
+ 1B12:2EB0       _EE_Err
+ 1B12:2EB2       _bWrite
+ 1B12:2EB4       _EepType
+ 1B12:2EB6       _EepBlockOffset
+ 1B12:2EB8       _EepAddrOffset
+ 1B12:2EBA       _ProtectMode
+ 1B12:2EBC       _fCheck
+ 1B12:2EBE       _StartSector
+ 1B12:2EC0       _FlashId
+ 1B12:2EC2       _FlashSize
+ 1B12:2EC4       _SectorSize256
+ 1B12:2ED0       _SectorSize512
+ 1B12:2EE4       _TimerCount
+ 1B12:2EE8       _UseTimer
+ 1B12:2EEA       _OldInt09Isr
+ 1B12:2EEE       _OldInt1CIsr
+ 1B12:2EF2       _UserTimerFunction
+ 1B12:2EF6       _UserTimer1cFunction
+ 1B12:2EFC       _StopWatchValue
+ 1B12:2F1C       _StopWatchMode
+ 1B12:2F1E       _CountDownTimer
+ 1B12:2F3E       _ClearCom_
+ 1B12:2F5E       _InstallCom_
+ 1B12:2F7E       _TriggerLevel
+ 1B12:2F8C       _WaitTransmitOver_
+ 1B12:2FAC       __Modify_Data
+ 1B12:2FBC       __Stop2_3
+ 1B12:2FC4       _In7188Buf_3
+ 1B12:2FC8       _Out7188Buf_3
+ 1B12:2FCC       _InBufSize_3
+ 1B12:2FCE       _OutBufSize_3
+ 1B12:2FD0       _InBeginIdx_3
+ 1B12:2FD2       _InEndIdx_3
+ 1B12:2FD4       _OutBeginIdx_3
+ 1B12:2FD6       _OutEndIdx_3
+ 1B12:2FD8       _SizeToXoff_3
+ 1B12:2FDA       _SizeToXon_3
+ 1B12:2FDC       _ReceiveXoff_3
+ 1B12:2FDD       _NeedXoff_3
+ 1B12:2FDE       _SendXoff_3
+ 1B12:2FDF       _bUseXonXoff_3
+ 1B12:2FE0       _err_3
+ 1B12:2FE1       _UseDMA_3
+ 1B12:2FE3       _OldVectA
+ 1B12:2FE7       _ComData7_3
+ 1B12:2FE9       _Rcnt_3
+ 1B12:2FED       _LossCnt__3
+ 1B12:2FF1       _LossCnt_1_3
+ 1B12:2FF5       _LossCnt_2_3
+ 1B12:2FF9       _status1_3
+ 1B12:2FFF       _bGetBreak_3
+ 1B12:3004       __Stop2_4
+ 1B12:300C       _In7188Buf_4
+ 1B12:3010       _Out7188Buf_4
+ 1B12:3014       _InBufSize_4
+ 1B12:3016       _OutBufSize_4
+ 1B12:3018       _InBeginIdx_4
+ 1B12:301A       _InEndIdx_4
+ 1B12:301C       _OutBeginIdx_4
+ 1B12:301E       _OutEndIdx_4
+ 1B12:3020       _SizeToXoff_4
+ 1B12:3022       _SizeToXon_4
+ 1B12:3024       _ReceiveXoff_4
+ 1B12:3025       _NeedXoff_4
+ 1B12:3026       _SendXoff_4
+ 1B12:3027       _bUseXonXoff_4
+ 1B12:3028       _err_4
+ 1B12:3029       _UseDMA_4
+ 1B12:302B       _OldVectB
+ 1B12:302F       _ComData7_4
+ 1B12:3031       _Rcnt_4
+ 1B12:3035       _LossCnt_0_4
+ 1B12:3039       _LossCnt_1_4
+ 1B12:303D       _LossCnt_2_4
+ 1B12:3041       _status1_4
+ 1B12:3047       _bGetBreak_4
+ 1B12:304E       _ComBase_1
+ 1B12:3050       _InInIdx_1
+ 1B12:3052       _InOutIdx_1
+ 1B12:3054       _ComErr_1
+ 1B12:3055       _InData_1
+ 1B12:3059       _OutData_1
+ 1B12:305D       _InBufSize_1
+ 1B12:305F       _OutBufSize_1
+ 1B12:3061       _OutInIdx_1
+ 1B12:3063       _OutOutIdx_1
+ 1B12:3065       _fCtsControlMode_1
+ 1B12:3067       _fRtsControlMode_1
+ 1B12:3069       _CurCTS_1
+ 1B12:306B       _CurRTS_1
+ 1B12:306D       _bCtsChanged_1
+ 1B12:306F       _SizeToXoff_1
+ 1B12:3071       _SizeToXon_1
+ 1B12:3073       _ReceiveXoff_1
+ 1B12:3074       _NeedXoff_1
+ 1B12:3075       _SendXoff_1
+ 1B12:3076       _bUseXonXoff_1
+ 1B12:3077       _ComFcr_1
+ 1B12:3078       _DoInputData_1
+ 1B12:307C       _ComInCount_1
+ 1B12:3080       _ComOutCount_1
+ 1B12:3084       _bGetBreak_1
+ 1B12:308A       _bMsrChanged_1
+ 1B12:308C       _LsrError_1
+ 1B12:3090       _ComBase_2
+ 1B12:3092       _InInIdx_2
+ 1B12:3094       _InOutIdx_2
+ 1B12:3096       _ComErr_2
+ 1B12:3097       _InData_2
+ 1B12:309B       _OutData_2
+ 1B12:309F       _InBufSize_2
+ 1B12:30A1       _OutBufSize_2
+ 1B12:30A3       _OutInIdx_2
+ 1B12:30A5       _OutOutIdx_2
+ 1B12:30A7       _ComFcr_2
+ 1B12:30A8       _DoInputData_2
+ 1B12:30AC       _ComInCount_2
+ 1B12:30B0       _ComOutCount_2
+ 1B12:30B4       _bGetBreak_2
+ 1B12:30BA       _bMsrChanged
+ 1B12:30BC       _LsrError_2
+ 1B12:30BE       _ComBase_5
+ 1B12:30C0       _InInIdx_5
+ 1B12:30C2       _InOutIdx_5
+ 1B12:30C4       _ComErr_5
+ 1B12:30C5       _InData_5
+ 1B12:30C9       _OutData_5
+ 1B12:30CD       _InBufSize_5
+ 1B12:30CF       _OutBufSize_5
+ 1B12:30D1       _OutInIdx_5
+ 1B12:30D3       _OutOutIdx_5
+ 1B12:30D5       _fCtsControlMode_5
+ 1B12:30D7       _fRtsControlMode_5
+ 1B12:30D9       _CurCTS_5
+ 1B12:30DB       _CurRTS_5
+ 1B12:30DD       _bCtsChanged_5
+ 1B12:30DF       _SizeToXoff_5
+ 1B12:30E1       _SizeToXon_5
+ 1B12:30E3       _ReceiveXoff_5
+ 1B12:30E4       _NeedXoff_5
+ 1B12:30E5       _SendXoff_5
+ 1B12:30E6       _bUseXonXoff_5
+ 1B12:30E7       _ComFcr_5
+ 1B12:30E8       _DoInputData_5
+ 1B12:30EC       _ComInCount_5
+ 1B12:30F0       _ComOutCount_5
+ 1B12:30F4       _bGetBreak_5
+ 1B12:30FA       _bMsrChanged_5
+ 1B12:30FC       _LsrError_5
+ 1B12:30FE       _ComBase_6
+ 1B12:3100       _InInIdx_6
+ 1B12:3102       _InOutIdx_6
+ 1B12:3104       _ComErr_6
+ 1B12:3105       _InData_6
+ 1B12:3109       _OutData_6
+ 1B12:310D       _InBufSize_6
+ 1B12:310F       _OutBufSize_6
+ 1B12:3111       _OutInIdx_6
+ 1B12:3113       _OutOutIdx_6
+ 1B12:3115       _fCtsControlMode_6
+ 1B12:3117       _fRtsControlMode_6
+ 1B12:3119       _CurCTS_6
+ 1B12:311B       _CurRTS_6
+ 1B12:311D       _bCtsChanged_6
+ 1B12:311F       _SizeToXoff_6
+ 1B12:3121       _SizeToXon_6
+ 1B12:3123       _ReceiveXoff_6
+ 1B12:3124       _NeedXoff_6
+ 1B12:3125       _SendXoff_6
+ 1B12:3126       _bUseXonXoff_6
+ 1B12:3127       _ComFcr_6
+ 1B12:3128       _DoInputData_6
+ 1B12:312C       _ComInCount_6
+ 1B12:3130       _ComOutCount_6
+ 1B12:3134       _bGetBreak_6
+ 1B12:313A       _bMsrChanged_6
+ 1B12:313C       _LsrError_6
+ 1B12:313E       _ComBase_7
+ 1B12:3140       _InInIdx_7
+ 1B12:3142       _InOutIdx_7
+ 1B12:3144       _ComErr_7
+ 1B12:3145       _InData_7
+ 1B12:3149       _OutData_7
+ 1B12:314D       _InBufSize_7
+ 1B12:314F       _OutBufSize_7
+ 1B12:3151       _OutInIdx_7
+ 1B12:3153       _OutOutIdx_7
+ 1B12:3155       _fCtsControlMode_7
+ 1B12:3157       _fRtsControlMode_7
+ 1B12:3159       _CurCTS_7
+ 1B12:315B       _CurRTS_7
+ 1B12:315D       _bCtsChanged_7
+ 1B12:315F       _SizeToXoff_7
+ 1B12:3161       _SizeToXon_7
+ 1B12:3163       _ReceiveXoff_7
+ 1B12:3164       _NeedXoff_7
+ 1B12:3165       _SendXoff_7
+ 1B12:3166       _bUseXonXoff_7
+ 1B12:3167       _ComFcr_7
+ 1B12:3168       _DoInputData_7
+ 1B12:316C       _ComInCount_7
+ 1B12:3170       _ComOutCount_7
+ 1B12:3174       _bGetBreak_7
+ 1B12:317A       _bMsrChanged_7
+ 1B12:317C       _LsrError_7
+ 1B12:317E       _hex_to_ascii
+ 1B12:31A0       __8087
+ 1B12:31B0       __protected
+ 1B12:31B1       __LDT
+ 1B12:31B4       __default87
+ 1B12:31B6       __huge_flt
+ 1B12:31BA       __huge_dble
+ 1B12:31C2       __huge_ldble
+ 1B12:31CC       __indefinite
+ 1B12:31D0       __tiny_ldble
+ 1B12:31DA       __mathwhy
+ 1B12:339A       __atexitcnt
+ 1B12:339C       __ctype
+ 1B12:349E       __exitbuf
+ 1B12:34A2       __exitfopen
+ 1B12:34A6       __exitopen
+ 1B12:34AA       __streams
+ 1B12:363A       __nfile
+ 1B12:363C       __openfd
+ 1B12:3664       __fpstklen
+ 1B12:3666       __doserrno
+ 1B12:3668       __dosErrorToSV
+ 1B12:36C2       __stklen
+ 1B12:3766       __RealCvtVector
+ 1B12:376A       __ScanTodVector
+ 1B12:3788       _proba
+ 1B12:3797       _serial_num
+ 1B12:379F       _checksum
+ 1B12:37A3       _Real_exp_dyn
+ 1B12:37A4       _Max_exp_mmi
+ 1B12:37A5       _musor
+ 1B12:37A6       _ind_err
+ 1B12:37A7       _flg_err
+ 1B12:37D9       _Err
+ 1B12:380B       _icp_wr
+ 1B12:380E       _cnt_init
+ 1B12:380F       _mvs_cmd
+ 1B12:3811       _mvs_val
+ 1B12:3815       _Counters
+ 1B12:3835       _Script
+ 1B12:3852       _Expand
+ 1B12:3C5A       _Basic
+ 1B12:3F2A       _Host
+ 1B12:3F35       _Config
+ 1B12:417D       _Prt
+ 1B12:4188       _Device
+ 1B12:4279       _Dio
+ 1B12:4289       _Aout
+ 1B12:4301       _Ain
+ 1B12:456D       _Sensor
+ 1B12:47F1       _Port
+ 1B12:4C05       _mmi_sel
+ 1B12:4C23       _size_max
+ 1B12:4C24       _mmi_adr
+ 1B12:4C26       _mmi_seg
+ 1B12:4C28       _mmi_arc
+ 1B12:4C2A       _flg_modem
+ 1B12:4C2B       _count_smb
+ 1B12:4C2C       _coord
+ 1B12:4C34       _mmi_val
+ 1B12:4C3A       _flg_init
+ 1B12:4C3B       _mmi_arc_page
+ 1B12:4C3C       _mmi_size
+ 1B12:4C3D       _mmi_num_sel
+ 1B12:4C3E       _enter_ind
+ 1B12:4C3F       _mmi_pass
+ 1B12:4C40       _Horizont
+ 1B12:4C41       _Vertical
+ 1B12:4C42       _Size_str
+ 1B12:4C43       _mmi_str
+ 1B12:4C61       _Display
+ 1B12:4C75       _Cursor
+ 1B12:4C7A       _page_temporary
+ 1B12:4C7B       _exp_const
+ 1B12:4CCB       _exp_dyn
+ 1B12:4D93       _Modbus
+ 1B12:4DBE       _CurMsr_1
+ 1B12:4DC0       _CurMsr
+ 1B12:4DD6       _CurMsr_5
+ 1B12:4DE2       _CurMsr_6
+ 1B12:4DEE       _CurMsr_7
+ 1B12:4DF0       __atexittbl
+ 1B12:4E70       ___SignalPtr
+ 1FFA:0000       __emu
 
 Program entry point at 0000:0000
 

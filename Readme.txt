@@ -30,6 +30,20 @@ uncomment if need to use it. File name is Esy.c
 // added  the verification mode with md5
 //#define VerModeAndMd5
 
-//19.01.2021
-//changed the unit flow
+------------
 
+//23.05.2022
+//added wildcard values
+
+------------
+
+//27.05.2022 YN
+//looking fot the errors
+
+------------
+
+//30.06.2022
+// Восстановление границ (borders)
+// Отключение лишнего
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!cutoff

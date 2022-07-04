@@ -30,22 +30,22 @@ void WriteEvent (unsigned char event[], unsigned char type)
 { /*применение: инициализация, запись в конфигурацию, работа с MMI*/
   unsigned char i;
   unsigned number;
-  number=ReadNVRAM(6+type*2)*256+ReadNVRAM(7+type*2);
+  number = ReadNVRAM(6 + type * 2) * 256 + ReadNVRAM(7 + type * 2);
   if (number < 512)
   {
-    X607_WriteFn(0x2000*type+number*16,16,event);
+    X607_WriteFn(0x2000 * type + number * 16, 16, event);
     number++;
   }
   if (number >= 512) 
   {
-    WriteNVRAM(6+type*2,0);
-    WriteNVRAM(7+type*2,0);
+    WriteNVRAM(6 + type * 2, 0);
+    WriteNVRAM(7 + type * 2, 0);
   }
   else 
   {
-    i=number/256;
-    WriteNVRAM(6+type*2,i);
-    WriteNVRAM(7+type*2,number-i*256);
+    i = number / 256;
+    WriteNVRAM(6 + type * 2, i);
+    WriteNVRAM(7 + type * 2, number - i * 256);
   }
 }
 
